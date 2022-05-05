@@ -4,10 +4,7 @@ import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.utilities.ConnectionManager;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 
 @Repository
@@ -47,6 +44,8 @@ public class CarRepository {
                 car = new Car (carId, chassisNumber, make, model, color, registrationNumber,
                                 equipmentLevel, registrationFee, emission, leaseId);
 
+                System.out.println(car);
+
 
             }
         } catch (SQLException e) {
@@ -54,5 +53,31 @@ public class CarRepository {
             e.printStackTrace();
         }
         return car;
+    }
+
+    public void updateCar(Car car) {
+
+        String query = "UPDATE car SET car_chassis_number = ?, car_make = ?, car_model = ?, car_color = ?, " +
+                "car_reg_number = ?, car_equipment_level = ?, car_reg_fee = ?, car_emission = ?, car_lease_id = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, car.getChassisNumber());
+            preparedStatement.setString(2, car.getMake());
+            preparedStatement.setString(3, car.getModel());
+            preparedStatement.setString(4, car.getColor());
+            preparedStatement.setString(5, car.getRegistrationNumber());
+            preparedStatement.setString(6, car.getEquipmentLevel());
+            preparedStatement.setDouble(7, car.getRegistrationFee());
+            preparedStatement.setDouble(8, car.getEmission());
+            preparedStatement.setInt(9, car.getLeaseId());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("kunne ikke opdatere car med car_id  = " + car.getId());
+            e.printStackTrace();
+        }
+
+
     }
 }
