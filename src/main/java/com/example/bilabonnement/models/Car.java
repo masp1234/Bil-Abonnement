@@ -7,18 +7,18 @@ public class Car {
     private String model;
     private String color;
     private String registrationNumber;
-    private double registrationFee;
     private String equipmentLevel;
+    private double registrationFee;
     private double emission;
     private int leaseId;
+
 
     public Car() {
     }
 
-    public Car(int id, String chassisNumber, String make, String model,
-               String color, String registrationNumber,
-               double registrationFee, String equipmentLevel,
-               double emission, int leaseId) {
+    public Car(int id, String chassisNumber, String make, String model, String color,
+               String registrationNumber, String equipmentLevel,
+               double registrationFee, double emission, int leaseId) {
         this.id = id;
         this.chassisNumber = chassisNumber;
         this.make = make;
