@@ -4,10 +4,7 @@ import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.services.CarService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -20,6 +17,44 @@ public class CarController {
 
     public CarController (CarService carService) {
         this.carService = carService;
+    }
+
+
+
+    @GetMapping("/show-cars")
+    public String showAllCars(Model model){
+        model.addAttribute("showCars", carService.showAllCars());
+        //TODO Skal ændres når rigtige template er klar
+        return "showAllCar";
+    }
+
+    @GetMapping("/add-car")
+    public String showAddCar(){
+
+        //TODO Skal ændres når rigtige template er klar
+        return "add-car";
+    }
+
+    @PostMapping(value = "add-car")
+    public String addCar(@RequestParam("id") int id, @RequestParam("chassisNumber") String chassisNumber,
+                         @RequestParam("make") String make, @RequestParam("model") String model,
+                         @RequestParam("color") String color,
+                         @RequestParam("registrationNumber") String registrationNumber,
+                         @RequestParam("equipmentLevel") String equipmentLevel,
+                         @RequestParam("registrationFee") double registrationFee,
+                         @RequestParam("emission") double emission,
+                         @RequestParam("leaseId") int leaseId){
+        carService.addCar( new Car(id, chassisNumber, make, model, color, registrationNumber,
+                equipmentLevel, registrationFee, emission, leaseId));
+        //TODO Skal ændres når rigtige template er klar
+        return "redirect:/showAllCar";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteCarById(@PathVariable("id") int id){
+        carService.deleteCarById(id);
+        //TODO Skal ændres når rigtige template er klar
+        return "redirect:/showAllCar";
     }
 
     @GetMapping("/update-car/{id}")
@@ -40,4 +75,5 @@ public class CarController {
         //TODO Skal ændres når rigtige template er klar og der er ikke nogen session atm
         return "redirect:/update-car" + session.getAttribute("carId");
     }
+
 }
