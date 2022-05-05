@@ -110,4 +110,20 @@ public class Car {
     public void setLeaseId(int leaseId) {
         this.leaseId = leaseId;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", chassisNumber='" + chassisNumber + '\'' +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", registrationNumber='" + registrationNumber + '\'' +
+                ", equipmentLevel='" + equipmentLevel + '\'' +
+                ", registrationFee=" + registrationFee +
+                ", emission=" + emission +
+                ", leaseId=" + leaseId +
+                '}';
+    }
 }
