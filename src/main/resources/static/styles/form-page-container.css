@@ -1,0 +1,43 @@
+
+body {
+  background-color:antiquewhite
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  background-color: blue;
+}
+
+.section-container {
+  border-style: solid;
+  border-radius: 5%;
+  background-color:darkgrey;
+  padding: 12%;
+  margin: auto;
+  
+
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+
+  
+}
+
+.form-label {
+  margin-bottom: 10%
+}
+
+.form-input-box {
+  margin-bottom: 10%;
+}
+@media screen and (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+  }
+  .section-container {
+    margin-bottom: 2%;
+  }
+}
