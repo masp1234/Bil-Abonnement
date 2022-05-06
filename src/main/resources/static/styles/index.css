@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=PT+Sans&family=Shadows+Into+Light&family=Source+Sans+Pro&display=swap');
+
+
+body{
+    background-image: url('../images/Cars.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+p{
+    font-family: 'Montserrat', sans-serif;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.label-username, .label-password{
+    display: block;
+    color: white;
+    margin-left: 52px;
+    margin-bottom: 13px;
+    font-size: 22px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.input-username, .input-password{
+    display: block;
+    margin-bottom: 25px;
+    height: 45px;
+    width: 350px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    
+}
+
+.button{
+    margin-top: 30px;
+    height: 30px;
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border-color: #1892C3;
+    border: 1px solid #1892C3;
+    color: #1892C3;
+    background-color: black;
+}
+.button:hover{
+    background-color: #1892C3;
+    color: black;
+    cursor: pointer;
+}
+  
+.login-container{
+    background-color: black;
+    width: 450px;
+    height: 500px;
+    opacity: 85%;
+    border-radius: 20px;
+}
+.logo{
+    width: 300px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+.avatar{
+    position: relative;
+    transform: translate(-50%, -120%);
+    width: 120px;
+    height: 120px;
+    left: 50%; 
+    right: 0; 
+    top: 90px;
+    margin-left: auto; 
+    margin-right: auto; 
+
+
+}

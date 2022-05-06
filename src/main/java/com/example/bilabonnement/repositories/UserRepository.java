@@ -2,12 +2,14 @@ package com.example.bilabonnement.repositories;
 
 import com.example.bilabonnement.models.User;
 import com.example.bilabonnement.utilities.ConnectionManager;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+@Repository
 public class UserRepository {
 
     Connection connection;

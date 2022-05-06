@@ -2,7 +2,9 @@ package com.example.bilabonnement.services;
 
 import com.example.bilabonnement.models.User;
 import com.example.bilabonnement.repositories.UserRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
 
     private UserRepository userRepository;

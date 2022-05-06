@@ -2,21 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bil abonnement</title>
+    <link rel="stylesheet" href="../static/styles/index.css" th:href="@{/styles/index.css}">
 </head>
 <body>
 
-<form action="/login-attempt" method="POST">
+<div class="container">
+    <img class="logo" src="../static/images/logo_brands_mxocob.png" th:src="@{/images/logo_brands_mxocob.png}" alt="logo">
+    <div class="login-container">
+        <img class="avatar" src="../static/images/Blue logo.png" alt="avatar" th:src="@{/images/Blue logo.png}">
+<form class="form" action="/login-attempt" method="POST">
 
-    <label for="username"><b>Brugernavn</b></label>
-    <input id="username" type="text" placeholder="Indsæt brugernavn" name="username" required>
+    <label class="label-username" for="username"><b>Brugernavn</b></label>
+    <input class="input-username" id="username" type="text" placeholder="  Indsæt brugernavn" name="username" required>
 
-    <label for="password"><b>Kodeord</b></label>
-    <input id="password" type="password" placeholder="Indsæt kodeord" name="password" required>
+    <label class="label-password" for="password"><b>Kodeord</b></label>
+    <input class="input-password" id="password" type="password" placeholder="  Indsæt kodeord" name="password" required>
 
-    <button type="submit">Log ind</button>
+    <button class="button" type="submit">Log ind</button>
 
 </form>
+</div>
+</div>
 
 </body>
 </html>
