@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <link rel="stylesheet" href="../static/styles/form-page-container.css" th:href="@{/styles/form-page-container.css}"/>
+</head>
+<body>
+    <div class="container">
+    
+
+    <section class="section-container">
+        
+        
+        <div class="picture-container">
+            <div class="car-information-container">
+
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+    <section class="section-container">
+
+        <form action="create-lease" method="POST">
+
+            <label for="regNumber">Registreringsnummer</label>
+            <input type="text" id="regNumber" placeholder="indtast registreringsnummer">
+
+            <label for="accountNumber">Kontonummer</label>
+            <input type="number" id="accountNumber" placeholder="indtast kontonummer">
+
+            <label for="chassisNumber">Stelnummer</label>
+            <input type="text" id="chassisNumber" placeholder="indtast stelnummer">
+
+            <label for="price">Price</label>
+            <input type="text" id="price" placeholder="indtast pris">
+
+            <!-- PERIOD??? HVILKET FORMAT?-->
+
+
+  
+        </form>
+
+    </section>
+
+</div>
+
+
+
+
+
+</body>
+</html>
