@@ -6,11 +6,50 @@ body {
 }
 
 .searchbar-container {
+}
+
+.searchbar-container2 {
     display: flex;
     justify-content: center;
-
 }
-.sea
+
+.searchbar-container3 {
+    display: flex;
+    justify-content: center;
+}
+
+.searchbar-input { /*Inspiration fra "my-wishlistStyle.css" fra oenske-broenden.herokuapp.com*/
+    height: 35px;
+    width: 40%;
+    border-radius: 14px;
+    border: 2px solid #1892C3;
+}
+
+.allCars {
+    width: 7%;
+    border-radius: 14px;
+    background-color: #1892C3;
+    border: 2px solid #1892C3;
+
+    color: white;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.search-button {
+    height: 35px;
+    width: 7%;
+    border-radius: 14px;
+    background-color: #1892C3;
+    border: 2px solid #1892C3;
+    margin-top: 1%;
+    margin-bottom: 1%;
+
+    color: white;
+    font-size: 16px;
+    font-weight: bolder
+;
+}
 
 .card-layout { /* Grid layout, inspiration fra vores Ønskeseddel projekt */
     margin-left: 15%;
@@ -20,16 +59,24 @@ body {
     justify-content: center;
     grid-gap: 3%;
 }
+
 .card-container {
     background: #1892C3;
     border-radius: 30px;
     opacity: 90%;
 }
 
+.card-reserved span {
+    color: white;
+    font-size: 14px;
+}
+
 .card-reserved {
-    display: block;
+    display: block; /*Starter på en ny linje*/
     align-items: center;
     text-align: center; /*Virker med img*/
+
+    font-weight: bolder;
 }
 
 img {
@@ -46,15 +93,28 @@ h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-leng
     max-width: 190px; /*Teksten går ikke ud af boksen på en lille skærm*/
     font-size: 14px;
     margin: auto; /*Centrer titlerne igen, da "max-width" ændre på positionen*/
+
+
 }
 
-.card-reserved2 {
+.card-reserved2 { /*Hvilken ser bedst ud?*/
     background-color: red;
-    border-radius: 30px;
     text-align: center;
     margin-right: 7%;
     margin-left: 7%;
+    border-radius: 30px;
 }
+
+.card-reserved2test {
+    background-color: red;
+    text-align: center;
+
+    margin-right: 10%;
+    margin-left: 10%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
 
 p {
     padding-left: 10px;
