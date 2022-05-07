@@ -36,6 +36,25 @@ body {
     font-weight: bolder;
 }
 
+.arrow { /*Stjålet fra https://codepen.io/pjwiebe/pen/VmmxpM*/
+    box-sizing: border-box;
+    height: 1vw;
+    width: 1vw;
+    border-style: solid;
+    border-color: white;
+    border-width: 0px 1px 1px 0px;
+    transform: rotate(45deg);
+    transition: border-width 150ms ease-in-out;
+    margin: auto;
+
+
+}
+
+.arrow:hover {
+    border-bottom-width: 4px;
+    border-right-width: 4px;
+}
+
 .search-button {
     height: 35px;
     width: 7%;
