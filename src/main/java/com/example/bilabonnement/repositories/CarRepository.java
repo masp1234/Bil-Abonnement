@@ -15,10 +15,9 @@ public class CarRepository {
     private Connection connection;
 
 
-    CarRepository() {
+    public CarRepository() {
         connection = ConnectionManager.connectToMySQL();
     }
-
     public List<Car> getAllCars(){
         List<Car> car= new ArrayList<>();
         final String QUERY="SELECT * FROM car";
