@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=PT+Sans&family=Shadows+Into+Light&family=Source+Sans+Pro&display=swap');
+
+table{
+  border-collapse: collapse;
+    width: 90% ;
+    margin: 5% auto;
+}
+
+.head-table{
+    background-color: #1892C3;
+    border-style: dashed;
+}
+.head-table tr th{
+    color: #f5f5f5;
+}
+tr:nth-child(even){
+    background-color:#f5f5f5;
+}
+.body-table tr:hover{
+    background-color: #e4f1ff;
+}
+
+td, th{
+    text-align: center;
+    height: 50px;
+    border: solid;
+    border-color: #ddd;
+}

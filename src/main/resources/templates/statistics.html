@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="../static/styles/statistics.css" th:href="@{/styles/statistics.css}">
 <head>
     <meta charset="UTF-8">
     <title>Statistics</title>
@@ -7,7 +8,7 @@
 <body>
 <div>
     <table>
-        <thead>
+        <thead class="head-table">
         <tr>
             <th>Antal</th>
             <th>Ledige Biler</th>
@@ -17,7 +18,7 @@
             <th>Alle Biler</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="body-table">
         <tr>
             <th>Mærke</th>
             <td>1</td>
