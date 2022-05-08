@@ -9,14 +9,17 @@
 </head>
 <body>
 
+<h1 class="departmentName">Dataregister</h1>
+
 <form class="searchbar-container">
     <div class="searchbar-container2">
+        <button class="createCar">OPRET BIL</button>
     <input class="searchbar-input" type="text" placeholder="Søg..." name="search">
-    <button class="allCars">Alle biler <div class="arrow"></div></button>
-        <button class="createCustomer">Opret kunde</button>
+    <button class="allCars">ALLE BILER <div class="arrow"></div></button>
+        <button class="createCustomer">OPRET KUNDE</button>
     </div>
     <div class="searchbar-container3">
-    <button class="search-button" type="submit">Søg</button>
+    <button class="search-button" type="submit">SØG</button>
     </div>
 </form>
 
@@ -109,7 +112,7 @@
     <div class="card-container">
         <div class="card-available">
             <div class="card-available2test">
-                <span>Reserveret</span>
+                <span>Ledig</span>
             </div>
             <img src="../static/images/TestCar2.jpg" alt="Yellow Car"
                  th:src="@{/images/TestCar2.jpg}">
@@ -125,7 +128,7 @@
     <div class="card-container">
         <div class="card-available">
             <div class="card-available2">
-                <span>Reserveret</span>
+                <span>Ledig</span>
             </div>
             <img src="../static/images/TestCar.jpg" alt="Intet billede"
                  th:src="@{/images/TestCar.jpg}">
@@ -153,6 +156,10 @@
         <p>Farve</p>
     </div>
 
+</div>
+
+<div class="warning">
+    ALARM/WARNING
 </div>
 
 </body>

@@ -5,6 +5,11 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.departmentName {
+    text-align: center;
+    margin-left: 90%; /*SLET MÅSKE*/
+}
+
 .searchbar-container {
 }
 
@@ -25,11 +30,25 @@ body {
     border: 2px solid #1892C3;
 }
 
-.allCars {
-    width: 7%;
+.createCar {
+    width: 8%;
     border-radius: 14px;
     background-color: #1892C3;
     border: 2px solid #1892C3;
+
+    margin-right: 2%;
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.allCars {
+    width: 8%;
+    border-radius: 14px;
+    background-color: #1892C3;
+    border: 2px solid #1892C3;
+    margin-right: 2%;
+
 
     color: white;
     font-size: 16px;
@@ -43,9 +62,10 @@ body {
     border: 2px solid #1892C3;
 
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bolder;
 }
+
 
 .arrow { /*Stjålet fra https://codepen.io/pjwiebe/pen/VmmxpM*/
     box-sizing: border-box;
@@ -77,8 +97,7 @@ body {
 
     color: white;
     font-size: 16px;
-    font-weight: bolder
-;
+    font-weight: bolder;
 }
 
 /*CARD LAYOUT*/
@@ -147,7 +166,7 @@ h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-leng
     border-top-right-radius: 30px;
 }
 
- /*Available*/
+/*Available*/
 
 .card-available span {
     color: white;
@@ -182,4 +201,24 @@ h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-leng
 
 p {
     padding-left: 10px;
+}
+
+.warning {
+    position: fixed;
+    right: 0;
+
+    opacity: 75%;
+
+    height: 6%;
+    width: 15%;
+    border-radius: 14px;
+    background-color: RED;
+    border: 2px solid RED;
+
+    margin-right: 2%;
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+
+    text-align: center;
 }
