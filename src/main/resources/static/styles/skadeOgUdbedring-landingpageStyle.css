@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    background-color: #F2F2F2;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.departmentName {
+    text-align: center;
+    margin-left: 90%; /*SLET MÅSKE*/
+}
+
+.searchbar-container {
+}
+
+.searchbar-container2 {
+    display: flex;
+    justify-content: center;
+}
+
+.searchbar-container3 {
+    display: flex;
+    justify-content: center;
+}
+
+.searchbar-input { /*Inspiration fra "my-wishlistStyle.css" fra oenske-broenden.herokuapp.com*/
+    height: 35px;
+    width: 40%;
+    border-radius: 14px;
+    border: 2px solid #1892C3;
+}
+
+.allCars {
+    width: 8%;
+    border-radius: 14px;
+    background-color: #1892C3;
+    border: 2px solid #1892C3;
+    margin-right: 2%;
+
+
+    color: white;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+
+.arrow { /*Stjålet fra https://codepen.io/pjwiebe/pen/VmmxpM*/
+    box-sizing: border-box;
+    height: 1vw;
+    width: 1vw;
+    border-style: solid;
+    border-color: white;
+    border-width: 0px 1px 1px 0px;
+    transform: rotate(45deg);
+    transition: border-width 150ms ease-in-out;
+    margin: auto;
+
+
+}
+
+.arrow:hover {
+    border-bottom-width: 4px;
+    border-right-width: 4px;
+}
+
+.search-button {
+    height: 35px;
+    width: 7%;
+    border-radius: 14px;
+    background-color: #1892C3;
+    border: 2px solid #1892C3;
+    margin-top: 1%;
+    margin-bottom: 1%;
+
+    color: white;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+/*CARD LAYOUT*/
+
+.card-layout { /* Grid layout, inspiration fra vores Ønskeseddel projekt */
+    margin-left: 15%;
+    margin-right: 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    grid-gap: 3%;
+}
+
+.card-container {
+    background: #1892C3;
+    border-radius: 30px;
+    opacity: 90%;
+}
+
+/*RESERVED*/
+
+.card-reserved span {
+    color: white;
+    font-size: 14px;
+}
+
+.card-reserved {
+    display: block; /*Starter på en ny linje*/
+    align-items: center;
+    text-align: center; /*Virker med img*/
+
+    font-weight: bolder;
+}
+
+img {
+    object-fit: cover; /*https://www.youtube.com/watch?v=6yAAV-uP0po*/
+    width: 80%;
+    height: 80px;
+}
+
+
+h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-length-in-css Limit text length*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 190px; /*Teksten går ikke ud af boksen på en lille skærm*/
+    font-size: 14px;
+    margin: auto; /*Centrer titlerne igen, da "max-width" ændre på positionen*/
+}
+
+.card-reserved2 { /*Hvilken ser bedst ud?*/
+    background-color: red;
+    text-align: center;
+    margin-right: 7%;
+    margin-left: 7%;
+    border-radius: 30px;
+}
+
+.card-reserved2test {
+    background-color: red;
+    text-align: center;
+
+    margin-right: 10%;
+    margin-left: 10%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+/*Available*/
+
+.card-available span {
+    color: white;
+    font-size: 14px;
+}
+
+.card-available {
+    display: block; /*Starter på en ny linje*/
+    align-items: center;
+    text-align: center; /*Virker med img*/
+
+    font-weight: bolder;
+}
+
+.card-available2 { /*Hvilken ser bedst ud?*/
+    background-color: lawngreen;
+    text-align: center;
+    margin-right: 7%;
+    margin-left: 7%;
+    border-radius: 30px;
+}
+
+.card-available2test {
+    background-color: lawngreen;
+    text-align: center;
+
+    margin-right: 10%;
+    margin-left: 10%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+p {
+    padding-left: 10px;
+}
+
+.warning {
+    position: fixed;
+    right: 0;
+
+    opacity: 75%;
+
+    height: 6%;
+    width: 15%;
+    border-radius: 14px;
+    background-color: RED;
+    border: 2px solid RED;
+
+    margin-right: 2%;
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+
+    text-align: center;
+}
