@@ -12,86 +12,65 @@
 <div class="container">
 
 
-    <section class="section-container">
+    <section class="info-section-container section-container">
 
-        <div class="image-container">
-            <img class="image" src="../static/images/car-test-photo.jpg" alt="car-test-photo">
+        <div class="info-header">
+            <img class="car-image" src="../static/images/car-test-photo.jpg" alt="car-test-photo">
+
+        </div>
+        <div class="info-key">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, fugit? Dolor delectus autem omnis id veniam ex voluptate modi deserunt, perspiciatis consequuntur ad non quidem, sint culpa officiis iusto sapiente. Enim eaque, itaque, odit delectus nostrum doloribus, velit dolorum sapiente repellendus sit laboriosam ullam! Nesciunt dolorum alias dolore? Labore, eius.
+
 
         </div>
 
-        <form action="create-lease" method="POST">
+        <div class="info-value">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit aliquid alias atque saepe exercitationem nostrum ipsam architecto iure! Numquam, modi! Nulla ipsam totam soluta nobis porro aut animi. Labore quae commodi eius accusamus minima totam aspernatur, ipsum fugit odio voluptate dolore similique nulla, sunt eos nam eveniet architecto nisi officiis.
 
-            <div class="form-container">
-
-                <label class="form-label" for="regNumber">Registreringsnummer</label>
-                <input class="form-input-box" type="text" id="regNumber" placeholder="indtast registreringsnummer">
-
-                <label class="form-label" for="accountNumber">Kontonummer</label>
-                <input class="form-input-box" type="number" id="accountNumber" placeholder="indtast kontonummer">
-
-                <label class="form-label" for="chassisNumber">Stelnummer</label>
-                <input class="form-input-box" type="text" id="chassisNumber" placeholder="indtast stelnummer">
-
-                <label class="form-label" for="price">Price</label>
-                <input class="form-input-box" type="text" id="price" placeholder="indtast pris">
-
-                <!-- PERIOD??? HVILKET FORMAT?-->
-            </div>
-
-
-        </form>
+        </div>
 
     </section>
 
-    <!-- <div class="picture-container">
-        <div class="car-information-container">
 
-        </div>
+    <section class="form-section-container section-container">
 
-
-
-    </div>
--->
-
-
-    <section class="section-container">
-
-        <h1 class="form-title">Opret lejeaftale</h1>
+        <h1 class="form-header text">Opret lejeaftale</h1>
 
         
+        
+        <form class="form-container text" action="/create-lease" method="POST">
 
-        <form action="/create-lease" method="POST">
-
-            <div class="form-container">
-
+             
+            <section class="form-content">
                 <label class="form-label" for="regNumber">Registreringsnummer</label>
-                <input class="form-input-box" type="text" id="regNumber" placeholder="indtast registreringsnummer">
+                <input class="form-input-box text" type="text" id="regNumber" placeholder="indtast registreringsnummer">
 
                 <label class="form-label" for="cprNumber">Kundens CPR-nummer</label>
-                <input class="form-input-box" type="number" id="cprNumber" placeholder="indtast CRP-nummer">
+                <input class="form-input-box text" type="number" id="cprNumber" placeholder="indtast CRP-nummer">
 
                 <label class="form-label" for="accountNumber">Kontonummer</label>
-                <input class="form-input-box" type="number" id="accountNumber" placeholder="indtast kontonummer">
+                <input class="form-input-box text" type="number" id="accountNumber" placeholder="indtast kontonummer">
 
                 <label class="form-label" for="chassisNumber">Stelnummer</label>
-                <input class="form-input-box" type="text" id="chassisNumber" placeholder="indtast stelnummer">
+                <input class="form-input-box text" type="text" id="chassisNumber" placeholder="indtast stelnummer">
 
                 <label class="form-label" for="period">Kundens CPR-nummer</label>
-                <input class="form-input-box" type="number" id="period" placeholder="periode">
+                <input class="form-input-box text" type="number" id="period" placeholder="periode">
 
                 <label class="form-label" for="price">Price</label>
-                <input class="form-input-box" type="text" id="price" placeholder="indtast pris">
+                <input class="form-input-box text" type="text" id="price" placeholder="indtast pris">
 
-                <button type="submit">Opret</button>
+                
+            </section>
+            <section class="button-container">
+            <button class="button-submit text" type="submit">Opret</button>
+        </section>
 
                 <!-- PERIOD??? HVILKET FORMAT?-->
-            </div>
-
-
+    
         </form>
 
     </section>
-    -->
 
 </div>
 
