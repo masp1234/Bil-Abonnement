@@ -37,14 +37,19 @@ body {
 
 .info-key {
   grid-area: info-key;
+  padding: 4% 3% 4% 3%;
 }
 .info-value {
   grid-area: info-value;
+  padding: 4% 3% 4% 3%;
+
+}
+.header-text {
 }
 
 .text {
   font-family: 'Montserrat', sans-serif;
-  font-size: large;
+  font-size: medium;
 
 }
 
@@ -68,7 +73,6 @@ body {
                           "form"
                             "form";
   
-
 }
 .form-header {
   display: grid;
@@ -116,7 +120,9 @@ body {
   max-width: 100%;
   height: auto;
 }
-
+.hidden-text {
+  visibility: hidden;
+}
 
 @media screen and (max-width: 1000px) {
   .section-container {

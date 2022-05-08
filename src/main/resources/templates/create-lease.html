@@ -19,13 +19,30 @@
 
         </div>
         <div class="info-key">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, fugit? Dolor delectus autem omnis id veniam ex voluptate modi deserunt, perspiciatis consequuntur ad non quidem, sint culpa officiis iusto sapiente. Enim eaque, itaque, odit delectus nostrum doloribus, velit dolorum sapiente repellendus sit laboriosam ullam! Nesciunt dolorum alias dolore? Labore, eius.
+            <h1 class="header-text text" th:text="${car.make} + ' ' + ${car.model}">Mærke efterfulgt af model</h1>
+            <h2 class="text">Vognnummer:</h2>
+            <h2 class="text">Stelnummer:</h2>
+            <h2 class="text">Mærke:</h2>
+            <h2 class="text">Model:</h2>
+            <h2 class="text">Farve:</h2>
+            <h2 class="text">Udstyrsniveau:</h2>
+            <h2 class="text">Registreringsafgift:    
+            </h2>
+            <h2 class="text">CO2-udledning:</h2>
 
 
         </div>
 
         <div class="info-value">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit aliquid alias atque saepe exercitationem nostrum ipsam architecto iure! Numquam, modi! Nulla ipsam totam soluta nobis porro aut animi. Labore quae commodi eius accusamus minima totam aspernatur, ipsum fugit odio voluptate dolore similique nulla, sunt eos nam eveniet architecto nisi officiis.
+            <h1 class="header-text text hidden-text">YUP</h1>
+            <h2 class="text" th:text="${car.registrationNumber}">2F3DFDA759N2</h2>
+            <h2 class="text" th:text="${car.chassisNumber}">2F3DFDA759N2-120120034</h2>
+            <h2 class="text" th:text="${car.make}">Toyota</h2>
+            <h2 class="text" th:text="${car.model}">Enmodelher</h2>
+            <h2 class="text" th:text="${car.color}">Rød</h2>
+            <h2 class="text" th:text="${car.equipmentLevel}">Extremely advanced</h2>
+            <h2 class="text" th:text="${car.registrationFee}">12500</h2>
+            <h2 class="text" th:text="${car.emission}">25,7</h2>
 
         </div>
 
