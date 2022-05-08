@@ -18,8 +18,8 @@
             <img class="car-image" src="../static/images/car-test-photo.jpg" alt="car-test-photo">
 
         </div>
+        <h1 class="header-text" th:text="${car.make} + ' ' + ${car.model}">Mærke efterfulgt af model</h1>
         <div class="info-key">
-            <h1 class="header-text text" th:text="${car.make} + ' ' + ${car.model}">Mærke efterfulgt af model</h1>
             <h2 class="text">Vognnummer:</h2>
             <h2 class="text">Stelnummer:</h2>
             <h2 class="text">Mærke:</h2>
@@ -34,9 +34,8 @@
         </div>
 
         <div class="info-value">
-            <h1 class="header-text text hidden-text">YUP</h1>
             <h2 class="text" th:text="${car.registrationNumber}">2F3DFDA759N2</h2>
-            <h2 class="text" th:text="${car.chassisNumber}">2F3DFDA759N2-120120034</h2>
+            <h2 class="text" th:text="${car.chassisNumber}">120120034-322</h2>
             <h2 class="text" th:text="${car.make}">Toyota</h2>
             <h2 class="text" th:text="${car.model}">Enmodelher</h2>
             <h2 class="text" th:text="${car.color}">Rød</h2>

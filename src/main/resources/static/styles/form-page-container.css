@@ -5,7 +5,7 @@ body {
 }
 .container {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 48.5% 48.5%;
   grid-column-gap: 3%;
   background-color: rgb(255, 255, 255);
   margin: 2% 10%;
@@ -13,7 +13,7 @@ body {
 }
 .section-container {
   display: grid;
-  background-color:rgba(169, 169, 169, 0.623);
+  background-color:rgba(169, 169, 169, 0.404);
   border-radius: 3%;
   
 }
@@ -22,6 +22,7 @@ body {
   grid-template-columns: 45% 45%;
   
   grid-template-areas: "header header"
+                        "info-title info-title"
                         "info-key info-value"
                         "info-key info-value"
                         "info-key info-value";
@@ -31,25 +32,29 @@ body {
   display: grid;
   justify-content: center;
   grid-area: header;
-  padding: 4% 3% 4% 3%;
+  margin-top: 4%;
 
 }
-
 .info-key {
   grid-area: info-key;
-  padding: 4% 3% 4% 3%;
+  margin-bottom: 15%;
 }
 .info-value {
   grid-area: info-value;
-  padding: 4% 3% 4% 3%;
-
+  
 }
 .header-text {
+  grid-area: info-title;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 3%;
+  
+  
 }
 
 .text {
   font-family: 'Montserrat', sans-serif;
   font-size: medium;
+  margin-bottom: 5%;
 
 }
 
@@ -59,11 +64,6 @@ body {
 }
 .form-label {
   margin-bottom: 2%;
-
-}
-.form-header {
-  font-size: xx-large;
-  padding: 3%;
 
 }
 
@@ -78,11 +78,12 @@ body {
   display: grid;
   justify-content: center;
   grid-area: header;
-  margin-top: 5%;
+  margin-top: 10%;
+  font-size: xx-large;
 }
 .form-container {
   display: grid;
-  grid-template-columns: 75%;
+  grid-template-columns: 65%;
   justify-content: center;
   grid-area: form;
   margin-bottom: 5%;
@@ -119,14 +120,12 @@ body {
 .car-image {
   max-width: 100%;
   height: auto;
-}
-.hidden-text {
-  visibility: hidden;
+  border-radius: 3%;
 }
 
 @media screen and (max-width: 1000px) {
   .section-container {
     grid-column: 1 / -1;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
   }
 }
