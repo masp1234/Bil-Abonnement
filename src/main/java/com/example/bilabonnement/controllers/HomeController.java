@@ -19,9 +19,7 @@ public class HomeController {
     public HomeController(UserService userService) {
         this.userService = userService;
     }
-    public HomeController() {
 
-    }
 
 
     //åbning af index side
@@ -59,13 +57,13 @@ public class HomeController {
             return "redirect:/";
         }  else {
             session.setAttribute("user", user);
-            if(user.getPermission().equals("dataregistrering")){
+            if(user.getRole().equals("dataregistrering")){
                 return "redirect:/bruger-forside-dataregistrering";
-            }else if(user.getPermission().equals("Forretningsudviklere")){
+            }else if(user.getRole().equals("Forretningsudviklere")){
                 return "redirect:/bruger-forside-Forretningsudviklere";
             }
             else {
-                return "redirect:/bruger-forside-Skade";
+                return "redirect:/skadeOgUdbedring-landingpage";
             }
 
             }

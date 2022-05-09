@@ -4,6 +4,7 @@ import com.example.bilabonnement.models.User;
 import com.example.bilabonnement.utilities.ConnectionManager;
 import org.springframework.stereotype.Repository;
 
+import javax.naming.CommunicationException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,15 +28,16 @@ public class UserRepository {
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
-                /*int userId = resultSet.getInt(1);
-                String userName = resultSet.getString(2);
-                String userPassword = resultSet.getString(3);*/
-                selectedUser = new User();
-            }
+                String userPassword = resultSet.getString(2);
+                String role = resultSet.getString(3);
+                selectedUser = new User(username, userPassword, role);
 
-        } catch (SQLException e) {
+            }
+        }
+        catch (SQLException e) {
             System.out.println("kunne ikke finde bruger");
             e.printStackTrace();
+            findUser(username);
         }
 
         return selectedUser;

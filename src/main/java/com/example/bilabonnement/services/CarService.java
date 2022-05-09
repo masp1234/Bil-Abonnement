@@ -17,7 +17,7 @@ public class CarService {
         this.carRepository = carRepository;
     }
 
-    public Car getCarById(int id) {
+    public Car getCarById(String id) {
         return carRepository.getCarById(id);
     }
 
