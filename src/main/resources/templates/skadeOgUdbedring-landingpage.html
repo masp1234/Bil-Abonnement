@@ -28,7 +28,7 @@
 
     <div class="card-container" th:each="car: ${showCars}">
         <div class="card-reserved">
-            <div class="card-reserved2test">
+            <div class="card-reserved2">
                 <span>Reserveret</span>
             </div>
             <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
@@ -39,21 +39,6 @@
         <p th:text="${car.model}">Model</p>
         <p th:text="${car.registrationNumber}">Registreringsnummer</p>
         <p th:text="${car.color}">Farve</p>
-    </div>
-
-    <div class="card-container">
-        <div class="card-reserved">
-            <div class="card-reserved2">
-                <span>Reserveret</span>
-            </div>
-            <img src="../static/images/TestCar.jpg" alt="Intet billede"
-                 th:src="@{/images/TestCar.jpg}">
-            <h1>Peugeot 208 Active Pack 75 HK</h1>
-        </div>
-        <p>Mærke</p>
-        <p>Model</p>
-        <p>Registreringsnummer</p>
-        <p>Farve</p>
     </div>
 
 
