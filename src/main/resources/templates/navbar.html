@@ -7,15 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/styles/navbar.css" th:href="@{/styles/navbar.css}">
     <title>Bilabonnement</title>
+    </th:block>
 </head>
 <body th:fragment="navbar">
-    <div class="container">
-        <div class="img">
+    <div class="navbar-container">
+        <a href="/" class="navbar-img">
+        <div class="navbar-img">
     <img th:src="@{/images/logo_brands_mxocob.png}" src="../static/images/logo_brands_mxocob.png" alt="logo">
 </div>
+</a>
     <div class="nav-left">
-        <p>Forside</p>
-        <p>Log ud</p>
+        <a href="/"><p>Forside</p></a>
+        <a href="/logout"><p>Log ud</p></a>
     </div>
     </div>
 </body>

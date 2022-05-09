@@ -21,11 +21,13 @@ public class CarController {
 
 
 
-    @GetMapping("/show-cars")
+
+
+    @GetMapping("/landingpage")
     public String showAllCars(Model model){
         model.addAttribute("showCars", carService.showAllCars());
         //TODO Skal ændres når rigtige template er klar
-        return "showAllCar";
+        return "skadeOgUdbedring-landingpage";
     }
 
     @GetMapping("/add-car")
@@ -36,16 +38,25 @@ public class CarController {
     }
 
     @PostMapping(value = "add-car")
-    public String addCar(@RequestParam("id") int id, @RequestParam("chassisNumber") String chassisNumber,
+    public String addCar(@RequestParam("registrationNumber") String registrationNumber,
+                         @RequestParam("chassisNumber") String chassisNumber,
                          @RequestParam("make") String make, @RequestParam("model") String model,
                          @RequestParam("color") String color,
-                         @RequestParam("registrationNumber") String registrationNumber,
+
                          @RequestParam("equipmentLevel") String equipmentLevel,
                          @RequestParam("registrationFee") double registrationFee,
-                         @RequestParam("emission") double emission,
-                         @RequestParam("leaseId") int leaseId){
-        carService.addCar( new Car(id, chassisNumber, make, model, color, registrationNumber,
-                equipmentLevel, registrationFee, emission, leaseId));
+                         @RequestParam("emission") double emission){
+        Car car = new Car();
+        car.setRegistrationNumber(registrationNumber);
+        car.setChassisNumber(chassisNumber);
+        car.setMake(make);
+        car.setModel(model);
+        car.setColor(color);
+        car.setEquipmentLevel(equipmentLevel);
+        car.setRegistrationFee(registrationFee);
+        car.setEmission(emission);
+
+        carService.addCar(car);
         //TODO Skal ændres når rigtige template er klar
         return "redirect:/showAllCar";
     }
@@ -58,7 +69,7 @@ public class CarController {
     }
 
     @GetMapping("/update-car/{id}")
-    public String showUpdateCar(@PathVariable("id") int id, Model model) {
+    public String showUpdateCar(@PathVariable("id") String id, Model model) {
         Car car = carService.getCarById(id);
 
         model.addAttribute("selectedCar", car);

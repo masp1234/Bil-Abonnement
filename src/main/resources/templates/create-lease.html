@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org/">
 <head>
+    <link rel="stylesheet" href="../static/styles/form-page-container.css"
+          th:href="@{/styles/form-page-container.css}"/>
     <meta charset="UTF-8"/>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles/form-page-container.css"
-          th:href="@{/styles/form-page-container.css}"/>
+
 
 </head>
 <body>
+
+<div th:replace ="navbar :: navbar"></div>
 <div class="container">
 
 
@@ -26,7 +29,7 @@
             <h2 class="text">Model:</h2>
             <h2 class="text">Farve:</h2>
             <h2 class="text">Udstyrsniveau:</h2>
-            <h2 class="text">Registreringsafgift:    
+            <h2 class="text">Registreringsafgift:
             </h2>
             <h2 class="text">CO2-udledning:</h2>
 
@@ -52,11 +55,10 @@
 
         <h1 class="form-header text">Opret lejeaftale</h1>
 
-        
-        
+
         <form class="form-container text" action="/create-lease" method="POST">
 
-             
+
             <section class="form-content">
                 <label class="form-label" for="regNumber">Registreringsnummer</label>
                 <input class="form-input-box text" type="text" id="regNumber" placeholder="indtast registreringsnummer">
@@ -76,14 +78,14 @@
                 <label class="form-label" for="price">Price</label>
                 <input class="form-input-box text" type="text" id="price" placeholder="indtast pris">
 
-                
+
             </section>
             <section class="button-container">
-            <button class="button-submit text" type="submit">Opret</button>
-        </section>
+                <button class="button-submit text" type="submit">Opret</button>
+            </section>
 
-                <!-- PERIOD??? HVILKET FORMAT?-->
-    
+            <!-- PERIOD??? HVILKET FORMAT?-->
+
         </form>
 
     </section>

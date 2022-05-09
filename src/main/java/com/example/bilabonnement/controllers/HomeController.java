@@ -4,6 +4,7 @@ import com.example.bilabonnement.models.User;
 import com.example.bilabonnement.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,21 +20,21 @@ public class HomeController {
     public HomeController(UserService userService) {
         this.userService = userService;
     }
-    public HomeController() {
 
-    }
+
+
+
 
 
     //åbning af index side
+    @GetMapping("/")
     public String index(HttpSession session){
 
+        User user = (User) session.getAttribute("user");
+        System.out.println(user);
+        if (user != null) {
 
-
-        //udkast til session
-        /*
-        if (session.getAttribute("user") != null) {
-            User user = session.getAttribute("user");
-            if(user.getPermission().equalsignorecase("dataregistrering")){
+           /* if(user.getPermission().equalsignorecase("dataregistrering")){
                 return "redirect:/bruger-forside-dataregistrering";
             }
             else if(user.getPermission().equalsignorecase("Forretningsudviklere ")){
@@ -41,17 +42,26 @@ public class HomeController {
             }
             else {
                 return "redirect:/bruger-forside-Skade";
-            }
+            }*/
             //uden redirect henter den ikke ønskelister
-            return "redirect:/bruger-forside";
+            return "skadeOgUdbedring-landingpage";
         }
-*/
+
         return "index";
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("user");
+
+        return "redirect:/";
+    }
+
+
+
     // TODO: 06-05-2022 Måske i en userController
     //Postmapping på login
-    @PostMapping("/login-attempt")
+    @PostMapping("/login")
     public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session){
         User user = userService.login(username,password);
 
@@ -59,14 +69,13 @@ public class HomeController {
             return "redirect:/";
         }  else {
             session.setAttribute("user", user);
-            if(user.getPermission().equals("dataregistrering")){
+            /*if(user.getRole().equals("dataregistrering")){
                 return "redirect:/bruger-forside-dataregistrering";
-            }else if(user.getPermission().equals("Forretningsudviklere")){
+            }else if(user.getRole().equals("Forretningsudviklere")){
                 return "redirect:/bruger-forside-Forretningsudviklere";
-            }
-            else {
-                return "redirect:/bruger-forside-Skade";
-            }
+            }*/
+                return "redirect:/landingpage";
+
 
             }
         }

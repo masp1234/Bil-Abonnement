@@ -1,7 +1,6 @@
 package com.example.bilabonnement.models;
 
 public class Car {
-    private int id;
     private String chassisNumber;
     private String make;
     private String model;
@@ -10,34 +9,27 @@ public class Car {
     private String equipmentLevel;
     private double registrationFee;
     private double emission;
-    private int leaseId;
+    private boolean isRented = false;
+    private boolean isRdyToRent = true;
 
 
     public Car() {
     }
 
-    public Car(int id, String chassisNumber, String make, String model, String color,
-               String registrationNumber, String equipmentLevel,
-               double registrationFee, double emission, int leaseId) {
-        this.id = id;
+    public Car(String registrationNumber, String chassisNumber, String make, String model, String color,
+               String equipmentLevel, double registrationFee, double emission, boolean isRented, boolean isRdyToRent) {
+        this.registrationNumber = registrationNumber;
         this.chassisNumber = chassisNumber;
         this.make = make;
         this.model = model;
         this.color = color;
-        this.registrationNumber = registrationNumber;
         this.registrationFee = registrationFee;
         this.equipmentLevel = equipmentLevel;
         this.emission = emission;
-        this.leaseId = leaseId;
+        this.isRented = isRented;
+        this.isRdyToRent = isRdyToRent;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getChassisNumber() {
         return chassisNumber;
@@ -103,18 +95,10 @@ public class Car {
         this.emission = emission;
     }
 
-    public int getLeaseId() {
-        return leaseId;
-    }
-
-    public void setLeaseId(int leaseId) {
-        this.leaseId = leaseId;
-    }
 
     @Override
     public String toString() {
         return "Car{" +
-                "id=" + id +
                 ", chassisNumber='" + chassisNumber + '\'' +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
@@ -123,7 +107,6 @@ public class Car {
                 ", equipmentLevel='" + equipmentLevel + '\'' +
                 ", registrationFee=" + registrationFee +
                 ", emission=" + emission +
-                ", leaseId=" + leaseId +
                 '}';
     }
 }
