@@ -47,6 +47,13 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("user");
+
+        return "redirect:/";
+    }
+
     @GetMapping("/landingpage")
     public String landingpage(){
         return "skadeOgUdbedring-landingpage";
@@ -67,7 +74,7 @@ public class HomeController {
             }else if(user.getRole().equals("Forretningsudviklere")){
                 return "redirect:/bruger-forside-Forretningsudviklere";
             }*/
-                return "skadeOgUdbedring-landingpage";
+                return "redirect:/landingpage";
 
 
             }

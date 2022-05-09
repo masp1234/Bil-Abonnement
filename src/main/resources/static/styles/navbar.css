@@ -10,11 +10,23 @@
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 35px;
+    cursor: pointer;
 }
 .nav-left{
     width: 400px;
     display: flex;
+    align-items: center;
     justify-content:space-evenly ;
+}
+.nav-left a{
+    color: inherit;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.nav-left a:hover{
+    color: #1892C3;
+    border-bottom-style: double;
+    padding-bottom: 4px;
 }
 .nav-left p{
     font-family: 'Montserrat', sans-serif;

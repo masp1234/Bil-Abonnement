@@ -11,12 +11,14 @@
 </head>
 <body th:fragment="navbar">
     <div class="navbar-container">
+        <a href="/" class="navbar-img">
         <div class="navbar-img">
     <img th:src="@{/images/logo_brands_mxocob.png}" src="../static/images/logo_brands_mxocob.png" alt="logo">
 </div>
+</a>
     <div class="nav-left">
-        <p>Forside</p>
-        <p>Log ud</p>
+        <a href="/"><p>Forside</p></a>
+        <a href="/logout"><p>Log ud</p></a>
     </div>
     </div>
 </body>

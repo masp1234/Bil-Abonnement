@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
-    background-color: #FFFFFF;
+    background-color: #F2F2F2;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -98,7 +98,7 @@ body {
 .card-container {
    /* background: #1892C3;/*
     */
-    background: #F2F2F2;
+    background: #1892C3;
     border-radius: 30px;
     opacity: 90%;
 }
@@ -185,7 +185,7 @@ h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-leng
     border-top-right-radius: 30px;
 }
 
-p {
+.card-container p {
     padding-left: 10px;
 }
 
