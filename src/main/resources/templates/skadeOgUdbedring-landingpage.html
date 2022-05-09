@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<div th:replace ="navbar :: navbar"></div>
+
 <h1 class="departmentName">Skade og udbedring</h1>
 
 <form class="searchbar-container">
@@ -29,7 +31,7 @@
             <div class="card-reserved2">
                 <span>Reserveret</span>
             </div>
-            <img src="../static/images/TestCar.jpg" alt="Intet billede"
+            <img class="carimg" src="../static/images/TestCar.jpg" alt="Intet billede"
                  th:src="@{/images/TestCar.jpg}">
             <h1>Peugeot 208 Active Pack 75 HK</h1>
         </div>
@@ -45,7 +47,7 @@
             <div class="card-reserved2test">
                 <span>Reserveret</span>
             </div>
-            <img src="../static/images/TestCar2.jpg" alt="Yellow Car"
+            <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
                  th:src="@{/images/TestCar2.jpg}">
             <h1>Navn på bilen</h1>
         </div>
@@ -63,7 +65,7 @@
             <div class="card-reserved2">
                 <span>Reserveret</span>
             </div>
-            <img src="../static/images/TestCar3.jpg" alt="Yellow Car"
+            <img class="carimg"  src="../static/images/TestCar3.jpg" alt="Yellow Car"
                  th:src="@{/images/TestCar3.jpg}">
             <h1>Navn på bilen</h1>
 
@@ -80,7 +82,7 @@
             <div class="card-reserved2">
                 <span>Reserveret</span>
             </div>
-            <img src="../static/images/TestCar.jpg" alt="Intet billede"
+            <img class="carimg"  src="../static/images/TestCar.jpg" alt="Intet billede"
                  th:src="@{/images/TestCar.jpg}">
             <h1>Peugeot 208 Active Pack 75 HK</h1>
         </div>
@@ -96,7 +98,7 @@
             <div class="card-reserved2">
                 <span>Reserveret</span>
             </div>
-            <img src="../static/images/TestCar.jpg" alt="Intet billede"
+            <img class="carimg"  src="../static/images/TestCar.jpg" alt="Intet billede"
                  th:src="@{/images/TestCar.jpg}">
             <h1>Peugeot 208 Active Pack 75 HK</h1>
         </div>
@@ -112,7 +114,7 @@
             <div class="card-available2test">
                 <span>Ledig</span>
             </div>
-            <img src="../static/images/TestCar2.jpg" alt="Yellow Car"
+            <img class="carimg"  src="../static/images/TestCar2.jpg" alt="Yellow Car"
                  th:src="@{/images/TestCar2.jpg}">
             <h1>Navn på bilen</h1>
         </div>
@@ -128,7 +130,7 @@
             <div class="card-available2">
                 <span>Ledig</span>
             </div>
-            <img src="../static/images/TestCar.jpg" alt="Intet billede"
+            <img class="carimg"  src="../static/images/TestCar.jpg" alt="Intet billede"
                  th:src="@{/images/TestCar.jpg}">
             <h1>Peugeot 208 Active Pack 75 HK</h1>
         </div>
@@ -144,7 +146,7 @@
             <div class="card-reserved2">
                 <span>Reserveret</span>
             </div>
-            <img src="../static/images/TestCar.jpg" alt="Intet billede"
+            <img class="carimg"  src="../static/images/TestCar.jpg" alt="Intet billede"
                  th:src="@{/images/TestCar.jpg}">
             <h1>Peugeot 208 Active Pack 75 HK</h1>
         </div>

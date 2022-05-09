@@ -118,7 +118,7 @@ body {
     font-weight: bolder;
 }
 
-img {
+.carimg {
     object-fit: cover; /*https://www.youtube.com/watch?v=6yAAV-uP0po*/
     width: 80%;
     height: 80px;
