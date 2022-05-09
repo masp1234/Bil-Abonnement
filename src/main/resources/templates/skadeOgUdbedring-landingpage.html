@@ -8,6 +8,7 @@
           th:href="@{/styles/skadeOgUdbedring-landingpageStyle.css}">
 </head>
 <body>
+<!-- <div th:insert="navbar :: navbar"></div> -->
 
 <h1 class="departmentName">Skade og udbedring</h1>
 
@@ -41,13 +42,13 @@
 
 
     <div class="card-container">
-        <div class="card-reserved">
-            <div class="card-reserved2test">
-                <span>Reserveret</span>
+        <div class="card-available">
+            <div class="card-available2">
+                <span>Ledig</span>
             </div>
-            <img src="../static/images/TestCar2.jpg" alt="Yellow Car"
-                 th:src="@{/images/TestCar2.jpg}">
-            <h1>Navn på bilen</h1>
+            <img src="../static/images/TestCar.jpg" alt="Intet billede"
+                 th:src="@{/images/TestCar.jpg}">
+            <h1>Peugeot 208 Active Pack 75 HK</h1>
         </div>
         <p>Mærke</p>
         <p>Model</p>
@@ -109,12 +110,12 @@
 
     <div class="card-container">
         <div class="card-available">
-            <div class="card-available2test">
+            <div class="card-available2">
                 <span>Ledig</span>
             </div>
-            <img src="../static/images/TestCar2.jpg" alt="Yellow Car"
-                 th:src="@{/images/TestCar2.jpg}">
-            <h1>Navn på bilen</h1>
+            <img src="../static/images/TestCar.jpg" alt="Intet billede"
+                 th:src="@{/images/TestCar.jpg}">
+            <h1>Peugeot 208 Active Pack 75 HK</h1>
         </div>
         <p>Mærke</p>
         <p>Model</p>

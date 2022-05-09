@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
-    background-color: #F2F2F2;
+    background-color: white;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -33,71 +33,91 @@ body {
 .createCar {
     width: 8%;
     border-radius: 14px;
-    background-color: #1892C3;
+    background-color: white;
     border: 2px solid #1892C3;
 
     margin-right: 2%;
-    color: white;
+    color: #1892C3;
     font-size: 14px;
     font-weight: bolder;
 }
 
+.createCar:hover {
+    background-color: #1892C3;
+    color: white;
+}
+
+
 .allCars {
     width: 8%;
     border-radius: 14px;
-    background-color: #1892C3;
+    background-color: white;
     border: 2px solid #1892C3;
     margin-right: 2%;
 
 
-    color: white;
+    color: #1892C3;
     font-size: 16px;
     font-weight: bolder;
+}
+
+.allCars:hover {
+    background-color: #1892C3;
+    color: white;
 }
 
 .createCustomer {
     width: 8%;
     border-radius: 14px;
-    background-color: #1892C3;
+    background-color: white;
     border: 2px solid #1892C3;
 
-    color: white;
+    color: #1892C3;
     font-size: 14px;
     font-weight: bolder;
 }
 
+.createCustomer:hover {
+    background-color: #1892C3;
+    color: white;
+}
 
 .arrow { /*Stjålet fra https://codepen.io/pjwiebe/pen/VmmxpM*/
     box-sizing: border-box;
     height: 1vw;
     width: 1vw;
     border-style: solid;
-    border-color: white;
+    border-color: #1892C3;
     border-width: 0px 1px 1px 0px;
     transform: rotate(45deg);
     transition: border-width 150ms ease-in-out;
     margin: auto;
-
 
 }
 
 .arrow:hover {
     border-bottom-width: 4px;
     border-right-width: 4px;
+    border-color: #F2F2F2;
 }
 
 .search-button {
     height: 35px;
     width: 7%;
     border-radius: 14px;
-    background-color: #1892C3;
+    background-color: white;
     border: 2px solid #1892C3;
     margin-top: 1%;
     margin-bottom: 1%;
 
-    color: white;
+    color: #1892C3;
     font-size: 16px;
     font-weight: bolder;
+}
+
+.search-button:hover {
+    background-color: #1892C3;
+    color: white;
 }
 
 /*CARD LAYOUT*/
@@ -112,7 +132,7 @@ body {
 }
 
 .card-container {
-    background: #1892C3;
+    background: #F2F2F2;
     border-radius: 30px;
     opacity: 90%;
 }
@@ -134,7 +154,7 @@ body {
 
 img {
     object-fit: cover; /*https://www.youtube.com/watch?v=6yAAV-uP0po*/
-    width: 80%;
+    width: 100%;
     height: 80px;
 }
 
@@ -151,20 +171,11 @@ h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-leng
 .card-reserved2 { /*Hvilken ser bedst ud?*/
     background-color: red;
     text-align: center;
-    margin-right: 7%;
-    margin-left: 7%;
-    border-radius: 30px;
-}
 
-.card-reserved2test {
-    background-color: red;
-    text-align: center;
-
-    margin-right: 10%;
-    margin-left: 10%;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
+
 
 /*Available*/
 
@@ -182,19 +193,9 @@ h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-leng
 }
 
 .card-available2 { /*Hvilken ser bedst ud?*/
-    background-color: lawngreen;
-    text-align: center;
-    margin-right: 7%;
-    margin-left: 7%;
-    border-radius: 30px;
-}
-
-.card-available2test {
-    background-color: lawngreen;
+    background-color: #18c349;
     text-align: center;
 
-    margin-right: 10%;
-    margin-left: 10%;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
