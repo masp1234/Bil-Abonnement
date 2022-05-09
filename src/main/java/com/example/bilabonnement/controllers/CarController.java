@@ -21,11 +21,13 @@ public class CarController {
 
 
 
-    @GetMapping("/show-cars")
+
+
+    @GetMapping("/landingpage")
     public String showAllCars(Model model){
         model.addAttribute("showCars", carService.showAllCars());
         //TODO Skal ændres når rigtige template er klar
-        return "showAllCar";
+        return "skadeOgUdbedring-landingpage";
     }
 
     @GetMapping("/add-car")

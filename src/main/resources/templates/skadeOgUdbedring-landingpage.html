@@ -26,6 +26,21 @@
 <div class="card-layout"> <!--Grid layout, inspiration fra vores Ønskeseddel projekt-->
 
 
+    <div class="card-container" th:each="car: ${showCars}">
+        <div class="card-reserved">
+            <div class="card-reserved2test">
+                <span>Reserveret</span>
+            </div>
+            <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
+                 th:src="@{/images/TestCar2.jpg}">
+            <h1>Navn på bilen</h1>
+        </div>
+        <p th:text="${car.make}">Mærke</p>
+        <p th:text="${car.model}">Model</p>
+        <p th:text="${car.registrationNumber}">Registreringsnummer</p>
+        <p th:text="${car.color}">Farve</p>
+    </div>
+
     <div class="card-container">
         <div class="card-reserved">
             <div class="card-reserved2">

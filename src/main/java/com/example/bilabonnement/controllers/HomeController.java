@@ -23,6 +23,9 @@ public class HomeController {
 
 
 
+
+
+
     //åbning af index side
     @GetMapping("/")
     public String index(HttpSession session){
@@ -54,10 +57,7 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @GetMapping("/landingpage")
-    public String landingpage(){
-        return "skadeOgUdbedring-landingpage";
-    }
+
 
     // TODO: 06-05-2022 Måske i en userController
     //Postmapping på login
