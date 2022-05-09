@@ -13,7 +13,7 @@ body {
 }
 .section-container {
   display: grid;
-  background-color:rgba(169, 169, 169, 0.404);
+  background-color: #F2F2F2;
   border-radius: 3%;
   
 }
@@ -121,6 +121,7 @@ body {
   max-width: 100%;
   height: auto;
   border-radius: 3%;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 1000px) {
