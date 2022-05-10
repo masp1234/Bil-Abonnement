@@ -33,21 +33,12 @@ public class CarRepository {
                 String equipmentLevel = resultSet.getString(6);
                 double registrationFee = resultSet.getDouble(7);
                 double emission = resultSet.getDouble(8);
-                int isRentedResult = resultSet.getInt(9);
-                int isRdyToRentResult = resultSet.getInt(10);
+                String status = resultSet.getString(9);
 
-                boolean isRented = true;
-                if (isRentedResult == 0) {
-                    isRented = false;
-                }
-                boolean isRdyToRent = true;
-                if (isRdyToRentResult == 0) {
-                    isRdyToRent = false;
-                }
 
                 car.add(new Car(registrationNumber, chassisNumber, make, model,
                         color, equipmentLevel,
-                        registrationFee, emission, isRented, isRdyToRent));
+                        registrationFee, emission, status));
             }
             System.out.println("can show all cars");
             statement.close();
@@ -119,19 +110,11 @@ public class CarRepository {
                 String equipmentLevel = resultSet.getString(6);
                 Double registrationFee = resultSet.getDouble(7);
                 Double emission = resultSet.getDouble(8);
-                int isRentedResult = resultSet.getInt(9);
-                int isRdyToRentResult = resultSet.getInt(10);
+                String status = resultSet.getString(9);
 
-                boolean isRented = true;
-                if (isRentedResult == 0) {
-                    isRented = false;
-                }
-                boolean isRdyToRent = true;
-                if (isRdyToRentResult == 0) {
-                    isRdyToRent = false;
-                }
+
                 car = new Car (registrationNumber, chassisNumber, make, model, color,
-                                equipmentLevel, registrationFee, emission, isRented, isRdyToRent);
+                                equipmentLevel, registrationFee, emission, status);
 
                 System.out.println(car);
 

@@ -9,15 +9,14 @@ public class Car {
     private String equipmentLevel;
     private double registrationFee;
     private double emission;
-    private boolean isRented = false;
-    private boolean isRdyToRent = true;
+    private String status = "available";
 
 
     public Car() {
     }
 
     public Car(String registrationNumber, String chassisNumber, String make, String model, String color,
-               String equipmentLevel, double registrationFee, double emission, boolean isRented, boolean isRdyToRent) {
+               String equipmentLevel, double registrationFee, double emission, String status) {
         this.registrationNumber = registrationNumber;
         this.chassisNumber = chassisNumber;
         this.make = make;
@@ -26,8 +25,7 @@ public class Car {
         this.registrationFee = registrationFee;
         this.equipmentLevel = equipmentLevel;
         this.emission = emission;
-        this.isRented = isRented;
-        this.isRdyToRent = isRdyToRent;
+        this.status = status;
     }
 
 
@@ -95,6 +93,9 @@ public class Car {
         this.emission = emission;
     }
 
+    public String getStatus() {
+        return status;
+    }
 
     @Override
     public String toString() {

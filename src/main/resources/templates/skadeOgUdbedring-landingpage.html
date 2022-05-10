@@ -13,7 +13,7 @@
 
 <h1 class="departmentName">Skade og udbedring</h1>
 
-<form class="searchbar-container">
+<form class="searchbar-container" action="/landingpage" method="POST">
     <div class="searchbar-container2">
         <input class="searchbar-input" type="text" placeholder="Søg..." name="search">
         <button class="allCars">ALLE BILER <div class="arrow"></div></button>
@@ -25,135 +25,40 @@
 
 <div class="card-layout"> <!--Grid layout, inspiration fra vores Ønskeseddel projekt-->
 
-
+<!-- if sætning med sammeligning af strings:
+https://stackoverflow.com/questions/23243277/thymeleaf-how-to-compare-string-with-request-parameter-in-html-in-thymeleaf-ta -->
     <div class="card-container" th:each="car: ${showCars}">
-        <div class="card-reserved">
+        <div th:if="${#strings.equals(car.status, 'reserved')}" class="card-reserved">
             <div class="card-reserved2">
-                <span>Reserveret</span>
+            <span>Reserveret</span>
             </div>
             <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
                  th:src="@{/images/TestCar2.jpg}">
-            <h1>Navn på bilen</h1>
+            <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
+         </div>
+
+        <div th:if="${#strings.equals(car.status, 'workshop')}" class="card-workshop">
+            <div class="card-workshop2">
+                <span>Værksted</span>
+            </div>
+            <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
+                 th:src="@{/images/TestCar2.jpg}">
+            <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
         </div>
+
+        <div  th:if="${#strings.equals(car.status, 'available')}"  class="card-available">
+                <div class="card-available2">
+                <span>Ledig</span>
+                </div>
+                <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
+                     th:src="@{/images/TestCar2.jpg}">
+                <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
+            </div>
+
         <p th:text="${car.make}">Mærke</p>
         <p th:text="${car.model}">Model</p>
         <p th:text="${car.registrationNumber}">Registreringsnummer</p>
         <p th:text="${car.color}">Farve</p>
-    </div>
-
-
-    <div class="card-container">
-        <div class="card-available">
-            <div class="card-available2">
-                <span>Ledig</span>
-            </div>
-            <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
-                 th:src="@{/images/TestCar2.jpg}">
-            <h1>Navn på bilen</h1>
-        </div>
-        <p>Mærke</p>
-        <p>Model</p>
-        <p>Registreringsnummer</p>
-        <p>Farve</p>
-    </div>
-
-
-
-
-    <div class="card-container">
-        <div class="card-reserved">
-            <div class="card-reserved2">
-                <span>Reserveret</span>
-            </div>
-            <img class="carimg"  src="../static/images/TestCar3.jpg" alt="Yellow Car"
-                 th:src="@{/images/TestCar3.jpg}">
-            <h1>Navn på bilen</h1>
-
-        </div>
-        <p>Mærke</p>
-        <p>Model</p>
-        <p>Registreringsnummer</p>
-        <p>Farve</p>
-    </div>
-
-
-    <div class="card-container">
-        <div class="card-reserved">
-            <div class="card-reserved2">
-                <span>Reserveret</span>
-            </div>
-            <img class="carimg"  src="../static/images/TestCar.jpg" alt="Intet billede"
-                 th:src="@{/images/TestCar.jpg}">
-            <h1>Peugeot 208 Active Pack 75 HK</h1>
-        </div>
-        <p>Mærke</p>
-        <p>Model</p>
-        <p>Registreringsnummer</p>
-        <p>Farve</p>
-    </div>
-
-
-    <div class="card-container">
-        <div class="card-reserved">
-            <div class="card-reserved2">
-                <span>Reserveret</span>
-            </div>
-            <img class="carimg"  src="../static/images/TestCar.jpg" alt="Intet billede"
-                 th:src="@{/images/TestCar.jpg}">
-            <h1>Peugeot 208 Active Pack 75 HK</h1>
-        </div>
-        <p>Mærke</p>
-        <p>Model</p>
-        <p>Registreringsnummer</p>
-        <p>Farve</p>
-    </div>
-
-
-    <div class="card-container">
-        <div class="card-available">
-            <div class="card-available2">
-                <span>Ledig</span>
-            </div>
-            <img class="carimg"  src="../static/images/TestCar2.jpg" alt="Yellow Car"
-                 th:src="@{/images/TestCar2.jpg}">
-            <h1>Navn på bilen</h1>
-        </div>
-        <p>Mærke</p>
-        <p>Model</p>
-        <p>Registreringsnummer</p>
-        <p>Farve</p>
-    </div>
-
-
-    <div class="card-container">
-        <div class="card-available">
-            <div class="card-available2">
-                <span>Ledig</span>
-            </div>
-            <img class="carimg"  src="../static/images/TestCar.jpg" alt="Intet billede"
-                 th:src="@{/images/TestCar.jpg}">
-            <h1>Peugeot 208 Active Pack 75 HK</h1>
-        </div>
-        <p>Mærke</p>
-        <p>Model</p>
-        <p>Registreringsnummer</p>
-        <p>Farve</p>
-    </div>
-
-
-    <div class="card-container">
-        <div class="card-reserved">
-            <div class="card-reserved2">
-                <span>Reserveret</span>
-            </div>
-            <img class="carimg"  src="../static/images/TestCar.jpg" alt="Intet billede"
-                 th:src="@{/images/TestCar.jpg}">
-            <h1>Peugeot 208 Active Pack 75 HK</h1>
-        </div>
-        <p>Mærke</p>
-        <p>Model</p>
-        <p>Registreringsnummer</p>
-        <p>Farve</p>
     </div>
 
 </div>

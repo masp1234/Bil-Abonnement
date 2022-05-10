@@ -24,15 +24,12 @@ public class HomeController {
 
 
 
-
-
-
     //åbning af index side
     @GetMapping("/")
     public String index(HttpSession session){
 
         User user = (User) session.getAttribute("user");
-        System.out.println(user);
+
         if (user != null) {
 
            /* if(user.getPermission().equalsignorecase("dataregistrering")){
@@ -45,7 +42,7 @@ public class HomeController {
                 return "redirect:/bruger-forside-Skade";
             }*/
             //uden redirect henter den ikke ønskelister
-            return "skadeOgUdbedring-landingpage";
+            return "redirect:/landingpage";
         }
 
         return "index";

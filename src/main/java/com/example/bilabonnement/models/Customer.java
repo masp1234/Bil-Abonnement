@@ -4,7 +4,8 @@ public class Customer {
     private int cpr;
     private int accountNumber;
     private int registrationNumber;
-    private String fullName;
+    private String firstname;
+    private String lastName;
     private String email;
     private int phoneNumber;
     private String address;
@@ -14,12 +15,13 @@ public class Customer {
 public Customer() {
 }
 
-    public Customer(int cpr, int accountNumber, int registrationNumber, String fullName,
+    public Customer(int cpr, int accountNumber, int registrationNumber, String firstname, String lastName,
                     String email, int phoneNumber, String address, int zipCode, String city) {
         this.cpr = cpr;
         this.accountNumber = accountNumber;
         this.registrationNumber = registrationNumber;
-        this.fullName = fullName;
+        this.firstname = firstname;
+        this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
@@ -39,8 +41,8 @@ public Customer() {
         this.registrationNumber = registrationNumber;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFullName(String firstname) {
+        this.firstname = firstname;
     }
 
     public void setEmail(String email) {
@@ -75,8 +77,12 @@ public Customer() {
         return registrationNumber;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public String getEmail() {
@@ -105,7 +111,8 @@ public Customer() {
                 "cpr=" + cpr +
                 ", accountNumber=" + accountNumber +
                 ", registrationNumber=" + registrationNumber +
-                ", fullName='" + fullName + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 ", address='" + address + '\'' +

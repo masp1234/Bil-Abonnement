@@ -181,6 +181,27 @@ h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-leng
     border-top-right-radius: 30px;
 }
 
+.card-workshop {
+    display: block; /*Starter på en ny linje*/
+    align-items: center;
+    text-align: center; /*Virker med img*/
+
+    font-weight: bolder;
+}
+
+.card-workshop span {
+    color: white;
+    font-size: 14px;
+}
+
+.card-workshop2 {
+    background-color: #e8c405;
+    text-align: center;
+
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
 .card-container p {
     padding-left: 10px;
 }
