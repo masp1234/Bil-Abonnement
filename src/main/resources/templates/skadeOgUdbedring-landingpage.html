@@ -32,8 +32,8 @@ https://stackoverflow.com/questions/23243277/thymeleaf-how-to-compare-string-wit
             <div class="card-reserved2">
             <span>Reserveret</span>
             </div>
-            <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
-                 th:src="@{/images/TestCar2.jpg}">
+            <img class="carimg" src="../static/images/TestCar2.jpg" alt="Car"
+                 th:src="@{${car.url}}">
             <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
          </div>
 
@@ -41,8 +41,8 @@ https://stackoverflow.com/questions/23243277/thymeleaf-how-to-compare-string-wit
             <div class="card-workshop2">
                 <span>Værksted</span>
             </div>
-            <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
-                 th:src="@{/images/TestCar2.jpg}">
+            <img class="carimg" src="../static/images/TestCar2.jpg" alt="Car"
+                 th:src="@{${car.url}}">
             <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
         </div>
 
@@ -50,8 +50,8 @@ https://stackoverflow.com/questions/23243277/thymeleaf-how-to-compare-string-wit
                 <div class="card-available2">
                 <span>Ledig</span>
                 </div>
-                <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
-                     th:src="@{/images/TestCar2.jpg}">
+                <img class="carimg" src="../static/images/TestCar2.jpg" alt="Car"
+                     th:src="@{${car.url}}">
                 <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
             </div>
 
