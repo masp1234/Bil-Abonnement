@@ -52,7 +52,7 @@ public class CarService {
         return display;
     }
 
-    public static Car checkSearch(Car car, String[] search){
+    private static Car checkSearch(Car car, String[] search){
 
         for (int i = 0; i < search.length; i++) {
             if(!(car.getChassisNumber().toLowerCase().contains(search[i])

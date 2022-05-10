@@ -33,7 +33,7 @@
             </div>
             <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
                  th:src="@{/images/TestCar2.jpg}">
-            <h1>Navn på bilen</h1>
+            <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
         </div>
         <p th:text="${car.make}">Mærke</p>
         <p th:text="${car.model}">Model</p>
