@@ -21,8 +21,8 @@ public class CustomerRepository {
     //efter normaliseringsregel 3, skal zipcode splittes op i et ektra table
     public void addCustomer(Customer customer) {
         final String QUERY = "INSERT INTO customer" +
-                "(customer_cpr_number, customer_account_number, )" +
-                "customer_registrationNumber, customer_firstname, customer_lastname, " +
+                "(customer_cpr_number, customer_account_number, " +
+                "customer_registration_number, customer_firstname, customer_lastname, " +
                 "customer_email, customer_phone, customer_address, " +
                 "customer_zipcode, customer_city)" +
                 "VALUE(?,?,?,?,?,?,?,?,?,?)";
