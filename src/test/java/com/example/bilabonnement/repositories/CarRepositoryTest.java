@@ -36,10 +36,11 @@ class CarRepositoryTest {
         // act
         Car resultCar = testRepository.getCarById(car.getRegistrationNumber());
 
-
-
         // assert
-        assertTrue(car.getRegistrationNumber() == resultCar.getRegistrationNumber(), "Should be the same car and therefore the result should be true" );
+        assertTrue(car.getRegistrationNumber().equalsIgnoreCase(resultCar.getRegistrationNumber()), "Should be the same car and therefore the result should be true" );
+
+        //cleanup
+        testRepository.deleteCarById(car.getRegistrationNumber());
 
 
     }

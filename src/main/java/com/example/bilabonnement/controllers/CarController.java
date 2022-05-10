@@ -62,7 +62,7 @@ public class CarController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteCarById(@PathVariable("id") int id){
+    public String deleteCarById(@PathVariable("id") String id){
         carService.deleteCarById(id);
         //TODO Skal ændres når rigtige template er klar
         return "redirect:/showAllCar";

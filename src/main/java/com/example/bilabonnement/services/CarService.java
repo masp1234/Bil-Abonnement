@@ -34,7 +34,7 @@ public class CarService {
         carRepository.addCar(car);
     }
 
-    public void deleteCarById(int id) {
+    public void deleteCarById(String id) {
         carRepository.deleteCarById(id);
     }
 }

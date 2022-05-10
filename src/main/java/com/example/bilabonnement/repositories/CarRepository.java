@@ -65,8 +65,8 @@ public class CarRepository {
                 "(car_reg_number, car_chassis_number, " +
                 "car_make, car_model, car_color , " +
                 "car_equipment_level, car_reg_fee, " +
-                "car_emission, car_lease_id)" +
-                " VALUE(?,?,?,?,?,?,?,?,?,?)";
+                "car_emission)" +
+                " VALUE(?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement=connection.prepareStatement(QUERY);
             preparedStatement.setString(1,car.getRegistrationNumber());
@@ -86,11 +86,11 @@ public class CarRepository {
     }
 
 
-    public void deleteCarById(int id){
-        final String QUERY="DELETE FROM car WHERE car_id = ?";
+    public void deleteCarById(String id){
+        final String QUERY="DELETE FROM car WHERE car_reg_number = ?";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
             preparedStatement.executeUpdate();
             System.out.println(" the car is deleted");
         }catch (SQLException e){
