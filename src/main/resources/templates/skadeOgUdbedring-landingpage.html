@@ -27,14 +27,19 @@
 
 
     <div class="card-container" th:each="car: ${showCars}">
-        <div class="card-reserved">
-            <div class="card-reserved2">
-                <span>Reserveret</span>
-            </div>
+        <div th:if="${car.isAvailable == true}" class="card-reserved">
+            <span th:if="${car.isAvailable == true}">Reserveret</span>
             <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
                  th:src="@{/images/TestCar2.jpg}">
             <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
-        </div>
+         </div>
+            <div th:if="${car.isAvailable == false}" class="card-available">
+                <span th:if="${car.isAvailable == false}">Ledig</span>
+                <img class="carimg" src="../static/images/TestCar2.jpg" alt="Yellow Car"
+                     th:src="@{/images/TestCar2.jpg}">
+                <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
+            </div>
+
         <p th:text="${car.make}">Mærke</p>
         <p th:text="${car.model}">Model</p>
         <p th:text="${car.registrationNumber}">Registreringsnummer</p>

@@ -9,7 +9,7 @@ public class Car {
     private String equipmentLevel;
     private double registrationFee;
     private double emission;
-    private boolean isRented = false;
+    private boolean isAvailable = false;
     private boolean isRdyToRent = true;
 
 
@@ -17,7 +17,7 @@ public class Car {
     }
 
     public Car(String registrationNumber, String chassisNumber, String make, String model, String color,
-               String equipmentLevel, double registrationFee, double emission, boolean isRented, boolean isRdyToRent) {
+               String equipmentLevel, double registrationFee, double emission, boolean isAvailable, boolean isRdyToRent) {
         this.registrationNumber = registrationNumber;
         this.chassisNumber = chassisNumber;
         this.make = make;
@@ -26,11 +26,13 @@ public class Car {
         this.registrationFee = registrationFee;
         this.equipmentLevel = equipmentLevel;
         this.emission = emission;
-        this.isRented = isRented;
+        this.isAvailable = isAvailable;
         this.isRdyToRent = isRdyToRent;
     }
 
-
+    public boolean getIsAvailable(){
+        return isAvailable;
+    }
     public String getChassisNumber() {
         return chassisNumber;
     }
@@ -94,6 +96,7 @@ public class Car {
     public void setEmission(double emission) {
         this.emission = emission;
     }
+
 
 
     @Override
