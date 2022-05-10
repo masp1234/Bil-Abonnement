@@ -21,7 +21,12 @@ public class CarController {
 
 
 
+    @PostMapping("landingpage")
+    public String searchCars(@RequestParam("search") String search,Model model){
 
+        model.addAttribute("showCars", carService.showAllCarsBySearch(search));
+        return "skadeOgUdbedring-landingpage";
+    }
 
     @GetMapping("/landingpage")
     public String showAllCars(Model model){
