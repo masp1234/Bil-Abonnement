@@ -17,12 +17,14 @@ public class CustomerRepository {
         connection = ConnectionManager.connectToMySQL();
     }
 
+
+    //efter normaliseringsregel 3, skal zipcode splittes op i et ektra table
     public void addCustomer(Customer customer) {
         final String QUERY = "INSERT INTO customer" +
-                "(customer_cpr, customer_accountNumber, )" +
-                "customer_registrationNumber, customer_firstName, customer_lastName, " +
-                "customer_email, customer_phoneNumber, customer_address, " +
-                "customer_zipCode, customer_city)" +
+                "(customer_cpr_number, customer_account_number, )" +
+                "customer_registrationNumber, customer_firstname, customer_lastname, " +
+                "customer_email, customer_phone, customer_address, " +
+                "customer_zipcode, customer_city)" +
                 "VALUE(?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
