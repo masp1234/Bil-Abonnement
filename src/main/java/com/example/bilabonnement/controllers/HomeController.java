@@ -23,9 +23,6 @@ public class HomeController {
 
 
 
-
-
-
     //åbning af index side
     @GetMapping("/")
     public String index(HttpSession session){
