@@ -35,6 +35,7 @@
 
 <!-- if sætning med sammeligning af strings:
 https://stackoverflow.com/questions/23243277/thymeleaf-how-to-compare-string-with-request-parameter-in-html-in-thymeleaf-ta -->
+
     <div class="card-container" th:each="car: ${showCars}">
         <div th:if="${#strings.equals(car.status, 'reserved')}" class="card-reserved">
             <div class="card-reserved2">
