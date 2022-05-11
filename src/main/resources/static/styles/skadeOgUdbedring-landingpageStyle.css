@@ -173,7 +173,7 @@ h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-leng
     font-weight: bolder;
 }
 
-.card-available2 { /*Hvilken ser bedst ud?*/
+.card-available2 {
     background-color: #18c349;
     text-align: center;
 
@@ -195,7 +195,7 @@ h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-leng
 }
 
 .card-workshop2 {
-    background-color: #e8c405;
+    background-color: #eac317;
     text-align: center;
 
     border-top-left-radius: 30px;

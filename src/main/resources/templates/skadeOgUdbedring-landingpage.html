@@ -16,15 +16,15 @@
 <form class="searchbar-container" action="/landingpage" method="POST">
     <div class="searchbar-container2">
         <input class="searchbar-input" type="text" placeholder="Søg..." name="search">
-        <button class="allCars">ALLE BILER <div class="arrow"></div></button>
+        <select id="country" name="sortCriteria" class="allCars">
+            <option value="all">ALLE BILER</option>
+            <option value="available">LEDIG</option>
+            <option value="reserved">RESERVERET</option>
+            <option value="workshop">VÆRKSTED</option>
+        </select>
     </div>
 
-    <select id="country" name="sortCriteria">
-        <option value="all">Alle biler</option>
-        <option value="available">Ledig</option>
-        <option value="reserved">Reserved</option>
-        <option value="workshop">Værksted</option>
-    </select>
+
 
     <div class="searchbar-container3">
         <button class="search-button" type="submit">SØG</button>
