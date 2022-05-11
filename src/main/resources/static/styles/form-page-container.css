@@ -61,6 +61,8 @@ body {
 .form-input-box {
   margin-bottom: 5%;
   padding: 1%;
+  border-radius: 50px;
+  border-style: none;
 }
 .form-label {
   margin-bottom: 2%;

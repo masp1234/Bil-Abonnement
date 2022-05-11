@@ -11,12 +11,14 @@ public class Car {
     private double emission;
     private String status = "available";
 
+    private String url;
+
 
     public Car() {
     }
 
     public Car(String registrationNumber, String chassisNumber, String make, String model, String color,
-               String equipmentLevel, double registrationFee, double emission, String status) {
+               String equipmentLevel, double registrationFee, double emission, String status, String url) {
         this.registrationNumber = registrationNumber;
         this.chassisNumber = chassisNumber;
         this.make = make;
@@ -26,8 +28,12 @@ public class Car {
         this.equipmentLevel = equipmentLevel;
         this.emission = emission;
         this.status = status;
+        this.url = url;
     }
 
+    public String getUrl() {
+        return url;
+    }
 
     public String getChassisNumber() {
         return chassisNumber;

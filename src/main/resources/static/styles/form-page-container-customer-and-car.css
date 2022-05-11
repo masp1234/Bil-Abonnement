@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=PT+Sans&family=Shadows+Into+Light&family=Source+Sans+Pro&display=swap');
+.page-container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+.form-container{
+    background-color: #ececec;
+    padding-left: 150px;
+    padding-right: 150px;
+    /*for at center div i midten. Fundet på en stackoverflow*/
+    border-radius: 3%;
+
+
+}
+.form-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 590px;
+    width: 300px;
+}
+.form-input-box{
+    margin-bottom: 15px;
+    border-radius: 50px;
+    border-style: none;
+    height: 20px;
+}
+.form-label{
+    margin-bottom: 4px;
+    font-family: 'Montserrat', sans-serif;
+}
+.form-header{
+    font-family: 'Montserrat', sans-serif;
+    display: grid;
+    justify-content: center;
+    grid-area: header;
+    margin-top: 10%;
+    margin-bottom: 0px;
+}
+.button-container{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 30px;
+}
+.button-submit{
+    border: none;
+    padding: auto;
+    font-weight: 800;
+    background-color: rgba(14, 172, 35, 0.884);
+    border-radius: 10%;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+}

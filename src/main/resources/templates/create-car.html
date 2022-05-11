@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/styles/form-page-container-customer-and-car.css"
+          th:href="@{/styles/form-page-container-customer-and-car.css}"/>
+</head>
+<body>
+
+<div th:replace ="navbar :: navbar"></div>
+    
+<div class="page-container">
+
+
+<form class="form-container text" action="/create-customer" method="POST">
+
+    <h1 class="form-header text">Opret bil</h1>
+
+    <section class="form-content">
+        <label class="form-label" for="registerNumber">Registreringsnummer</label>
+        <input class="form-input-box text" type="text" id="registerNumber" placeholder="Indtast registreringsnummer">
+
+        <label class="form-label" for="chassisNumber">Stelnummer</label>
+        <input class="form-input-box text" type="text" id="chassisNumber" placeholder="Indtast stelnummer">
+
+        <label class="form-label" for="make">Mærke</label>
+        <input class="form-input-box text" type="text" id="make" placeholder="Indtast mærke">
+
+        <label class="form-label" for="model">Model</label>
+        <input class="form-input-box text" type="text" id="model" placeholder="Indtast model">
+
+        <label class="form-label" for="color">Farve</label>
+        <input class="form-input-box text" type="text" id="color" placeholder="Indtast farve">
+
+        <label class="form-label" for="equipmentLevel">Udstyrsniveau</label>
+        <input class="form-input-box text" type="text" id="equipmentLevel" placeholder="Indtast udstyrsniveau">
+
+        <label class="form-label" for="registrationFee">Registreringsafgift</label>
+        <input class="form-input-box text" type="number" id="registrationFee" placeholder="Indtast registreringsafgift">
+
+        <label class="form-label" for="carEmission">CO2 g/km</label>
+        <input class="form-input-box text" type="int" id="carEmission" placeholder="Indtast CO2 g/km">
+
+        <label class="form-label" for="link">Link til url af bil</label>
+        <input class="form-input-box text" type="text" id="link" placeholder="Indtast link">
+
+
+    </section>
+    <section class="button-container">
+        <button class="button-submit text" type="submit">Opret</button>
+    </section>
+
+   
+
+</form>
+
+
+</div>
+</body>
+</html>

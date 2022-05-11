@@ -34,13 +34,15 @@ public class CarRepository {
                 double registrationFee = resultSet.getDouble(7);
                 double emission = resultSet.getDouble(8);
                 String status = resultSet.getString(9);
+                String url = resultSet.getString(10);
 
 
                 car.add(new Car(registrationNumber, chassisNumber, make, model,
                         color, equipmentLevel,
-                        registrationFee, emission, status));
+                        registrationFee, emission, status, url));
             }
             System.out.println("can show all cars");
+
             statement.close();
 
         }
@@ -111,10 +113,10 @@ public class CarRepository {
                 Double registrationFee = resultSet.getDouble(7);
                 Double emission = resultSet.getDouble(8);
                 String status = resultSet.getString(9);
-
+                String url = resultSet.getString(10);
 
                 car = new Car (registrationNumber, chassisNumber, make, model, color,
-                                equipmentLevel, registrationFee, emission, status);
+                                equipmentLevel, registrationFee, emission, status, url);
 
                 System.out.println(car);
 
