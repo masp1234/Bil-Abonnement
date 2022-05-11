@@ -18,7 +18,7 @@
     <section class="info-section-container section-container">
 
         <div class="info-header">
-            <img class="car-image" src="../static/images/car-test-photo.jpg" alt="car-test-photo">
+            <img class="car-image" th:src="@{${car.url}}" src="../static/images/car-test-photo.jpg" alt="car-test-photo">
 
         </div>
         <h1 class="header-text" th:text="${car.make} + ' ' + ${car.model}">Mærke efterfulgt af model</h1>
@@ -60,20 +60,22 @@
 
 
             <section class="form-content">
-                <label class="form-label" for="regNumber">Registreringsnummer</label>
-                <input class="form-input-box text" type="text" id="regNumber" placeholder="Indtast registreringsnummer">
 
                 <label class="form-label" for="cprNumber">Kundens CPR-nummer</label>
                 <input class="form-input-box text" type="number" id="cprNumber" placeholder="Indtast CRP-nummer">
 
-                <label class="form-label" for="accountNumber">Kontonummer</label>
+                <label class="form-label" for="accountNumber">Kundens kontonummer</label>
                 <input class="form-input-box text" type="number" id="accountNumber" placeholder="Indtast kontonummer">
 
-                <label class="form-label" for="chassisNumber">Stelnummer</label>
-                <input class="form-input-box text" type="text" id="chassisNumber" placeholder="Indtast stelnummer">
+                <label class="form-label" for="customerRegNumber">Kundens registreringsnummer</label>
+                <input class="form-input-box text" type="text" id="customerRegNumber" placeholder="Indtast registreringsnummer">
 
-                <label class="form-label" for="period">Kundens CPR-nummer</label>
-                <input class="form-input-box text" type="number" id="period" placeholder="Periode">
+                <!-- den kan være hidden evt reg nummer -->
+                <!--<label class="form-label" for="chassisNumber">Stelnummer</label>-->
+                <input class="form-input-box text" type="hidden" id="carRegNumber">
+
+                <label class="form-label" for="period">Periode</label>
+                <input class="form-input-box text" type="number" id="period" placeholder="Indtast periode">
                 <!--Er "period" id til CPR? -->
 
                 <label class="form-label" for="price">Price</label>

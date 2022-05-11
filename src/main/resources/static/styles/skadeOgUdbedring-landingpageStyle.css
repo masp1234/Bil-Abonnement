@@ -225,3 +225,7 @@ h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-leng
 
     text-align: center;
 }
+a{
+    color: inherit;
+    text-decoration: none;
+}

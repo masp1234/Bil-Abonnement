@@ -13,22 +13,22 @@ import javax.servlet.http.HttpSession;
 import java.rmi.dgc.Lease;
 
 @Controller
-public class LeaseController {
+public class DamageController {
 
     private CarService carService;
 
-    public LeaseController (CarService carService) {
+    public DamageController (CarService carService) {
         this.carService = carService;
     }
 
 
     //TODO skal måske modtage kundeId som parameter
-    @GetMapping("/create-lease/{id}")
+    @GetMapping("/create-damagerapport/{id}")
     public String createLease(@PathVariable("id") String registrationNumber, Model model) {
         Car car = carService.getCarById(registrationNumber);
         model.addAttribute("car", car);
 
-        return "create-lease";
+        return "create-damagerapport";
     }
 
 
