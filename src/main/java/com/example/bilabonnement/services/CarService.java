@@ -59,7 +59,8 @@ public class CarService {
                     || car.getMake().toLowerCase().contains(search[i])
                     || car.getColor().toLowerCase().contains(search[i])
                     || car.getRegistrationNumber().toLowerCase().contains(search[i])
-                    || car.getEquipmentLevel().toLowerCase().contains(search[i]))) return null;
+                    || car.getEquipmentLevel().toLowerCase().contains(search[i])
+                    || car.getStatus().toLowerCase().contains(search[i]))) return null;
 
         }
         return car;
