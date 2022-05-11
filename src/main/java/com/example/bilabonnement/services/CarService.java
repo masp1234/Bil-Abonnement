@@ -39,28 +39,32 @@ public class CarService {
         carRepository.deleteCarById(id);
     }
 
-    public List<Car> showAllCarsBySearch(String search) {
+    public List<Car> showAllCarsBySearch(String search, String sortCriteria) {
         List<Car> cars = carRepository.getAllCars();
         String searchLowercase = search.toLowerCase();
         String[] searchArray = searchLowercase.split(" ");
         ArrayList<Car> display = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
-            Car car = checkSearch(cars.get(i),searchArray);
+            Car car = checkSearch(cars.get(i),searchArray, sortCriteria);
             if(car != null) display.add(car);
 
         }
         return display;
     }
 
-    private static Car checkSearch(Car car, String[] search){
-
+    private static Car checkSearch(Car car, String[] search, String sortCriteria){
         for (int i = 0; i < search.length; i++) {
+
             if(!(car.getChassisNumber().toLowerCase().contains(search[i])
                     || car.getMake().toLowerCase().contains(search[i])
                     || car.getColor().toLowerCase().contains(search[i])
                     || car.getRegistrationNumber().toLowerCase().contains(search[i])
-                    || car.getEquipmentLevel().toLowerCase().contains(search[i])
-                    || car.getStatus().toLowerCase().contains(search[i]))) return null;
+                    || car.getEquipmentLevel().toLowerCase().contains(search[i]))) return null;
+            if(!sortCriteria.equals("all")) {
+                if (!car.getStatus().equals(sortCriteria)) {
+                    return null;
+                }
+            }
 
         }
         return car;
