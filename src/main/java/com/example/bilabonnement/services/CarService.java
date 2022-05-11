@@ -40,33 +40,40 @@ public class CarService {
     }
 
     public List<Car> showAllCarsBySearch(String search, String sortCriteria) {
-        List<Car> cars = carRepository.getAllCars();
+        ArrayList<Car> cars = (ArrayList<Car>) carRepository.getAllCars();
         String searchLowercase = search.toLowerCase();
         String[] searchArray = searchLowercase.split(" ");
         ArrayList<Car> display = new ArrayList<>();
-        for (int i = 0; i < cars.size(); i++) {
-            Car car = checkSearch(cars.get(i),searchArray, sortCriteria);
-            if(car != null) display.add(car);
+        ArrayList<Car> carsBySortCriteria = sortByCriteria(cars, sortCriteria);
 
+        for (Car car:carsBySortCriteria) {
+            Car selectedCar = checkSearch(car,searchArray);
+            if(selectedCar != null) display.add(selectedCar);
         }
+
         return display;
     }
 
-    private static Car checkSearch(Car car, String[] search, String sortCriteria){
-        for (int i = 0; i < search.length; i++) {
-
-            if(!(car.getChassisNumber().toLowerCase().contains(search[i])
-                    || car.getMake().toLowerCase().contains(search[i])
-                    || car.getColor().toLowerCase().contains(search[i])
-                    || car.getRegistrationNumber().toLowerCase().contains(search[i])
-                    || car.getEquipmentLevel().toLowerCase().contains(search[i]))) return null;
-            if(!sortCriteria.equals("all")) {
-                if (!car.getStatus().equals(sortCriteria)) {
-                    return null;
-                }
-            }
-
+    private ArrayList<Car> sortByCriteria(ArrayList<Car> cars, String sortCriteria){
+        ArrayList<Car> carsBySortCriteria = new ArrayList<>();
+        if(sortCriteria.equals("all")) return cars;
+        for (Car car:cars) {
+            if(car.getStatus().equals(sortCriteria)) carsBySortCriteria.add(car);
         }
+        return carsBySortCriteria;
+    }
+
+    private Car checkSearch(Car car, String[] search){
+        for (String s:search) {
+            if(!(car.getChassisNumber().toLowerCase().contains(s)
+                    || car.getMake().toLowerCase().contains(s)
+                    || car.getColor().toLowerCase().contains(s)
+                    || car.getRegistrationNumber().toLowerCase().contains(s)
+                    || car.getEquipmentLevel().toLowerCase().contains(s))) return null;
+        }
+
         return car;
     }
+
+
 }
