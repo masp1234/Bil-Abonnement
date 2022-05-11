@@ -22,9 +22,8 @@ public class CarController {
 
 
     @PostMapping("landingpage")
-    public String searchCars(@RequestParam("search") String search,Model model){
-
-        model.addAttribute("showCars", carService.showAllCarsBySearch(search));
+    public String searchCars(@RequestParam("search") String search, @RequestParam("sortCriteria") String sortCriteria, Model model){
+        model.addAttribute("showCars", carService.showAllCarsBySearch(search,sortCriteria));
         return "skadeOgUdbedring-landingpage";
     }
 
