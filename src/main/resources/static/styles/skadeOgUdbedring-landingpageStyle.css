@@ -158,20 +158,6 @@ h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-leng
     border-top-right-radius: 30px;
 }
 
-/*Available*/
-
-.card-available span {
-    color: white;
-    font-size: 14px;
-}
-
-.card-available {
-    display: block; /*Starter på en ny linje*/
-    align-items: center;
-    text-align: center; /*Virker med img*/
-
-    font-weight: bolder;
-}
 
 .card-available2 { /*Hvilken ser bedst ud?*/
     background-color: #18c349;
@@ -181,18 +167,6 @@ h1 { /*https://stackoverflow.com/questions/26973570/setting-a-max-character-leng
     border-top-right-radius: 30px;
 }
 
-.card-workshop {
-    display: block; /*Starter på en ny linje*/
-    align-items: center;
-    text-align: center; /*Virker med img*/
-
-    font-weight: bolder;
-}
-
-.card-workshop span {
-    color: white;
-    font-size: 14px;
-}
 
 .card-workshop2 {
     background-color: #e8c405;
