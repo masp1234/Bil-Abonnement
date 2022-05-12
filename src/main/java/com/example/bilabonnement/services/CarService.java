@@ -69,7 +69,10 @@ public class CarService {
                     || car.getMake().toLowerCase().contains(s)
                     || car.getColor().toLowerCase().contains(s)
                     || car.getRegistrationNumber().toLowerCase().contains(s)
-                    || car.getEquipmentLevel().toLowerCase().contains(s))) return null;
+                    || car.getEquipmentLevel().toLowerCase().contains(s)
+                    || car.getModel().toLowerCase().contains(s)
+                    || Double.toString(car.getEmission()).contains(s)
+                    || Double.toString(car.getRegistrationFee()).contains(s))) return null;
         }
 
         return car;

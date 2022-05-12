@@ -1,6 +1,7 @@
 package com.example.bilabonnement.controllers;
 
 import com.example.bilabonnement.models.Car;
+import com.example.bilabonnement.models.User;
 import com.example.bilabonnement.services.CarService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,13 +23,19 @@ public class CarController {
 
 
     @PostMapping("landingpage")
-    public String searchCars(@RequestParam("search") String search, @RequestParam("sortCriteria") String sortCriteria, Model model){
+    public String searchCars(@RequestParam("search") String search, @RequestParam("sortCriteria") String sortCriteria, Model model,HttpSession session){
+        User user = (User) session.getAttribute("user");
+        model.addAttribute("user", user);
         model.addAttribute("showCars", carService.showAllCarsBySearch(search,sortCriteria));
         return "skadeOgUdbedring-landingpage";
     }
 
     @GetMapping("/landingpage")
-    public String showAllCars(Model model){
+    public String showAllCars(Model model,HttpSession session){
+        User user = (User) session.getAttribute("user");
+        model.addAttribute("user", user);
+        System.out.println(user.getRole());
+        System.out.println("dataregistrering");
         model.addAttribute("showCars", carService.showAllCars());
         //TODO Skal ændres når rigtige template er klar
         return "skadeOgUdbedring-landingpage";

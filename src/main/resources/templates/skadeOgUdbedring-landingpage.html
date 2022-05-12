@@ -11,20 +11,21 @@
 
 <div th:replace ="navbar :: navbar"></div>
 
-<h1 class="departmentName">Skade og udbedring</h1>
+<h1 class="departmentName" th:if="${#strings.equals(user.role, 'skade')}">Skade og udbedring</h1>
+<h1 class="departmentName" th:if="${#strings.equals(user.role, 'dataregistrering')}">Dataregistrering</h1>
 
 <form class="searchbar-container" action="/landingpage" method="POST">
     <div class="searchbar-container2">
         <input class="searchbar-input" type="text" placeholder="Søg..." name="search">
-        <button class="allCars">ALLE BILER <div class="arrow"></div></button>
+        <select id="sortCriteria" name="sortCriteria" class="allCars">
+            <option value="all">ALLE BILER</option>
+            <option value="available">LEDIG</option>
+            <option value="reserved">RESERVERET</option>
+            <option value="workshop">VÆRKSTED</option>
+        </select>
     </div>
 
-    <select id="country" name="sortCriteria">
-        <option value="all">Alle biler</option>
-        <option value="available">Ledig</option>
-        <option value="reserved">Reserved</option>
-        <option value="workshop">Værksted</option>
-    </select>
+
 
     <div class="searchbar-container3">
         <button class="search-button" type="submit">SØG</button>
@@ -37,37 +38,54 @@
 https://stackoverflow.com/questions/23243277/thymeleaf-how-to-compare-string-with-request-parameter-in-html-in-thymeleaf-ta -->
 
     <div class="card-container" th:each="car: ${showCars}">
-        <div th:if="${#strings.equals(car.status, 'reserved')}" class="card-reserved">
-            <div class="card-reserved2">
+
+        <a th:if="${#strings.equals(user.role, 'skade')}" th:href="@{'/create-damagerapport/' + ${car.registrationNumber}}">
+        <div class="card-reserved">
+            <div th:if="${#strings.equals(car.status, 'reserved')}" class="card-reserved2">
             <span>Reserveret</span>
+            </div>
+            <div th:if="${#strings.equals(car.status, 'workshop')}" class="card-workshop2">
+                <span>Værksted</span>
+            </div>
+            <div th:if="${#strings.equals(car.status, 'available')}" class="card-available2">
+                <span>Ledig</span>
             </div>
             <img class="carimg" src="../static/images/TestCar2.jpg" alt="Car"
                  th:src="@{${car.url}}">
             <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
          </div>
 
-        <div th:if="${#strings.equals(car.status, 'workshop')}" class="card-workshop">
-            <div class="card-workshop2">
-                <span>Værksted</span>
-            </div>
-            <img class="carimg" src="../static/images/TestCar2.jpg" alt="Car"
-                 th:src="@{${car.url}}">
-            <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
-        </div>
+        <p th:text="${car.make}">Mærke</p>
+        <p th:text="${car.model}">Model</p>
+        <p th:text="${car.registrationNumber}">Registreringsnummer</p>
+        <p th:text="${car.color}">Farve</p>
+    </a>
 
-        <div  th:if="${#strings.equals(car.status, 'available')}"  class="card-available">
-                <div class="card-available2">
-                <span>Ledig</span>
+
+        <a th:if="${#strings.equals(user.role, 'dataregistrering')}" th:href="@{'/create-lease/' + ${car.registrationNumber}}">
+            <div class="card-reserved">
+                <div th:if="${#strings.equals(car.status, 'reserved')}" class="card-reserved2">
+                    <span>Reserveret</span>
+                </div>
+                <div th:if="${#strings.equals(car.status, 'workshop')}" class="card-workshop2">
+                    <span>Værksted</span>
+                </div>
+                <div th:if="${#strings.equals(car.status, 'available')}" class="card-available2">
+                    <span>Ledig</span>
                 </div>
                 <img class="carimg" src="../static/images/TestCar2.jpg" alt="Car"
                      th:src="@{${car.url}}">
                 <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
             </div>
 
-        <p th:text="${car.make}">Mærke</p>
-        <p th:text="${car.model}">Model</p>
-        <p th:text="${car.registrationNumber}">Registreringsnummer</p>
-        <p th:text="${car.color}">Farve</p>
+            <p th:text="${car.make}">Mærke</p>
+            <p th:text="${car.model}">Model</p>
+            <p th:text="${car.registrationNumber}">Registreringsnummer</p>
+            <p th:text="${car.color}">Farve</p>
+        </a>
+
+
+
     </div>
 
 </div>
