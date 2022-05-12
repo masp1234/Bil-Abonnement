@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 @Service
@@ -65,14 +66,7 @@ public class CarService {
 
     private Car checkSearch(Car car, String[] search){
         for (String s:search) {
-            if(!(car.getChassisNumber().toLowerCase().contains(s)
-                    || car.getMake().toLowerCase().contains(s)
-                    || car.getColor().toLowerCase().contains(s)
-                    || car.getRegistrationNumber().toLowerCase().contains(s)
-                    || car.getEquipmentLevel().toLowerCase().contains(s)
-                    || car.getModel().toLowerCase().contains(s)
-                    || Double.toString(car.getEmission()).contains(s)
-                    || Double.toString(car.getRegistrationFee()).contains(s))) return null;
+            if(!car.toString().toLowerCase().contains(s)) return null;
         }
 
         return car;
