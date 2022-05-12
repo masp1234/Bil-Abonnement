@@ -20,6 +20,8 @@ public class UserRepository {
         connection = ConnectionManager.connectToMySQL();
     }
     public User findUser(String username) {
+        connection = ConnectionManager.connectToMySQL();
+
         String query = "SELECT * FROM user WHERE user_username = '" + username + "'";
         User selectedUser = null;
 

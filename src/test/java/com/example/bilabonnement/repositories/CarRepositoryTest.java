@@ -42,6 +42,9 @@ class CarRepositoryTest {
         //cleanup
         testRepository.deleteCarById(car.getRegistrationNumber());
 
+        //assert
+
+
 
     }
 }

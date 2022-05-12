@@ -10,7 +10,6 @@ public class Car {
     private double registrationFee;
     private double emission;
     private String status = "available";
-
     private String url;
 
 

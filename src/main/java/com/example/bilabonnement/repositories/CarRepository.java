@@ -19,6 +19,10 @@ public class CarRepository {
         connection = ConnectionManager.connectToMySQL();
     }
     public List<Car> getAllCars(){
+
+        connection = ConnectionManager.connectToMySQL();
+
+
         List<Car> car = new ArrayList<>();
         final String QUERY="SELECT * FROM car";
         try {
@@ -54,6 +58,8 @@ public class CarRepository {
     }
 
     public void addCar(Car car){
+
+        connection = ConnectionManager.connectToMySQL();
         final String QUERY= "INSERT INTO car" +
                 "(car_reg_number, car_chassis_number, " +
                 "car_make, car_model, car_color , " +
@@ -80,6 +86,8 @@ public class CarRepository {
 
 
     public void deleteCarById(String id){
+        connection = ConnectionManager.connectToMySQL();
+
         final String QUERY="DELETE FROM car WHERE car_reg_number = ?";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
@@ -94,6 +102,8 @@ public class CarRepository {
 
 
     public Car getCarById(String id) {
+
+        connection = ConnectionManager.connectToMySQL();
 
         String query = "SELECT * FROM car WHERE car_reg_number = '" + id + "'";
 
@@ -130,6 +140,8 @@ public class CarRepository {
     }
 
     public void updateCar(Car car) {
+
+        connection = ConnectionManager.connectToMySQL();
 
         String query = "UPDATE car SET car_chassis_number = ?, car_make = ?, car_model = ?, car_color = ?, " +
                 "car_equipment_level = ?, car_reg_fee = ?, car_emission = ?, is_rented = ?, is_ready_to_rent = ?" +

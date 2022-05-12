@@ -20,7 +20,6 @@ public class HomeController {
     public HomeController(UserService userService) {
         this.userService = userService;
     }
-    public HomeController () {}
 
 
 
