@@ -28,6 +28,7 @@ public class LeaseController {
         Car car = carService.getCarById(registrationNumber);
         model.addAttribute("car", car);
 
+
         return "create-lease";
     }
 

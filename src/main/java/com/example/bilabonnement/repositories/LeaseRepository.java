@@ -19,6 +19,8 @@ public class LeaseRepository {
 
 
     public void addLease(Lease lease) {
+        connection = ConnectionManager.connectToMySQL();
+
         final String QUERY = "INSERT INTO lease" +
                 "(lease_car_reg_number, lease_account_number, " +
                 "lease_price, lease_period, " +
