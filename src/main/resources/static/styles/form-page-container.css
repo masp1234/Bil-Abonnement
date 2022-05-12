@@ -85,6 +85,7 @@ body {
 
 }
 
+
 .form-header {
     display: grid;
     justify-content: center;
@@ -93,6 +94,12 @@ body {
     font-size: xx-large;
 }
 
+.form-header2 {
+    display: grid;
+    justify-content: center;
+    grid-area: header;
+    font-size: xx-large;
+}
 .form-container {
     display: grid;
     grid-template-columns: 65%;
@@ -149,9 +156,25 @@ body {
     object-fit: cover;
 }
 
-@media screen and (max-width: 1000px) {
-    .section-container {
-        grid-column: 1 / -1;
-        margin-bottom: 2%;
-    }
+.section-container2 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.tableHead th{ /*Fra "Ønskebrønden - my-wishlistStyle.css" */
+    padding-right: 1%;
+    padding-left: 1%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+.damage-content {
+
+}
+table {
+    background-color: #F5F5F5;
+}
+table tr:nth-child(even) { /*Opdeler ønsker*/
+    background-color: #d5d3d3;
 }

@@ -11,44 +11,8 @@
 </head>
 <body>
 
-<div th:replace ="navbar :: navbar"></div>
+<div th:replace="navbar :: navbar"></div>
 <div class="container">
-
-
-    <section class="info-section-container section-container">
-
-        <div class="info-header">
-            <img class="car-image" th:src="@{${car.url}}" src="../static/images/car-test-photo.jpg" alt="car-test-photo">
-
-        </div>
-        <h1 class="header-text" th:text="${car.make} + ' ' + ${car.model}">Mærke efterfulgt af model</h1>
-        <div class="info-key">
-            <h2 class="text">Vognnummer:</h2>
-            <h2 class="text">Stelnummer:</h2>
-            <h2 class="text">Mærke:</h2>
-            <h2 class="text">Model:</h2>
-            <h2 class="text">Farve:</h2>
-            <h2 class="text">Udstyrsniveau:</h2>
-            <h2 class="text">Registreringsafgift:
-            </h2>
-            <h2 class="text">CO2-udledning:</h2>
-
-
-        </div>
-
-        <div class="info-value">
-            <h2 class="text" th:text="${car.registrationNumber}">2F3DFDA759N2</h2>
-            <h2 class="text" th:text="${car.chassisNumber}">120120034-322</h2>
-            <h2 class="text" th:text="${car.make}">Toyota</h2>
-            <h2 class="text" th:text="${car.model}">Enmodelher</h2>
-            <h2 class="text" th:text="${car.color}">Rød</h2>
-            <h2 class="text" th:text="${car.equipmentLevel}">Extremely advanced</h2>
-            <h2 class="text" th:text="${car.registrationFee}">12500</h2>
-            <h2 class="text" th:text="${car.emission}">25,7</h2>
-
-        </div>
-
-    </section>
 
 
     <section class="form-section-container section-container">
@@ -81,6 +45,38 @@
 
         </form>
 
+    </section>
+
+
+    <section class="form-section-container section-container2">
+
+        <h1 class="form-header2 text">Skader</h1>
+
+<table>
+        <tr class="tableHead">
+            <th>SKADE</th>
+            <th>BESKRIVELSE</th>
+            <th>DATO</th>
+            <th>PRIS</th>
+        </tr>
+
+    <!-- SKADER - IKKE KLAR-->
+    <tr class="damage-content">
+        <td th:text="${damage.name}">Skade</td>
+        <td th:text="${damage.description}">Beskrivelse af skaden</td>
+        <td th:text="${damage.date}">Dato på skaden</td>
+        <td th:text="${damage.price}">Pris i alt</td>
+    </tr>
+
+ <!--DETTE SKAL SLETTES. (Bruges til hjælp for nu) -->
+    <tr class="damage-content">
+        <td th:text="${damage.name}">Skade</td>
+        <td th:text="${damage.description}">Beskrivelse af skaden</td>
+        <td th:text="${damage.date}">Dato på skaden</td>
+        <td th:text="${damage.price}">Pris i alt</td>
+    </tr>
+    <!--DETTE SKAL SLETTES. (Bruges til hjælp for nu) -->
+</table>
     </section>
 
 </div>
