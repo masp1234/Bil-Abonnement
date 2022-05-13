@@ -1,5 +1,7 @@
 package com.example.bilabonnement.models;
 
+import java.util.Objects;
+
 public class Car {
     private String chassisNumber;
     private String make;
@@ -114,4 +116,11 @@ public class Car {
     public String toString() {
         return chassisNumber + " " + make + " " + model + " " + color + " " + registrationNumber + " " + equipmentLevel + " " + registrationNumber + " " + emission;
     }
+    @Override
+    public boolean equals(Object object) {
+        Car other = (Car) object;
+        return this.toString().equalsIgnoreCase(other.toString());
+
+    }
+
 }
