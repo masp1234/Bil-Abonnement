@@ -26,8 +26,8 @@ public class CustomerRepository {
                 "(customer_cpr_number, customer_account_number, " +
                 "customer_registration_number, customer_firstname, customer_lastname, " +
                 "customer_email, customer_phone, customer_address, " +
-                "customer_zipcode, customer_city)" +
-                "VALUE(?,?,?,?,?,?,?,?,?,?)";
+                "customer_zipcode)" +
+                "VALUE(?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
             preparedStatement.setInt(1, customer.getCpr());
@@ -39,7 +39,6 @@ public class CustomerRepository {
             preparedStatement.setInt(7, customer.getPhoneNumber());
             preparedStatement.setString(8, customer.getAddress());
             preparedStatement.setInt(9, customer.getZipCode());
-            preparedStatement.setString(10, customer.getCity());
             preparedStatement.executeUpdate();
             System.out.println("Customer has been added");
         } catch (SQLException e) {
