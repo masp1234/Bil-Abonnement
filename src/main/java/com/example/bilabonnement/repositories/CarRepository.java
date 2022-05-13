@@ -60,12 +60,13 @@ public class CarRepository {
     public void addCar(Car car){
 
         connection = ConnectionManager.connectToMySQL();
+
         final String QUERY= "INSERT INTO car" +
                 "(car_reg_number, car_chassis_number, " +
                 "car_make, car_model, car_color , " +
                 "car_equipment_level, car_reg_fee, " +
-                "car_emission)" +
-                " VALUE(?,?,?,?,?,?,?,?)";
+                "car_emission, car_status, car_url)" +
+                " VALUE(?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement=connection.prepareStatement(QUERY);
             preparedStatement.setString(1,car.getRegistrationNumber());
@@ -76,6 +77,8 @@ public class CarRepository {
             preparedStatement.setString(6, car.getEquipmentLevel());
             preparedStatement.setDouble(7, car.getRegistrationFee());
             preparedStatement.setDouble(8, car.getEmission());
+            preparedStatement.setString(9, "available");
+            preparedStatement.setString(10, car.getUrl());
             preparedStatement.executeUpdate();
             System.out.println("the car is added");
         }catch (SQLException e){
