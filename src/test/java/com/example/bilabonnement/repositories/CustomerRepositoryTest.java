@@ -18,7 +18,7 @@ class CustomerRepositoryTest {
     @Test
     void getCarById() {
         // arrange
-        Customer customer = new Customer(23452345,4234,234,"Daniel", "danielsen", "asdf@mail.com", 234234, "blåbærsvej 80", 2670,"københavn");
+        Customer customer = new Customer("23452345","4234","2231","Daniel", "danielsen", "asdf@mail.com", 234234, "blåbærsvej 80", 2670,"københavn");
 
         testRepository.addCustomer(customer);
 
