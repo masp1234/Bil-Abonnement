@@ -57,7 +57,7 @@ class CarRepositoryTest {
             Car resultCar = testRepository.getCarById(car.getRegistrationNumber());
 
             // assert
-            assertEquals(car, resultCar), "Should return true, as it is the same car");
+            assertEquals(car, resultCar, "Should return true, as it is the same car");
 
             //cleanup
             testRepository.deleteCarById(car.getRegistrationNumber());
