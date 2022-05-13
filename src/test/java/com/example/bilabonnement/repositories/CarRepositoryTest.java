@@ -11,7 +11,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-
 @SpringBootTest
 class CarRepositoryTest {
 
@@ -21,15 +20,15 @@ class CarRepositoryTest {
     @Test
     void getCarById() {
         // arrange
-       Car car = new Car();
-       car.setRegistrationNumber("22");
-       car.setChassisNumber("dfdsfsf");
-       car.setMake("Toyota");
-       car.setModel("c25");
-       car.setEquipmentLevel("advanced");
-       car.setRegistrationFee(12000);
-       car.setEmission(22.5);
-       car.setColor("rød");
+        Car car = new Car();
+        car.setRegistrationNumber("22");
+        car.setChassisNumber("dfdsfsf");
+        car.setMake("Toyota");
+        car.setModel("c25");
+        car.setEquipmentLevel("advanced");
+        car.setRegistrationFee(12000);
+        car.setEmission(22.5);
+        car.setColor("rød");
 
         testRepository.addCar(car);
 
@@ -37,13 +36,14 @@ class CarRepositoryTest {
         Car resultCar = testRepository.getCarById(car.getRegistrationNumber());
 
         // assert
-        assertTrue(car.getRegistrationNumber().equalsIgnoreCase(resultCar.getRegistrationNumber()), "Should be the same car and therefore the result should be true" );
+        assertEquals(car, testRepository.getCarById(car.getRegistrationNumber()), "Should return true, as it is the same car");
 
         //cleanup
         testRepository.deleteCarById(car.getRegistrationNumber());
 
         //assert
 
+        assertNull(testRepository.getCarById(car.getRegistrationNumber()), "Should return null");
 
 
     }
