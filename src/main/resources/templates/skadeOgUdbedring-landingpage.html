@@ -10,6 +10,8 @@
 <body>
 
 <div th:replace ="navbar :: navbar"></div>
+<button th:if="${#strings.equals(user.role, 'dataregistrering')}" class="createCustomer"><a href="create-customer">OPRET KUNDE</a></button>
+<button th:if="${#strings.equals(user.role, 'dataregistrering')}" class="createCar"><a href="create-car">OPRET BIL</a></button>
 
 <h1 class="departmentName" th:if="${#strings.equals(user.role, 'skade')}">Skade og udbedring</h1>
 <h1 class="departmentName" th:if="${#strings.equals(user.role, 'dataregistrering')}">Dataregistrering</h1>

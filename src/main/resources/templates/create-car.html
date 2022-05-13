@@ -13,37 +13,37 @@
 <div class="page-container">
 
 
-<form class="form-container text" action="/create-customer" method="POST">
+<form class="form-container text" action="/create-car" method="POST">
 
     <h1 class="form-header text">Opret bil</h1>
 
     <section class="form-content">
-        <label class="form-label" for="registerNumber">Registreringsnummer</label>
-        <input class="form-input-box text" type="text" id="registerNumber" placeholder="Indtast registreringsnummer">
+        <label class="form-label" for="registrationNumber">Registreringsnummer</label>
+        <input class="form-input-box text" name="registrationNumber" type="text" id="registrationNumber" placeholder="Indtast registreringsnummer">
 
         <label class="form-label" for="chassisNumber">Stelnummer</label>
-        <input class="form-input-box text" type="text" id="chassisNumber" placeholder="Indtast stelnummer">
+        <input class="form-input-box text" name="chassisNumber" type="text" id="chassisNumber" placeholder="Indtast stelnummer">
 
         <label class="form-label" for="make">Mærke</label>
-        <input class="form-input-box text" type="text" id="make" placeholder="Indtast mærke">
+        <input class="form-input-box text" name="make" type="text" id="make" placeholder="Indtast mærke">
 
         <label class="form-label" for="model">Model</label>
-        <input class="form-input-box text" type="text" id="model" placeholder="Indtast model">
+        <input class="form-input-box text" name="model" type="text" id="model" placeholder="Indtast model">
 
         <label class="form-label" for="color">Farve</label>
-        <input class="form-input-box text" type="text" id="color" placeholder="Indtast farve">
+        <input class="form-input-box text" name="color" type="text" id="color" placeholder="Indtast farve">
 
         <label class="form-label" for="equipmentLevel">Udstyrsniveau</label>
-        <input class="form-input-box text" type="text" id="equipmentLevel" placeholder="Indtast udstyrsniveau">
+        <input class="form-input-box text" type="text" name="equipmentLevel" id="equipmentLevel" placeholder="Indtast udstyrsniveau">
 
         <label class="form-label" for="registrationFee">Registreringsafgift</label>
-        <input class="form-input-box text" type="number" id="registrationFee" placeholder="Indtast registreringsafgift">
+        <input class="form-input-box text" type="number" name="registrationFee" id="registrationFee" placeholder="Indtast registreringsafgift">
 
         <label class="form-label" for="carEmission">CO2 g/km</label>
-        <input class="form-input-box text" type="int" id="carEmission" placeholder="Indtast CO2 g/km">
+        <input class="form-input-box text" type="int" name="carEmission" id="carEmission" placeholder="Indtast CO2 g/km">
 
         <label class="form-label" for="link">Link til url af bil</label>
-        <input class="form-input-box text" type="text" id="link" placeholder="Indtast link">
+        <input class="form-input-box text" name="link" type="text" id="link" placeholder="Indtast link">
 
 
     </section>
