@@ -2,42 +2,21 @@ package com.example.bilabonnement.models;
 
 public class Lease {
 
-    private String accountRegistrationNumber;
-    private String accountNumber;
     private int price;
     private int periode; /*Denne ændres nok senere*/
     private String carRegistrationNumber;
-    private int customerCprNumber;
+    private String customerCprNumber;
 
 
     public Lease() {
 
     }
 
-    public Lease(String accountRegistrationNumber, String accountNumber, int price,
-                 int periode, String carRegistrationNumber, int customerCprNumber) {
-        this.accountRegistrationNumber = accountRegistrationNumber;
-        this.accountNumber = accountNumber;
+    public Lease(int price, int periode, String carRegistrationNumber, String customerCprNumber) {
         this.price = price;
         this.periode = periode;
         this.carRegistrationNumber = carRegistrationNumber;
         this.customerCprNumber = customerCprNumber;
-    }
-
-    public String getAccountRegistrationNumber() {
-        return accountRegistrationNumber;
-    }
-
-    public void setAccountRegistrationNumber(String accountRegistrationNumber) {
-        this.accountRegistrationNumber = accountRegistrationNumber;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
     }
 
     public int getPrice() {
@@ -64,20 +43,18 @@ public class Lease {
         this.carRegistrationNumber = carRegistrationNumber;
     }
 
-    public int getCustomerCprNumber() {
+    public String getCustomerCprNumber() {
         return customerCprNumber;
     }
 
-    public void setCustomerCprNumber(int customerCprNumber) {
+    public void setCustomerCprNumber(String customerCprNumber) {
         this.customerCprNumber = customerCprNumber;
     }
 
     @Override
     public String toString() {
         return "Lease{" +
-                "accountRegistrationNumber='" + accountRegistrationNumber + '\'' +
-                ", accountNumber='" + accountNumber + '\'' +
-                ", price=" + price +
+                "price=" + price +
                 ", periode=" + periode +
                 ", carRegistrationNumber='" + carRegistrationNumber + '\'' +
                 ", customerCprNumber=" + customerCprNumber +

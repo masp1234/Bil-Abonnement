@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 
 @Service
@@ -72,5 +71,8 @@ public class CarService {
         return car;
     }
 
-
+    //Den skifter status med den besked man sender
+    public void updateStatus(String regNumber, String reserved) {
+        carRepository.updateStatus(regNumber,reserved);
+    }
 }

@@ -36,10 +36,13 @@ public class UserRepository {
 
             }
         }
-        catch (SQLException e) {
+        /*catch (CommunicationException e){
+            findUser(username);
+        }*/
+        catch (Exception e) {
             System.out.println("kunne ikke finde bruger");
             e.printStackTrace();
-            findUser(username);
+
         }
 
         return selectedUser;

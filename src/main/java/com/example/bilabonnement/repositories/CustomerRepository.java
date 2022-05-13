@@ -30,9 +30,9 @@ public class CustomerRepository {
                 "VALUE(?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
-            preparedStatement.setInt(1, customer.getCpr());
-            preparedStatement.setInt(2, customer.getAccountNumber());
-            preparedStatement.setInt(3, customer.getRegistrationNumber());
+            preparedStatement.setString(1, customer.getCpr());
+            preparedStatement.setString(2, customer.getAccountNumber());
+            preparedStatement.setString(3, customer.getRegistrationNumber());
             preparedStatement.setString(4, customer.getFirstname());
             preparedStatement.setString(5, customer.getLastName());
             preparedStatement.setString(6, customer.getEmail());
