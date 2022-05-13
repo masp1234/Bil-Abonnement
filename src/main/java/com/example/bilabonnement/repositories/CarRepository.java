@@ -170,4 +170,24 @@ public class CarRepository {
 
 
     }
+
+    public void updateStatus(String regNumber, String reserved) {
+        connection = ConnectionManager.connectToMySQL();
+
+        String query = "UPDATE car SET car_status = ?" +
+                "WHERE car_reg_number = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, reserved);
+            preparedStatement.setString(2, regNumber);
+
+
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("kunne ikke opdatere car med car_id  = " + regNumber);
+            e.printStackTrace();
+        }
+    }
 }

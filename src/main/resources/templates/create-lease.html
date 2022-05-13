@@ -62,24 +62,18 @@
             <section class="form-content">
 
                 <label class="form-label" for="cprNumber">Kundens CPR-nummer</label>
-                <input class="form-input-box text" type="number" id="cprNumber" placeholder="Indtast CRP-nummer">
-
-                <label class="form-label" for="accountNumber">Kundens kontonummer</label>
-                <input class="form-input-box text" type="number" id="accountNumber" placeholder="Indtast kontonummer">
-
-                <label class="form-label" for="customerRegNumber">Kundens registreringsnummer</label>
-                <input class="form-input-box text" type="text" id="customerRegNumber" placeholder="Indtast registreringsnummer">
+                <input class="form-input-box text" name="cprNumber" type="number" id="cprNumber" placeholder="Indtast CRP-nummer">
 
                 <!-- den kan være hidden evt reg nummer -->
-                <!--<label class="form-label" for="chassisNumber">Stelnummer</label>-->
-                <input class="form-input-box text" type="hidden" id="carRegNumber">
+                <!--<label class="form-label" for="chassisNumber">Registreringsnummer</label>-->
+                <input class="form-input-box text" type="hidden" name="regNumber" id="carRegNumber" th:value="${car.registrationNumber}">
 
                 <label class="form-label" for="period">Periode</label>
-                <input class="form-input-box text" type="number" id="period" placeholder="Indtast periode">
+                <input class="form-input-box text" type="number" name="period" id="period" placeholder="Indtast periode">
                 <!--Er "period" id til CPR? -->
 
                 <label class="form-label" for="price">Price</label>
-                <input class="form-input-box text" type="text" id="price" placeholder="Indtast pris">
+                <input class="form-input-box text" type="number" id="price" name="price" placeholder="Indtast pris">
 
 
             </section>
