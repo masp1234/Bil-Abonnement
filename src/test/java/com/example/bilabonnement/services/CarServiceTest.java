@@ -33,9 +33,6 @@ class CarServiceTest {
 
     }
 
-
-
-
     // FIXME virker ikke efter hensigten - resultCar burde ikke være null
     @Test
     void checkSearch() {
@@ -57,23 +54,7 @@ class CarServiceTest {
         /*
         assertNotNull(resultCar, "Should not be null," +
                 " since there is a Ford in the list of cars");*/
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
     @BeforeEach
     void initCarList() {
         carList = new ArrayList<>();
