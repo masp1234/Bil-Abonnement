@@ -54,7 +54,7 @@ public class CarService {
         return display;
     }
 
-    private ArrayList<Car> sortByCriteria(ArrayList<Car> cars, String sortCriteria){
+    public ArrayList<Car> sortByCriteria(ArrayList<Car> cars, String sortCriteria){
         ArrayList<Car> carsBySortCriteria = new ArrayList<>();
         if(sortCriteria.equals("all")) return cars;
         for (Car car:cars) {
@@ -63,7 +63,7 @@ public class CarService {
         return carsBySortCriteria;
     }
 
-    private Car checkSearch(Car car, String[] search){
+    public Car checkSearch(Car car, String[] search){
         for (String s:search) {
             if(!car.toString().toLowerCase().contains(s)) return null;
         }
