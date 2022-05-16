@@ -75,4 +75,5 @@ public class CarService {
     public void updateStatus(String regNumber) {
         carRepository.updateStatusToReserved(regNumber);
     }
+
 }

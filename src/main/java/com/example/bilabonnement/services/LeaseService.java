@@ -17,4 +17,11 @@ public class LeaseService {
         return leaseRepository.addLease(lease);
     }
 
+    public Lease findLease(String registrationNumber) {
+        return leaseRepository.findlease(registrationNumber);
+    }
+
+    public void updateLease(Lease lease) {
+        leaseRepository.updateLease(lease);
+    }
 }

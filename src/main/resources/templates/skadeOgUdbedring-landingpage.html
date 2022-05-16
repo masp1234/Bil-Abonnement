@@ -64,7 +64,7 @@ https://stackoverflow.com/questions/23243277/thymeleaf-how-to-compare-string-wit
     </a>
 
 
-        <a th:if="${#strings.equals(user.role, 'dataregistrering')}"  th:href="@{'/create-lease/' + ${car.registrationNumber}}">
+        <a th:if="${#strings.equals(user.role, 'dataregistrering')}"  th:href="@{'/lease/' + ${car.registrationNumber}}">
             <div class="card-reserved">
                 <div th:if="${#strings.equals(car.status, 'reserved')}" class="card-reserved2">
                     <span>Reserveret</span>

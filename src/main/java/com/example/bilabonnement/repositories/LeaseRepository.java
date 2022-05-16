@@ -4,9 +4,7 @@ import com.example.bilabonnement.models.Lease;
 import com.example.bilabonnement.utilities.ConnectionManager;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 @Repository
 public class LeaseRepository {
@@ -33,7 +31,7 @@ public class LeaseRepository {
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
             preparedStatement.setString(1, lease.getCarRegistrationNumber());
             preparedStatement.setInt(2, lease.getPrice());
-            preparedStatement.setInt(3, lease.getPeriode());
+            preparedStatement.setInt(3, lease.getPeriod());
             preparedStatement.setString(4, lease.getCustomerCprNumber());
             preparedStatement.setString(5, lease.getCustomerAccountNumber());
             preparedStatement.setString(6, lease.getCustomerRegNumber());
@@ -46,5 +44,35 @@ public class LeaseRepository {
             return false;
         }
 
+    }
+    public Lease findlease(String reg) {
+        connection = ConnectionManager.connectToMySQL();
+        // TODO: 14/05/2022 sql injection
+        String query = "SELECT * FROM lease WHERE lease_car_reg_number = '" + reg + "'";
+
+        Lease lease = null;
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                int price = resultSet.getInt(2);
+                int period = resultSet.getInt(3);
+                String cpr = resultSet.getString(4);
+                String accountNumber = resultSet.getString(5);
+                String regNumber = resultSet.getString(6);
+                lease = new Lease(price,period,reg,cpr,accountNumber,regNumber);
+
+            }
+        }
+
+        catch (Exception e) {
+            System.out.println("kunne ikke finde lease");
+            e.printStackTrace();
+
+        }
+
+        return lease;
     }
 }
