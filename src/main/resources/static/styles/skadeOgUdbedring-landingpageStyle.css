@@ -31,21 +31,18 @@ body {
 }
 
 .allCars {
-    width: 8%;
     border-radius: 14px;
     background-color: white;
     border: 2px solid #1892C3;
-    margin-right: 2%;
 
-
+    text-align: center;
     color: #1892C3;
     font-size: 16px;
     font-weight: bolder;
 }
 
-.allCars:hover {
-    background-color: #1892C3;
-    color: white;
+.allCard-options {
+    text-align: left;
 }
 
 

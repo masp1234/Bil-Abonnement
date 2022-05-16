@@ -20,6 +20,8 @@ public class UserRepository {
         connection = ConnectionManager.connectToMySQL();
     }
     public User findUser(String username) {
+        connection = ConnectionManager.connectToMySQL();
+
         String query = "SELECT * FROM user WHERE user_username = '" + username + "'";
         User selectedUser = null;
 
@@ -34,10 +36,13 @@ public class UserRepository {
 
             }
         }
-        catch (SQLException e) {
+        /*catch (CommunicationException e){
+            findUser(username);
+        }*/
+        catch (Exception e) {
             System.out.println("kunne ikke finde bruger");
             e.printStackTrace();
-            findUser(username);
+
         }
 
         return selectedUser;

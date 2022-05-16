@@ -1,9 +1,9 @@
 package com.example.bilabonnement.models;
 
 public class Customer {
-    private int cpr;
-    private int accountNumber;
-    private int registrationNumber;
+    private String cpr;
+    private String accountNumber;
+    private String registrationNumber;
     private String firstname;
     private String lastName;
     private String email;
@@ -15,7 +15,7 @@ public class Customer {
 public Customer() {
 }
 
-    public Customer(int cpr, int accountNumber, int registrationNumber, String firstname, String lastName,
+    public Customer(String cpr, String accountNumber, String registrationNumber, String firstname, String lastName,
                     String email, int phoneNumber, String address, int zipCode, String city) {
         this.cpr = cpr;
         this.accountNumber = accountNumber;
@@ -29,20 +29,24 @@ public Customer() {
         this.city = city;
     }
 
-    public void setCpr(int cpr) {
+    public void setCpr(String cpr) {
         this.cpr = cpr;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 
-    public void setRegistrationNumber(int registrationNumber) {
+    public void setRegistrationNumber(String registrationNumber) {
         this.registrationNumber = registrationNumber;
     }
 
-    public void setFullName(String firstname) {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setEmail(String email) {
@@ -65,15 +69,15 @@ public Customer() {
         this.city = city;
     }
 
-    public int getCpr() {
+    public String getCpr() {
         return cpr;
     }
 
-    public int getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public int getRegistrationNumber() {
+    public String getRegistrationNumber() {
         return registrationNumber;
     }
 

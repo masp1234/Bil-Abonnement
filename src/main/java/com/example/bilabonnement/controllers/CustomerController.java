@@ -15,7 +15,7 @@ public class CustomerController {
     public CustomerController(CustomerService customerService){
         this.customerService = customerService;
     }
-    @GetMapping("/add-customer")
+    @GetMapping("/create-customer")
     public String addCustomer(){
         return "create-customer";
     }
@@ -26,15 +26,24 @@ public class CustomerController {
                          @RequestParam("email") String email,
                          @RequestParam("address") String address,
                          @RequestParam("zipCode") int zipCode,
-                         @RequestParam("city") String city,
                          @RequestParam("phoneNumber") int phoneNumber,
-                         @RequestParam("cpr") int cpr,
-                         @RequestParam("accountNumber") int accountNumber,
-                         @RequestParam("registrationNumber") int registrationNumber){
-        Customer customer = new Customer(cpr,accountNumber,registrationNumber,firstName,lastName,email,phoneNumber,address,zipCode,city);
+                         @RequestParam("cpr") String cpr,
+                         @RequestParam("accountNumber") String accountNumber,
+                         @RequestParam("registrationNumber") String registrationNumber){
+        Customer customer = new Customer();
+        customer.setCpr(cpr);
+        customer.setAccountNumber(accountNumber);
+        customer.setRegistrationNumber(registrationNumber);
+        customer.setFirstname(firstName);
+        customer.setLastName(lastName);
+        customer.setEmail(email);
+        customer.setPhoneNumber(phoneNumber);
+        customer.setZipCode(zipCode);
+        customer.setAddress(address);
+        System.out.println(customer);
 
         customerService.addCustomer(customer);
-        return "dataregister-landingpage";
+        return "redirect:/landingpage";
     }
 
 

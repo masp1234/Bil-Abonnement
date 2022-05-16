@@ -19,6 +19,10 @@ public class CarRepository {
         connection = ConnectionManager.connectToMySQL();
     }
     public List<Car> getAllCars(){
+
+        connection = ConnectionManager.connectToMySQL();
+
+
         List<Car> car = new ArrayList<>();
         final String QUERY="SELECT * FROM car";
         try {
@@ -54,11 +58,14 @@ public class CarRepository {
     }
 
     public void addCar(Car car){
+
+        connection = ConnectionManager.connectToMySQL();
+
         final String QUERY= "INSERT INTO car" +
                 "(car_reg_number, car_chassis_number, " +
                 "car_make, car_model, car_color , " +
                 "car_equipment_level, car_reg_fee, " +
-                "car_emission, car_lease_id)" +
+                "car_emission, car_status, car_url)" +
                 " VALUE(?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement=connection.prepareStatement(QUERY);
@@ -70,6 +77,8 @@ public class CarRepository {
             preparedStatement.setString(6, car.getEquipmentLevel());
             preparedStatement.setDouble(7, car.getRegistrationFee());
             preparedStatement.setDouble(8, car.getEmission());
+            preparedStatement.setString(9, "available");
+            preparedStatement.setString(10, car.getUrl());
             preparedStatement.executeUpdate();
             System.out.println("the car is added");
         }catch (SQLException e){
@@ -79,11 +88,13 @@ public class CarRepository {
     }
 
 
-    public void deleteCarById(int id){
-        final String QUERY="DELETE FROM car WHERE car_id = ?";
+    public void deleteCarById(String id){
+        connection = ConnectionManager.connectToMySQL();
+
+        final String QUERY="DELETE FROM car WHERE car_reg_number = ?";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
             preparedStatement.executeUpdate();
             System.out.println(" the car is deleted");
         }catch (SQLException e){
@@ -94,6 +105,8 @@ public class CarRepository {
 
 
     public Car getCarById(String id) {
+
+        connection = ConnectionManager.connectToMySQL();
 
         String query = "SELECT * FROM car WHERE car_reg_number = '" + id + "'";
 
@@ -131,6 +144,8 @@ public class CarRepository {
 
     public void updateCar(Car car) {
 
+        connection = ConnectionManager.connectToMySQL();
+
         String query = "UPDATE car SET car_chassis_number = ?, car_make = ?, car_model = ?, car_color = ?, " +
                 "car_equipment_level = ?, car_reg_fee = ?, car_emission = ?, is_rented = ?, is_ready_to_rent = ?" +
                 "WHERE car_reg_number = ?";
@@ -154,5 +169,25 @@ public class CarRepository {
         }
 
 
+    }
+
+    public void updateStatus(String regNumber, String reserved) {
+        connection = ConnectionManager.connectToMySQL();
+
+        String query = "UPDATE car SET car_status = ?" +
+                "WHERE car_reg_number = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, reserved);
+            preparedStatement.setString(2, regNumber);
+
+
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("kunne ikke opdatere car med car_id  = " + regNumber);
+            e.printStackTrace();
+        }
     }
 }

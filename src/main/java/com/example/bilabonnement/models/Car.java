@@ -1,5 +1,7 @@
 package com.example.bilabonnement.models;
 
+import java.util.Objects;
+
 public class Car {
     private String chassisNumber;
     private String make;
@@ -10,7 +12,6 @@ public class Car {
     private double registrationFee;
     private double emission;
     private String status = "available";
-
     private String url;
 
 
@@ -29,6 +30,14 @@ public class Car {
         this.emission = emission;
         this.status = status;
         this.url = url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getUrl() {
@@ -107,4 +116,11 @@ public class Car {
     public String toString() {
         return chassisNumber + " " + make + " " + model + " " + color + " " + registrationNumber + " " + equipmentLevel + " " + registrationNumber + " " + emission;
     }
+    @Override
+    public boolean equals(Object object) {
+        Car other = (Car) object;
+        return this.toString().equalsIgnoreCase(other.toString());
+
+    }
+
 }

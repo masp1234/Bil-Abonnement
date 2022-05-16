@@ -13,8 +13,8 @@ public class LeaseService {
         this.leaseRepository = leaseRepository;
     }
 
-    public void addLease(Lease lease) {
-        leaseRepository.addLease(lease);
+    public boolean addLease(Lease lease) {
+        return leaseRepository.addLease(lease);
     }
 
 }

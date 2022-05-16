@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 
 @Service
@@ -36,7 +35,7 @@ public class CarService {
         carRepository.addCar(car);
     }
 
-    public void deleteCarById(int id) {
+    public void deleteCarById(String id) {
         carRepository.deleteCarById(id);
     }
 
@@ -55,7 +54,7 @@ public class CarService {
         return display;
     }
 
-    private ArrayList<Car> sortByCriteria(ArrayList<Car> cars, String sortCriteria){
+    public ArrayList<Car> sortByCriteria(ArrayList<Car> cars, String sortCriteria){
         ArrayList<Car> carsBySortCriteria = new ArrayList<>();
         if(sortCriteria.equals("all")) return cars;
         for (Car car:cars) {
@@ -64,7 +63,7 @@ public class CarService {
         return carsBySortCriteria;
     }
 
-    private Car checkSearch(Car car, String[] search){
+    public Car checkSearch(Car car, String[] search){
         for (String s:search) {
             if(!car.toString().toLowerCase().contains(s)) return null;
         }
@@ -72,5 +71,8 @@ public class CarService {
         return car;
     }
 
-
+    //Den skifter status med den besked man sender
+    public void updateStatus(String regNumber, String reserved) {
+        carRepository.updateStatus(regNumber,reserved);
+    }
 }

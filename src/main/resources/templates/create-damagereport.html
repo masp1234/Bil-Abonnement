@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <link rel="stylesheet" href="../static/styles/form-page-container.css"
+          th:href="@{/styles/form-page-container.css}"/>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<body>
+
+<div th:replace="navbar :: navbar"></div>
+<div class="container">
+
+
+    <section class="form-section-container section-container">
+
+        <h1 class="form-header text">Opret skadesrapport</h1>
+
+
+        <form class="form-container text" action="/create-lease" method="POST">
+
+
+            <section class="form-content">
+
+                <label class="form-label" for="chassisNumber">Stelnummer</label>
+                <input class="form-input-box text" type="number" id="chassisNumber" placeholder="Indtast stelnummer">
+
+                <!-- Dette er selve skadesrapportens dato-->
+                <label class="form-label" for="date">Dato</label>
+                <input class="form-input-box text" type="date" id="date" placeholder="Indtast dato">
+
+                <label class="form-label" for="price">Pris?</label>
+                <input class="form-input-box text" type="text" id="price" placeholder="Indtast pris">
+                <button class="button-damage text" type="submit">Tilføj skade</button>
+
+            </section>
+            <section class="button-container">
+                <button class="button-submit text" type="submit">Opret</button>
+            </section>
+
+            <!-- PERIOD??? HVILKET FORMAT?-->
+
+        </form>
+
+    </section>
+
+
+    <section class="form-section-container section-container2">
+
+        <h1 class="form-header2 text">Skader</h1>
+
+<table>
+        <tr class="tableHead">
+            <th>SKADE</th>
+            <th>BESKRIVELSE</th>
+            <th>DATO</th>
+            <th>PRIS</th>
+        </tr>
+
+    <!-- SKADER - IKKE KLAR-->
+    <tr class="damage-content">
+        <td th:text="${damage.name}">Skade</td>
+        <td th:text="${damage.description}">Beskrivelse af skaden</td>
+        <td th:text="${damage.date}">Dato på skaden</td>
+        <td th:text="${damage.price}">Pris i alt</td>
+    </tr>
+
+ <!--DETTE SKAL SLETTES. (Bruges til hjælp for nu) -->
+    <tr class="damage-content">
+        <td th:text="${damage.name}">Skade</td>
+        <td th:text="${damage.description}">Beskrivelse af skaden</td>
+        <td th:text="${damage.date}">Dato på skaden</td>
+        <td th:text="${damage.price}">Pris i alt</td>
+    </tr>
+    <!--DETTE SKAL SLETTES. (Bruges til hjælp for nu) -->
+</table>
+    </section>
+
+</div>
+
+
+</body>
+</html>

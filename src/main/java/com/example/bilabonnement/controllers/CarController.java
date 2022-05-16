@@ -20,6 +20,10 @@ public class CarController {
         this.carService = carService;
     }
 
+    @GetMapping("/create-car")
+    public String createCar(){
+        return "create-car";
+    }
 
 
     @PostMapping("landingpage")
@@ -42,22 +46,18 @@ public class CarController {
         return "skadeOgUdbedring-landingpage";
     }
 
-    @GetMapping("/add-car")
-    public String showAddCar(){
-
-        //TODO Skal ændres når rigtige template er klar
-        return "add-car";
-    }
-
-    @PostMapping(value = "add-car")
+    @PostMapping(value = "create-car")
     public String addCar(@RequestParam("registrationNumber") String registrationNumber,
                          @RequestParam("chassisNumber") String chassisNumber,
-                         @RequestParam("make") String make, @RequestParam("model") String model,
+                         @RequestParam("make") String make,
+                         @RequestParam("model") String model,
                          @RequestParam("color") String color,
-
                          @RequestParam("equipmentLevel") String equipmentLevel,
                          @RequestParam("registrationFee") double registrationFee,
-                         @RequestParam("emission") double emission){
+                         @RequestParam("carEmission") double emission,
+                         @RequestParam(name="link") String link,
+                         HttpSession session,Model model2){
+
         Car car = new Car();
         car.setRegistrationNumber(registrationNumber);
         car.setChassisNumber(chassisNumber);
@@ -67,14 +67,17 @@ public class CarController {
         car.setEquipmentLevel(equipmentLevel);
         car.setRegistrationFee(registrationFee);
         car.setEmission(emission);
+        car.setUrl(link);
+        User user = (User) session.getAttribute("user");
+        model2.addAttribute("user",user);
 
         carService.addCar(car);
         //TODO Skal ændres når rigtige template er klar
-        return "redirect:/showAllCar";
+        return "redirect:/landingpage";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteCarById(@PathVariable("id") int id){
+    public String deleteCarById(@PathVariable("id") String id){
         carService.deleteCarById(id);
         //TODO Skal ændres når rigtige template er klar
         return "redirect:/showAllCar";
