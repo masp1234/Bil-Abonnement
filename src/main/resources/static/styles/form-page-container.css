@@ -20,6 +20,12 @@ body {
 
 }
 
+.section-container2 {
+    display: grid;
+    background-color: #F2F2F2;
+    border-radius: 3%;
+}
+
 .info-section-container {
     justify-content: center;
     grid-template-columns: 45% 45%;
@@ -147,6 +153,37 @@ body {
     color: #F5F5F5;
     font-weight: bold;
     font-size: 18px;
+}
+
+.button-submit2 {
+    background-color: rgba(14, 172, 35, 0.884);
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    color: #F5F5F5;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 10px;
+}
+
+.button-damage2 {
+    background-color: #eac317;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    color: #F5F5F5;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 10px;
+}
+
+
+.button-submit2:hover {
+    background-color: rgba(13, 135, 27, 0.88);
+}
+
+.button-damage2:hover {
+    background-color: #caa914;
 }
 
 .car-image {
