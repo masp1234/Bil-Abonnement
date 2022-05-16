@@ -30,7 +30,7 @@ public class LeaseController {
 
     //TODO skal måske modtage kundeId som parameter
     @GetMapping("/create-lease/{id}")
-    public String createLease(@PathVariable("id") String registrationNumber, Model model) {
+    public String showCreateLease(@PathVariable("id") String registrationNumber, Model model) {
         Car car = carService.getCarById(registrationNumber);
         model.addAttribute("car", car);
         return "create-lease";
@@ -39,12 +39,12 @@ public class LeaseController {
 
     // TODO: 13-05-2022 lige nu mangler den at tage højde for om customer cpr er registreret. Den kan godt oprette leasing kontrakt uden at et cpr nummer findes
     @PostMapping("/create-lease")
-    public String createCustomer(@RequestParam("cprNumber") String cprNumber,
-                                 @RequestParam("regNumber") String regNumber,
-                                 @RequestParam("period") int period,
-                                 @RequestParam("price") int price,
-                                 @RequestParam("customerAccountNumber") String customerAccountNumber,
-                                 @RequestParam("customerRegNumber") String customerRegNumber){
+    public String createlease(@RequestParam("cprNumber") String cprNumber,
+                              @RequestParam("regNumber") String regNumber,
+                              @RequestParam("period") int period,
+                              @RequestParam("price") int price,
+                              @RequestParam("customerAccountNumber") String customerAccountNumber,
+                              @RequestParam("customerRegNumber") String customerRegNumber){
         Lease lease = new Lease(price,period,regNumber,cprNumber,customerAccountNumber,customerRegNumber);
         if(customerService.findUserByCPR(cprNumber) == null){
             return "/create-lease/" + regNumber;

@@ -73,6 +73,22 @@ public class CarService {
 
     //Den skifter status med den besked man sender
     public void updateStatus(String regNumber) {
-        carRepository.updateStatusToReserved(regNumber);
+        Car car = carRepository.getCarById(regNumber);
+        String updatedStatus = "reserved";
+
+        switch (car.getStatus()) {
+            case "reserved":
+                updatedStatus = "workshop";
+                break;
+
+            case "workshop":
+                updatedStatus = "available";
+                break;
+
+            case "available":
+                updatedStatus = "reserved";
+                break;
+        }
+        carRepository.updateStatus(regNumber, updatedStatus);
     }
 }
