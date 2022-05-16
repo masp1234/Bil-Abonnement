@@ -38,7 +38,8 @@ class CarServiceTest {
     void checkSearch() {
 
         //arrange
-        String[] searchWords = {"Ford", "red", "Steel"};
+        // skal være lowercase, da checksearch sætter alt til lowercase
+        String[] searchWords = {"ford", "green", "super advanced"};
         Car car = carList.get(0);
         System.out.println("this is the car: " + car);
 
@@ -48,7 +49,7 @@ class CarServiceTest {
         System.out.println("Det her er resultCar = " + resultCar);
 
         //assert
-       assertNull(resultCar, "It's null");
+       assertNotNull(resultCar, "It's null");
 
 
         /*
