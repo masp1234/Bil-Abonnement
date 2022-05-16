@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class LeaseController {
 
@@ -29,28 +31,50 @@ public class LeaseController {
 
 
     //TODO skal måske modtage kundeId som parameter
-    @GetMapping("/create-lease/{id}")
-    public String showCreateLease(@PathVariable("id") String registrationNumber, Model model) {
+    @GetMapping("/lease/{id}")
+    public String createLease(@PathVariable("id") String registrationNumber, Model model, HttpSession session) {
         Car car = carService.getCarById(registrationNumber);
+        System.out.println(leaseService.findLease(registrationNumber));
+        if(car.getStatus().equals("reserved")) model.addAttribute("lease", leaseService.findLease(registrationNumber));
         model.addAttribute("car", car);
+        String errorMessage = (String) session.getAttribute("errorMessage");
+        if(errorMessage != null) {
+            model.addAttribute("errorMessage", errorMessage);
+            session.removeAttribute("errorMessage");
+        }
         return "create-lease";
+    }
+
+    @PostMapping("/update-lease")
+    public String updateCustomer(@RequestParam("updateCprNumber") String cprNumber,
+                                 @RequestParam("updateCarRegNumber") String regNumber,
+                                 @RequestParam("updatePeriod") int period,
+                                 @RequestParam("updatePrice") int price,
+                                 @RequestParam("updateCustomerAccountNumber") String customerAccountNumber,
+                                 @RequestParam("updateCustomerRegNumber") String customerRegNumber){
+        leaseService.updateLease(new Lease(price,period,regNumber,cprNumber,customerAccountNumber,customerRegNumber));
+
+        return "redirect:/landingpage";
     }
 
 
     // TODO: 13-05-2022 lige nu mangler den at tage højde for om customer cpr er registreret. Den kan godt oprette leasing kontrakt uden at et cpr nummer findes
     @PostMapping("/create-lease")
-    public String createlease(@RequestParam("cprNumber") String cprNumber,
-                              @RequestParam("regNumber") String regNumber,
-                              @RequestParam("period") int period,
-                              @RequestParam("price") int price,
-                              @RequestParam("customerAccountNumber") String customerAccountNumber,
-                              @RequestParam("customerRegNumber") String customerRegNumber){
+    public String createCustomer(@RequestParam("cprNumber") String cprNumber,
+                                 @RequestParam("regNumber") String regNumber,
+                                 @RequestParam("period") int period,
+                                 @RequestParam("price") int price,
+                                 @RequestParam("customerAccountNumber") String customerAccountNumber,
+                                 @RequestParam("customerRegNumber") String customerRegNumber, HttpSession session){
         Lease lease = new Lease(price,period,regNumber,cprNumber,customerAccountNumber,customerRegNumber);
+
         if(customerService.findUserByCPR(cprNumber) == null){
-            return "/create-lease/" + regNumber;
+            session.setAttribute("errorMessage","Kunde med dette cpr-nummer findes ikke");
+            return "redirect:/lease/" + regNumber;
         }
         boolean leasingAgreement = leaseService.addLease(lease);
         if (leasingAgreement) carService.updateStatus(regNumber);
+
         return "redirect:/landingpage";
     }
 

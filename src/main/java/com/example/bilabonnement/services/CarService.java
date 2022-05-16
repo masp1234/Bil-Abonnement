@@ -91,4 +91,5 @@ public class CarService {
         }
         carRepository.updateStatus(regNumber, updatedStatus);
     }
+
 }

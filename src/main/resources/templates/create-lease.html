@@ -64,6 +64,8 @@
                 <label class="form-label" for="cprNumber">Kundens CPR-nummer</label>
                 <input class="form-input-box text" name="cprNumber" type="number" id="cprNumber" placeholder="Indtast CRP-nummer">
 
+                <span class="errormessage" style="color:red;" th:if="${errorMessage != null}" th:text="${errorMessage}"></span>
+
                 <!-- den kan være hidden evt reg nummer -->
                 <!--<label class="form-label" for="chassisNumber">Registreringsnummer</label>-->
                 <input class="form-input-box text" type="hidden" name="regNumber" id="carRegNumber" th:value="${car.registrationNumber}">
@@ -105,29 +107,29 @@
             <section class="form-content">
 
                 <label class="form-label" for="updateCprNumber">Kundens CPR-nummer</label>
-                <input class="form-input-box text" name="updateCprNumber" type="number" id="updateCprNumber" placeholder="Indtast CRP-nummer">
+                <input style="color: grey;" class="form-input-box text" name="updateCprNumber" type="number" id="updateCprNumber" th:value="${lease.customerCprNumber}" readonly>
 
                 <!-- den kan være hidden evt reg nummer -->
                 <!--<label class="form-label" for="chassisNumber">Registreringsnummer</label>-->
                 <input class="form-input-box text" type="hidden" name="updateCarRegNumber" id="updateCarRegNumber" th:value="${car.registrationNumber}">
 
                 <label class="form-label" for="updatePeriod">Periode</label>
-                <input class="form-input-box text" type="number" name="updatePeriod" id="updatePeriod" placeholder="Indtast periode">
+                <input class="form-input-box text" type="number" name="updatePeriod" id="updatePeriod" th:value="${lease.period}">
                 <!--Er "period" id til CPR? -->
 
                 <label class="form-label" for="updatePrice">Price</label>
-                <input class="form-input-box text" type="number" id="updatePrice" name="updatePrice" placeholder="Indtast pris">
+                <input class="form-input-box text" type="number" id="updatePrice" name="updatePrice" th:value="${lease.price}">
 
                 <label class="form-label" for="updateCustomerAccountNumber">Kundens kontonummer</label>
-                <input class="form-input-box text" type="number" name="updateCustomerAccountNumber" id="updateCustomerAccountNumber" placeholder="Indtast periode">
+                <input class="form-input-box text" type="number" name="updateCustomerAccountNumber" id="updateCustomerAccountNumber" th:value="${lease.customerAccountNumber}">
 
                 <label class="form-label" for="updateCustomerRegNumber">Kundens registreringsnummer</label>
-                <input class="form-input-box text" type="number" name="updateCustomerRegNumber" id="updateCustomerRegNumber" placeholder="Indtast periode">
+                <input class="form-input-box text" type="number" name="updateCustomerRegNumber" id="updateCustomerRegNumber" th:value="${lease.customerRegNumber}">
 
 
             </section>
             <section class="button-container">
-                <button class="button-submit text" type="submit">Opret</button>
+                <button class="button-submit text" type="submit">Opdater</button>
             </section>
 
             <!-- PERIOD??? HVILKET FORMAT?-->

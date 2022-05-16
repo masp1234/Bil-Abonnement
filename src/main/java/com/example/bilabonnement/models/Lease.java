@@ -3,7 +3,7 @@ package com.example.bilabonnement.models;
 public class Lease {
 
     private int price;
-    private int periode; /*Denne ændres nok senere*/
+    private int period; /*Denne ændres nok senere*/
     private String carRegistrationNumber;
     private String customerCprNumber;
     private String customerRegNumber;
@@ -14,9 +14,9 @@ public class Lease {
 
     }
 
-    public Lease(int price, int periode, String carRegistrationNumber, String customerCprNumber, String customerAccountNumber, String customerRegNumber) {
+    public Lease(int price, int period, String carRegistrationNumber, String customerCprNumber, String customerAccountNumber, String customerRegNumber) {
         this.price = price;
-        this.periode = periode;
+        this.period = period;
         this.carRegistrationNumber = carRegistrationNumber;
         this.customerCprNumber = customerCprNumber;
         this.customerAccountNumber = customerAccountNumber;
@@ -39,12 +39,12 @@ public class Lease {
         this.price = price;
     }
 
-    public int getPeriode() {
-        return periode;
+    public int getPeriod() {
+        return period;
     }
 
-    public void setPeriode(int periode) {
-        this.periode = periode;
+    public void setPeriod(int period) {
+        this.period = period;
     }
 
     public String getCarRegistrationNumber() {
@@ -67,7 +67,7 @@ public class Lease {
     public String toString() {
         return "Lease{" +
                 "price=" + price +
-                ", periode=" + periode +
+                ", periode=" + period +
                 ", carRegistrationNumber='" + carRegistrationNumber + '\'' +
                 ", customerCprNumber=" + customerCprNumber +
                 '}';

@@ -178,3 +178,7 @@ table {
 table tr:nth-child(even) { /*Opdeler ønsker*/
     background-color: #d5d3d3;
 }
+
+.errormessage {
+    margin-bottom: 10px;
+}
