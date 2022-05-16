@@ -2,24 +2,21 @@ package com.example.bilabonnement.models;
 
 public class Customer {
     private String cpr;
-    private String accountNumber;
-    private String registrationNumber;
+
     private String firstname;
     private String lastName;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
     private String address;
-    private int zipCode;
+    private String zipCode;
     private String city;
 
 public Customer() {
 }
 
-    public Customer(String cpr, String accountNumber, String registrationNumber, String firstname, String lastName,
-                    String email, int phoneNumber, String address, int zipCode, String city) {
+    public Customer(String cpr, String firstname, String lastName,
+                    String email, String phoneNumber, String address, String zipCode, String city) {
         this.cpr = cpr;
-        this.accountNumber = accountNumber;
-        this.registrationNumber = registrationNumber;
         this.firstname = firstname;
         this.lastName = lastName;
         this.email = email;
@@ -33,13 +30,6 @@ public Customer() {
         this.cpr = cpr;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
-    }
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
@@ -53,7 +43,7 @@ public Customer() {
         this.email = email;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -61,7 +51,7 @@ public Customer() {
         this.address = address;
     }
 
-    public void setZipCode(int zipCode) {
+    public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 
@@ -73,13 +63,6 @@ public Customer() {
         return cpr;
     }
 
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public String getRegistrationNumber() {
-        return registrationNumber;
-    }
 
     public String getFirstname() {
         return firstname;
@@ -93,7 +76,7 @@ public Customer() {
         return email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -101,7 +84,7 @@ public Customer() {
         return address;
     }
 
-    public int getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 
@@ -112,9 +95,7 @@ public Customer() {
     @Override
     public String toString() {
         return "Customer{" +
-                "cpr=" + cpr +
-                ", accountNumber=" + accountNumber +
-                ", registrationNumber=" + registrationNumber +
+                "cpr='" + cpr + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +

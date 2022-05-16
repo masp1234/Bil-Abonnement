@@ -6,17 +6,29 @@ public class Lease {
     private int periode; /*Denne ændres nok senere*/
     private String carRegistrationNumber;
     private String customerCprNumber;
+    private String customerRegNumber;
+    private String customerAccountNumber;
 
 
     public Lease() {
 
     }
 
-    public Lease(int price, int periode, String carRegistrationNumber, String customerCprNumber) {
+    public Lease(int price, int periode, String carRegistrationNumber, String customerCprNumber, String customerAccountNumber, String customerRegNumber) {
         this.price = price;
         this.periode = periode;
         this.carRegistrationNumber = carRegistrationNumber;
         this.customerCprNumber = customerCprNumber;
+        this.customerAccountNumber = customerAccountNumber;
+        this.customerRegNumber = customerRegNumber;
+    }
+
+    public String getCustomerAccountNumber() {
+        return customerAccountNumber;
+    }
+
+    public String getCustomerRegNumber() {
+        return customerRegNumber;
     }
 
     public int getPrice() {

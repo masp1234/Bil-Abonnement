@@ -51,7 +51,7 @@
     </section>
 
 
-    <section class="form-section-container section-container">
+    <section th:if="${#strings.equals(car.status, 'available')}"  class="form-section-container section-container">
 
         <h1 class="form-header text">Opret lejekontrakt</h1>
 
@@ -75,6 +75,12 @@
                 <label class="form-label" for="price">Price</label>
                 <input class="form-input-box text" type="number" id="price" name="price" placeholder="Indtast pris">
 
+                <label class="form-label" for="customerAccountNumber">Kundens kontonummer</label>
+                <input class="form-input-box text" type="number" name="customerAccountNumber" id="customerAccountNumber" placeholder="Indtast periode">
+
+                <label class="form-label" for="customerRegNumber">Kundens registreringsnummer</label>
+                <input class="form-input-box text" type="number" name="customerRegNumber" id="customerRegNumber" placeholder="Indtast periode">
+
 
             </section>
             <section class="button-container">
@@ -86,6 +92,51 @@
         </form>
 
     </section>
+
+
+    <section th:if="${#strings.equals(car.status, 'reserved')}"  class="form-section-container section-container">
+
+        <h1 class="form-header text">Opdater lejekontrakt</h1>
+
+
+        <form class="form-container text" action="/update-lease" method="POST">
+
+
+            <section class="form-content">
+
+                <label class="form-label" for="updateCprNumber">Kundens CPR-nummer</label>
+                <input class="form-input-box text" name="updateCprNumber" type="number" id="updateCprNumber" placeholder="Indtast CRP-nummer">
+
+                <!-- den kan være hidden evt reg nummer -->
+                <!--<label class="form-label" for="chassisNumber">Registreringsnummer</label>-->
+                <input class="form-input-box text" type="hidden" name="updateCarRegNumber" id="updateCarRegNumber" th:value="${car.registrationNumber}">
+
+                <label class="form-label" for="updatePeriod">Periode</label>
+                <input class="form-input-box text" type="number" name="updatePeriod" id="updatePeriod" placeholder="Indtast periode">
+                <!--Er "period" id til CPR? -->
+
+                <label class="form-label" for="updatePrice">Price</label>
+                <input class="form-input-box text" type="number" id="updatePrice" name="updatePrice" placeholder="Indtast pris">
+
+                <label class="form-label" for="updateCustomerAccountNumber">Kundens kontonummer</label>
+                <input class="form-input-box text" type="number" name="updateCustomerAccountNumber" id="updateCustomerAccountNumber" placeholder="Indtast periode">
+
+                <label class="form-label" for="updateCustomerRegNumber">Kundens registreringsnummer</label>
+                <input class="form-input-box text" type="number" name="updateCustomerRegNumber" id="updateCustomerRegNumber" placeholder="Indtast periode">
+
+
+            </section>
+            <section class="button-container">
+                <button class="button-submit text" type="submit">Opret</button>
+            </section>
+
+            <!-- PERIOD??? HVILKET FORMAT?-->
+
+        </form>
+
+    </section>
+
+
 
 </div>
 

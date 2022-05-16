@@ -24,8 +24,10 @@ public class LeaseRepository {
         final String QUERY = "INSERT INTO lease" +
                 "(lease_car_reg_number, " +
                 "lease_price, lease_period, " +
-                " lease_customer_cpr_number)"  +
-                "VALUE(?,?,?,?)";
+                " lease_customer_cpr_number," +
+                "lease_account_number," +
+                "lease_reg_number)"  +
+                "VALUE(?,?,?,?,?,?)";
         System.out.println(lease);
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
@@ -33,6 +35,8 @@ public class LeaseRepository {
             preparedStatement.setInt(2, lease.getPrice());
             preparedStatement.setInt(3, lease.getPeriode());
             preparedStatement.setString(4, lease.getCustomerCprNumber());
+            preparedStatement.setString(5, lease.getCustomerAccountNumber());
+            preparedStatement.setString(6, lease.getCustomerRegNumber());
             preparedStatement.executeUpdate();
             System.out.println("Customer has been added");
             return true;

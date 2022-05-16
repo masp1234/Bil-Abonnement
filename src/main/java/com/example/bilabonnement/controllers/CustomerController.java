@@ -25,15 +25,11 @@ public class CustomerController {
                          @RequestParam("lastName") String lastName,
                          @RequestParam("email") String email,
                          @RequestParam("address") String address,
-                         @RequestParam("zipCode") int zipCode,
-                         @RequestParam("phoneNumber") int phoneNumber,
-                         @RequestParam("cpr") String cpr,
-                         @RequestParam("accountNumber") String accountNumber,
-                         @RequestParam("registrationNumber") String registrationNumber){
+                         @RequestParam("zipCode") String zipCode,
+                         @RequestParam("phoneNumber") String phoneNumber,
+                         @RequestParam("cpr") String cpr){
         Customer customer = new Customer();
         customer.setCpr(cpr);
-        customer.setAccountNumber(accountNumber);
-        customer.setRegistrationNumber(registrationNumber);
         customer.setFirstname(firstName);
         customer.setLastName(lastName);
         customer.setEmail(email);

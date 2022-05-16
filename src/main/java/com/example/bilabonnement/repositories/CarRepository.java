@@ -171,19 +171,45 @@ public class CarRepository {
 
     }
 
-    public void updateStatus(String regNumber, String reserved) {
+    public void updateStatusToReserved(String regNumber) {
         connection = ConnectionManager.connectToMySQL();
 
-        String query = "UPDATE car SET car_status = ?" +
+        String query = "UPDATE car SET car_status = 'reserved'" +
                 "WHERE car_reg_number = ?";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, reserved);
-            preparedStatement.setString(2, regNumber);
+            preparedStatement.setString(1, regNumber);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("kunne ikke opdatere car med car_id  = " + regNumber);
+            e.printStackTrace();
+        }
+    }
+    public void updateStatusToAvailable(String regNumber) {
+        connection = ConnectionManager.connectToMySQL();
 
+        String query = "UPDATE car SET car_status = 'reserved'" +
+                "WHERE car_reg_number = ?";
 
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, regNumber);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("kunne ikke opdatere car med car_id  = " + regNumber);
+            e.printStackTrace();
+        }
+    }
+    public void updateStatusToWorkshop(String regNumber) {
+        connection = ConnectionManager.connectToMySQL();
 
+        String query = "UPDATE car SET car_status = 'reserved'" +
+                "WHERE car_reg_number = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, regNumber);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("kunne ikke opdatere car med car_id  = " + regNumber);

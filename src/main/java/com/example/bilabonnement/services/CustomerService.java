@@ -15,4 +15,8 @@ public class CustomerService {
     public void addCustomer(Customer customer) {
         customerRepository.addCustomer(customer);
     }
+
+    public Customer findUserByCPR(String cprNumber) {
+        return customerRepository.findUserByCPR(cprNumber);
+    }
 }

@@ -21,7 +21,7 @@ public class UserRepository {
     }
     public User findUser(String username) {
         connection = ConnectionManager.connectToMySQL();
-
+        // TODO: 14/05/2022 sql injection
         String query = "SELECT * FROM user WHERE user_username = '" + username + "'";
         User selectedUser = null;
 
