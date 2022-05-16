@@ -23,7 +23,8 @@ public class CarController {
 
 
     @PostMapping("landingpage")
-    public String searchCars(@RequestParam("search") String search, @RequestParam("sortCriteria") String sortCriteria, Model model,HttpSession session){
+    public String searchCars(@RequestParam("search") String search, @RequestParam("sortCriteria") String sortCriteria,
+                             Model model,HttpSession session){
         User user = (User) session.getAttribute("user");
         model.addAttribute("user", user);
         model.addAttribute("showCars", carService.showAllCarsBySearch(search,sortCriteria));
