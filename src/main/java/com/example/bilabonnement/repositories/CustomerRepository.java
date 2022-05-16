@@ -43,7 +43,7 @@ public class CustomerRepository {
         }
     }
 
-    public Customer findUserByCPR(String cprNumber) {
+    public Customer findCustomerByCPR(String cprNumber) {
         connection = ConnectionManager.connectToMySQL();
 
         String query = "SELECT customer_cpr_number, customer_firstname, customer_lastname, customer_email, customer_phone, customer_zipcode, customer_address, zipcode.city FROM customer INNER JOIN zipcode ON customer.customer_zipcode = zipcode.zipcode WHERE customer_cpr_number = '" + cprNumber + "'";

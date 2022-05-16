@@ -17,6 +17,6 @@ public class CustomerService {
     }
 
     public Customer findUserByCPR(String cprNumber) {
-        return customerRepository.findUserByCPR(cprNumber);
+        return customerRepository.findCustomerByCPR(cprNumber);
     }
 }

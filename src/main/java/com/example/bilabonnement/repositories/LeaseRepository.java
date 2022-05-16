@@ -75,4 +75,30 @@ public class LeaseRepository {
 
         return lease;
     }
+
+    public void  updateLease(Lease lease) {
+        String query = "UPDATE lease SET lease_price = ?, lease_period = ?," +
+                " lease_customer_cpr_number = ?, lease_account_number = ?," +
+                " lease_reg_number = ? " +
+                "WHERE lease_car_reg_number = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDouble(1, lease.getPrice());
+            preparedStatement.setInt(2, lease.getPeriod());
+            preparedStatement.setString(3, lease.getCustomerCprNumber());
+            preparedStatement.setString(4, lease.getCustomerAccountNumber());
+            preparedStatement.setString(5, lease.getCustomerRegNumber());
+            preparedStatement.setString(6, lease.getCarRegistrationNumber());
+
+            preparedStatement.executeUpdate();
+
+        }
+        catch (SQLException e) {
+            System.out.println("kunne ikke opdatere lease med bil registrationnummer = " + lease.getCarRegistrationNumber());
+            e.printStackTrace();
+        }
+    }
+
+
 }
