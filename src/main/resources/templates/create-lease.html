@@ -139,6 +139,46 @@
     </section>
 
 
+    <section th:if="${#strings.equals(car.status, 'workshop')}"  class="form-section-container section-container">
+
+        <h1 class="form-header text">BIL PÅ VÆRKSTED</h1>
+
+
+        <form class="form-container text">
+
+
+            <section class="form-content">
+
+                <label class="form-label" for="updateCprNumber">Kundens CPR-nummer</label>
+                <input style="color: grey;" class="form-input-box text" name="updateCprNumber" type="number" id="updateCprNumber"  readonly>
+
+                <!-- den kan være hidden evt reg nummer -->
+                <!--<label class="form-label" for="chassisNumber">Registreringsnummer</label>-->
+                <input class="form-input-box text" type="hidden" name="updateCarRegNumber" id="updateCarRegNumber"  readonly>
+
+                <label class="form-label" for="updatePeriod">Periode</label>
+                <input class="form-input-box text" type="number" name="updatePeriod" id="updatePeriod" readonly>
+                <!--Er "period" id til CPR? -->
+
+                <label class="form-label" for="updatePrice">Price</label>
+                <input class="form-input-box text" type="number" id="updatePrice" name="updatePrice" readonly>
+
+                <label class="form-label" for="updateCustomerAccountNumber">Kundens kontonummer</label>
+                <input class="form-input-box text" type="number" name="updateCustomerAccountNumber" id="updateCustomerAccountNumber" readonly>
+
+                <label class="form-label" for="updateCustomerRegNumber">Kundens registreringsnummer</label>
+                <input class="form-input-box text" type="number" name="updateCustomerRegNumber" id="updateCustomerRegNumber" readonly>
+
+
+            </section>
+
+
+            <!-- PERIOD??? HVILKET FORMAT?-->
+
+        </form>
+
+    </section>
+
 
 </div>
 
