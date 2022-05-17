@@ -65,11 +65,11 @@ public class DamageReportRepository {
         return damageReports;
     }
 
-    public DamageReport getDamageReportById(String id) { /*Skal det være fra stelnummeret eller ID?*/
+    public DamageReport getDamageReportByChassisNumber(String chassisNumber) {
 
         connection = ConnectionManager.connectToMySQL();
 
-        String QUERY = "SELECT * FROM damage_report WHERE damage_report_car_chassis_number = '" + id + "'";
+        String QUERY = "SELECT * FROM damage_report WHERE damage_report_car_chassis_number = '" + chassisNumber + "'";
 
         DamageReport damageReport = null;
 
@@ -80,7 +80,6 @@ public class DamageReportRepository {
             while (resultSet.next()) {
                 Date date = resultSet.getDate(1);
                 String description = resultSet.getString(2);
-                String chassisNumber = resultSet.getString(3);
 
                 damageReport = new DamageReport (date, description, chassisNumber);
 
@@ -89,7 +88,7 @@ public class DamageReportRepository {
 
             }
         } catch (SQLException e) {
-            System.out.println("Could not find damageReport by ID: " + id);
+            System.out.println("Could not find damageReport by chassis number: " + chassisNumber);
             e.printStackTrace();
         }
         return damageReport;

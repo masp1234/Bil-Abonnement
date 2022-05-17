@@ -5,15 +5,17 @@ import java.util.Date;
 public class DamageReport {
 
     private int id;
-    private Date date; /*Er det overhovedet rigtigt?*/
+    private Date date;
     private String description;
     private String chassisNumber;
+    private int totalPrice;
 
-    public DamageReport(int id, Date date, String description, String chassisNumber) {
+    public DamageReport(int id, Date date, String description, String chassisNumber, int totalPrice) {
         this.id = id;
         this.date = date;
         this.description = description;
         this.chassisNumber = chassisNumber;
+        this.totalPrice = totalPrice;
     }
 
     public DamageReport(Date date, String description, String chassisNumber) {
@@ -63,7 +65,12 @@ public class DamageReport {
                 ", chassisNumber='" + chassisNumber + '\'' +
                 '}';
     }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 }
-/*
-if now > enddate
-Træk data ud. */
