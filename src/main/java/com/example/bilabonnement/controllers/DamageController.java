@@ -23,8 +23,6 @@ public class DamageController {
     public String createLease(@PathVariable("id") String registrationNumber, Model model) {
         Car car = carService.getCarById(registrationNumber);
         model.addAttribute("car", car);
-
-
         return "create-damagereport";
     }
 

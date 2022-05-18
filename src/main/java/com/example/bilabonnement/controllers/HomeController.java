@@ -66,12 +66,8 @@ public class HomeController {
             return "redirect:/";
         }  else {
             session.setAttribute("user", user);
-            /*if(user.getRole().equals("dataregistrering")){
-                return "redirect:/bruger-forside-dataregistrering";
-            }else if(user.getRole().equals("Forretningsudviklere")){
-                return "redirect:/bruger-forside-Forretningsudviklere";
-            }*/
-                return "redirect:/landingpage";
+            if(user.getRole().equals("forretningsudvikler"))return "statistics";
+            else return "redirect:/landingpage";
 
 
             }
