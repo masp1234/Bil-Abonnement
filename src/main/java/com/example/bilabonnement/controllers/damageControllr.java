@@ -50,7 +50,7 @@ public class damageControllr {
         return "redirect:/damages/" + session.getAttribute("damageReportId");
     }
 
-    @GetMapping("delete/{id}")
+    @GetMapping("delete-damage/{id}")
     public String deletedamageById(@PathVariable("id") int id, HttpSession session){
         damageService.deleteById(id);
         return "redirect:/damages/" + session.getAttribute("damageReportId");
