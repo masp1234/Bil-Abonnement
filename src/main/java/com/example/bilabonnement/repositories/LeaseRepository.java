@@ -21,20 +21,21 @@ public class LeaseRepository {
 
         final String QUERY = "INSERT INTO lease" +
                 "(lease_car_reg_number, " +
-                "lease_price, lease_period, " +
+                "lease_price, lease_start_date, lease_end_date, " +
                 " lease_customer_cpr_number," +
                 "lease_account_number," +
                 "lease_reg_number)"  +
-                "VALUE(?,?,?,?,?,?)";
+                "VALUE(?,?,?,?,?,?,?)";
         System.out.println(lease);
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
             preparedStatement.setString(1, lease.getCarRegistrationNumber());
             preparedStatement.setInt(2, lease.getPrice());
-            preparedStatement.setInt(3, lease.getPeriod());
-            preparedStatement.setString(4, lease.getCustomerCprNumber());
-            preparedStatement.setString(5, lease.getCustomerAccountNumber());
-            preparedStatement.setString(6, lease.getCustomerRegNumber());
+            preparedStatement.setString(3,lease.getStartDate());
+            preparedStatement.setString(4, lease.getEndDate());
+            preparedStatement.setString(5, lease.getCustomerCprNumber());
+            preparedStatement.setString(6, lease.getCustomerAccountNumber());
+            preparedStatement.setString(7, lease.getCustomerRegNumber());
             preparedStatement.executeUpdate();
             System.out.println("Customer has been added");
             return true;
@@ -58,11 +59,12 @@ public class LeaseRepository {
 
             while (resultSet.next()) {
                 int price = resultSet.getInt(2);
-                int period = resultSet.getInt(3);
-                String cpr = resultSet.getString(4);
-                String accountNumber = resultSet.getString(5);
-                String regNumber = resultSet.getString(6);
-                lease = new Lease(price,period,reg,cpr,accountNumber,regNumber);
+                String cpr = resultSet.getString(3);
+                String accountNumber = resultSet.getString(4);
+                String regNumber = resultSet.getString(5);
+                String startDate = resultSet.getString(6);
+                String endDate = resultSet.getString(7);
+                lease = new Lease(price,startDate,endDate,reg,cpr,accountNumber,regNumber);
 
             }
         }
@@ -77,7 +79,7 @@ public class LeaseRepository {
     }
 
     public void  updateLease(Lease lease) {
-        String query = "UPDATE lease SET lease_price = ?, lease_period = ?," +
+        String query = "UPDATE lease SET lease_price = ?, lease_start_date = ?, lease_end_date = ?," +
                 " lease_customer_cpr_number = ?, lease_account_number = ?," +
                 " lease_reg_number = ? " +
                 "WHERE lease_car_reg_number = ?";
@@ -85,11 +87,12 @@ public class LeaseRepository {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setDouble(1, lease.getPrice());
-            preparedStatement.setInt(2, lease.getPeriod());
-            preparedStatement.setString(3, lease.getCustomerCprNumber());
-            preparedStatement.setString(4, lease.getCustomerAccountNumber());
-            preparedStatement.setString(5, lease.getCustomerRegNumber());
-            preparedStatement.setString(6, lease.getCarRegistrationNumber());
+            preparedStatement.setString(2, lease.getStartDate());
+            preparedStatement.setString(3, lease.getEndDate());
+            preparedStatement.setString(4, lease.getCustomerCprNumber());
+            preparedStatement.setString(5, lease.getCustomerAccountNumber());
+            preparedStatement.setString(6, lease.getCustomerRegNumber());
+            preparedStatement.setString(7, lease.getCarRegistrationNumber());
 
             preparedStatement.executeUpdate();
 
