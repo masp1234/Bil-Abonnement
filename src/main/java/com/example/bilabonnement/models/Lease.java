@@ -1,9 +1,11 @@
 package com.example.bilabonnement.models;
 
+
 public class Lease {
 
     private int price;
-    private int period; /*Denne ændres nok senere*/
+    private String startDate;
+    private String endDate;
     private String carRegistrationNumber;
     private String customerCprNumber;
     private String customerRegNumber;
@@ -14,9 +16,10 @@ public class Lease {
 
     }
 
-    public Lease(int price, int period, String carRegistrationNumber, String customerCprNumber, String customerAccountNumber, String customerRegNumber) {
+    public Lease(int price, String startDate, String endDate, String carRegistrationNumber, String customerCprNumber, String customerAccountNumber, String customerRegNumber) {
         this.price = price;
-        this.period = period;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.carRegistrationNumber = carRegistrationNumber;
         this.customerCprNumber = customerCprNumber;
         this.customerAccountNumber = customerAccountNumber;
@@ -39,14 +42,6 @@ public class Lease {
         this.price = price;
     }
 
-    public int getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(int period) {
-        this.period = period;
-    }
-
     public String getCarRegistrationNumber() {
         return carRegistrationNumber;
     }
@@ -63,13 +58,25 @@ public class Lease {
         this.customerCprNumber = customerCprNumber;
     }
 
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
     @Override
     public String toString() {
         return "Lease{" +
                 "price=" + price +
-                ", periode=" + period +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
                 ", carRegistrationNumber='" + carRegistrationNumber + '\'' +
-                ", customerCprNumber=" + customerCprNumber +
+                ", customerCprNumber='" + customerCprNumber + '\'' +
+                ", customerRegNumber='" + customerRegNumber + '\'' +
+                ", customerAccountNumber='" + customerAccountNumber + '\'' +
                 '}';
     }
 }

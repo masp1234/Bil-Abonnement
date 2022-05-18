@@ -70,8 +70,6 @@
                 <!--<label class="form-label" for="chassisNumber">Registreringsnummer</label>-->
                 <input class="form-input-box text" type="hidden" name="regNumber" id="carRegNumber" th:value="${car.registrationNumber}">
 
-                <label class="form-label" for="period">Periode</label>
-                <input class="form-input-box text" type="number" name="period" id="period" placeholder="Indtast periode">
                 <!--Er "period" id til CPR? -->
 
                 <label class="form-label" for="price">Price</label>
@@ -82,6 +80,14 @@
 
                 <label class="form-label" for="customerRegNumber">Kundens registreringsnummer</label>
                 <input class="form-input-box text" type="number" name="customerRegNumber" id="customerRegNumber" placeholder="Indtast periode">
+
+                <label class="form-label" for="startDate">Startdato</label>
+                <input class="form-input-box text" type="date" id="startDate" name="startDate" placeholder="Indtast startdato">
+
+                <label class="form-label" for="endDate">Slutdato</label>
+                <input class="form-input-box text" type="date" id="endDate" name="endDate" placeholder="Indtast slutdato">
+
+
 
 
             </section>
@@ -113,8 +119,6 @@
                 <!--<label class="form-label" for="chassisNumber">Registreringsnummer</label>-->
                 <input class="form-input-box text" type="hidden" name="updateCarRegNumber" id="updateCarRegNumber" th:value="${car.registrationNumber}">
 
-                <label class="form-label" for="updatePeriod">Periode</label>
-                <input class="form-input-box text" type="number" name="updatePeriod" id="updatePeriod" th:value="${lease.period}">
                 <!--Er "period" id til CPR? -->
 
                 <label class="form-label" for="updatePrice">Price</label>
@@ -125,6 +129,13 @@
 
                 <label class="form-label" for="updateCustomerRegNumber">Kundens registreringsnummer</label>
                 <input class="form-input-box text" type="number" name="updateCustomerRegNumber" id="updateCustomerRegNumber" th:value="${lease.customerRegNumber}">
+
+                <label class="form-label" for="updateStartDate">Startdato</label>
+                <input class="form-input-box text" type="date" id="updateStartDate" name="updateStartDate" th:value="${lease.startDate}">
+
+                <label class="form-label" for="updateEndDate">Slutdato</label>
+                <input class="form-input-box text" type="date" id="updateEndDate" name="updateEndDate" th:value="${lease.endDate}">
+
 
 
             </section>
