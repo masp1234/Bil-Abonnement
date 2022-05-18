@@ -1,22 +1,37 @@
 package com.example.bilabonnement.models;
 
 public class Damage {
-    private int id;
+    private int damageId;
     private String description;
     private int price;
+    private int damageReportId;
 
-    public Damage(int id, String description, int price) {
-        this.id = id;
+    public Damage(int damageId, String description, int price) {
+        this.damageId = damageId;
         this.description = description;
         this.price = price;
     }
 
-    public int getId() {
-        return id;
+    public Damage(String description, int price, int damageReportId) {
+        this.description = description;
+        this.price = price;
+        this.damageReportId= damageReportId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getDamageReportId() {
+        return damageReportId;
+    }
+
+    public void setDamageReportId(int damageReportId) {
+        this.damageReportId = damageReportId;
+    }
+
+    public int getDamageId() {
+        return damageId;
+    }
+
+    public void setDamageId(int damageId) {
+        this.damageId = damageId;
     }
 
     public String getDescription() {
@@ -35,3 +50,4 @@ public class Damage {
         this.price = price;
     }
 }
+

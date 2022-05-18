@@ -24,6 +24,7 @@ public class DamageController {
         Car car = carService.getCarById(registrationNumber);
         model.addAttribute("car", car);
 
+
         return "create-damagereport";
     }
 
