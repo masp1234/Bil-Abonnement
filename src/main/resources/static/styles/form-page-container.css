@@ -20,11 +20,6 @@ body {
 
 }
 
-.section-container2 {
-    display: grid;
-    background-color: #F2F2F2;
-    border-radius: 3%;
-}
 
 .info-section-container {
     justify-content: center;
@@ -91,7 +86,6 @@ body {
 
 }
 
-
 .form-header {
     display: grid;
     justify-content: center;
@@ -156,30 +150,22 @@ body {
 }
 
 .button-submit2 {
-    background-color: rgba(14, 172, 35, 0.884);
+    background-color: #1892C3;
     text-align: center;
     border: none;
     border-radius: 10px;
     color: #F5F5F5;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
     padding: 10px 10px;
 }
 
-.button-damage2 {
-    background-color: #eac317;
+.btn-functions {
     text-align: center;
-    border: none;
-    border-radius: 10px;
-    color: #F5F5F5;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 10px 10px;
 }
-
 
 .button-submit2:hover {
-    background-color: rgba(13, 135, 27, 0.88);
+    background-color: #167ea7;
 }
 
 .button-damage2:hover {
@@ -192,11 +178,11 @@ body {
     border-radius: 3%;
     object-fit: cover;
 }
-
+.form-section-container2 {
+}
 .section-container2 {
-    display: grid;
-    justify-content: center;
-    align-items: center;
+    background-color: #F2F2F2;
+    border-radius: 3%;
 }
 
 .tableHead th{ /*Fra "Ønskebrønden - my-wishlistStyle.css" */
@@ -204,18 +190,39 @@ body {
     padding-left: 1%;
     padding-bottom: 1%;
     padding-top: 1%;
+    font-weight: 700;
+    background-color: #1892C3;
 }
 
 .damage-content {
 
 }
 table {
-    background-color: #F5F5F5;
+    background-color: #F2F2F2;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-left: auto;
+    margin-right: auto;
+
+    table-layout: fixed;
+    width: 100%;
 }
 table tr:nth-child(even) { /*Opdeler ønsker*/
-    background-color: #d5d3d3;
+    background-color: #e6e6e6;
 }
 
 .errormessage {
     margin-bottom: 10px;
+}
+
+.damageReportInput {
+width: 80%;
+    height: 25px;
+    border-radius: 7px;
+    border: 2px solid #1892C3;
+}
+
+.damageReportInputTD {
+    text-align: center;
 }
