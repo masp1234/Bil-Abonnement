@@ -64,21 +64,13 @@
       </tr>
 
       <!-- SKADER -->
-      <tr class="damage-content" > <!-- Thymeleaf for at vise skadesrapporter? -->
+      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
         <td th:text="${damageReport.id}">ID</td>
         <td th:text="${damageReport.description}">Beskrivelse af skaden</td>
         <td th:text="${damageReport.date}">Dato på skaden</td>
         <td th:text="${damageReport.price}">Pris i alt</td>
       </tr>
 
-      <!--DETTE SKAL SLETTES. (Bruges til hjælp for nu) -->
-      <tr class="damage-content">
-        <td th:text="${damage.name}">Skade</td>
-        <td th:text="${damage.description}">Beskrivelse af skaden</td>
-        <td th:text="${damage.date}">Dato på skaden</td>
-        <td th:text="${damage.price}">Pris i alt</td>
-      </tr>
-      <!--DETTE SKAL SLETTES. (Bruges til hjælp for nu) -->
     </table>
     <div class="btn-functions">
       <button class="button-damage2 text" type="submit">Tilføj skade</button>

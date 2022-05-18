@@ -1,24 +1,29 @@
 package com.example.bilabonnement.controllers;
 
-import com.example.bilabonnement.models.Car;
-import com.example.bilabonnement.services.CarService;
+import com.example.bilabonnement.models.DamageReport;
+import com.example.bilabonnement.services.DamageReportService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
 
 @Controller
 
 public class DamageReportController {
 
-    private CarService carService;
+    private DamageReportService damageReportService;
 
-    public DamageReportController(CarService carService) {
-        this.carService = carService;
+    public DamageReportController(DamageReportService damageReportService) {
+        this.damageReportService = damageReportService;
     }
 
     @GetMapping("/show-damagereport/{id}")
-    public String showDamageReport(@PathVariable("id") String registrationNumber) { /*Skal det være registrationNumber siden at det er bilend ID?*/
-        Car car = carService.getCarById(registrationNumber);
+    public String showDamageReport(@PathVariable("id") String chassisNumber, Model model) { /*Skal det være registrationNumber siden at det er bilend ID?*/
+        List<DamageReport> damageReports = damageReportService.showAllDamageReportsByChassisNumber(chassisNumber);
+        model.addAttribute("selectedDamageReport", damageReports);
+
         return "show-damagereport";
     }
 }
