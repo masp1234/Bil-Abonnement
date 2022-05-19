@@ -26,3 +26,7 @@ td, th{
     border: solid;
     border-color: #ddd;
 }
+.departmentName {
+    text-align: center;
+    margin-left: 90%;
+}

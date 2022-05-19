@@ -1,9 +1,11 @@
 package com.example.bilabonnement.controllers;
 
 import com.example.bilabonnement.models.User;
+import com.example.bilabonnement.services.StatisticService;
 import com.example.bilabonnement.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,7 +16,8 @@ import javax.servlet.http.HttpSession;
 public class HomeController {
 
 
-
+    @Autowired
+    private StatisticService statisticService;
     private UserService userService;
 
     public HomeController(UserService userService) {
@@ -26,9 +29,8 @@ public class HomeController {
     //åbning af index side
     @GetMapping("/")
     public String index(HttpSession session){
-
+        statisticService.getCarStatistics();
         User user = (User) session.getAttribute("user");
-
         if (user != null) {
 
            /* if(user.getPermission().equalsignorecase("dataregistrering")){
@@ -59,14 +61,16 @@ public class HomeController {
     // TODO: 06-05-2022 Måske i en userController
     //Postmapping på login
     @PostMapping("/login")
-    public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session){
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session, Model model){
         User user = userService.login(username,password);
 
         if(user == null){
             return "redirect:/";
         }  else {
             session.setAttribute("user", user);
-            if(user.getRole().equals("forretningsudvikler"))return "statistics";
+            if(user.getRole().equals("forretningsudvikler")){
+                return "redirect:/show-statistics";
+            }
             else return "redirect:/landingpage";
 
 
