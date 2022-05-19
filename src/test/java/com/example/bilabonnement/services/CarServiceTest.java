@@ -33,7 +33,7 @@ class CarServiceTest {
 
     }
 
-    // FIXME virker ikke efter hensigten - resultCar burde ikke være null
+
     @Test
     void checkSearch() {
 

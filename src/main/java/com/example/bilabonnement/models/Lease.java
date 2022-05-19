@@ -3,7 +3,7 @@ package com.example.bilabonnement.models;
 
 public class Lease {
 
-    private int price;
+    private int pricePerMonth;
     private String startDate;
     private String endDate;
     private String carRegistrationNumber;
@@ -17,7 +17,7 @@ public class Lease {
     }
 
     public Lease(int price, String startDate, String endDate, String carRegistrationNumber, String customerCprNumber, String customerAccountNumber, String customerRegNumber) {
-        this.price = price;
+        this.pricePerMonth = price;
         this.startDate = startDate;
         this.endDate = endDate;
         this.carRegistrationNumber = carRegistrationNumber;
@@ -34,12 +34,12 @@ public class Lease {
         return customerRegNumber;
     }
 
-    public int getPrice() {
-        return price;
+    public int getPricePerMonth() {
+        return pricePerMonth;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setPricePerMonth(int pricePerMonth) {
+        this.pricePerMonth = pricePerMonth;
     }
 
     public String getCarRegistrationNumber() {
@@ -70,7 +70,7 @@ public class Lease {
     @Override
     public String toString() {
         return "Lease{" +
-                "price=" + price +
+                "price=" + pricePerMonth +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", carRegistrationNumber='" + carRegistrationNumber + '\'' +

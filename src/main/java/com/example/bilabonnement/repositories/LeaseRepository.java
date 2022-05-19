@@ -30,7 +30,7 @@ public class LeaseRepository {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
             preparedStatement.setString(1, lease.getCarRegistrationNumber());
-            preparedStatement.setInt(2, lease.getPrice());
+            preparedStatement.setInt(2, lease.getPricePerMonth());
             preparedStatement.setString(3,lease.getStartDate());
             preparedStatement.setString(4, lease.getEndDate());
             preparedStatement.setString(5, lease.getCustomerCprNumber());
@@ -86,7 +86,7 @@ public class LeaseRepository {
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setDouble(1, lease.getPrice());
+            preparedStatement.setDouble(1, lease.getPricePerMonth());
             preparedStatement.setString(2, lease.getStartDate());
             preparedStatement.setString(3, lease.getEndDate());
             preparedStatement.setString(4, lease.getCustomerCprNumber());
