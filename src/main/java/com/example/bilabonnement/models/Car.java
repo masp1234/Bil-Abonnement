@@ -1,5 +1,6 @@
 package com.example.bilabonnement.models;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class Car {
@@ -22,7 +23,7 @@ public class Car {
                String equipmentLevel, double registrationFee, double emission, String status, String url) {
         this.registrationNumber = registrationNumber;
         this.chassisNumber = chassisNumber;
-        this.make = make;
+        this.setMake(make);
         this.model = model;
         this.color = color;
         this.registrationFee = registrationFee;
@@ -53,11 +54,12 @@ public class Car {
     }
 
     public String getMake() {
+        // for at formaterer make til eksempelvis "Ford" i stedet for "ford"
         return make;
     }
 
     public void setMake(String make) {
-        this.make = make;
+        this.make = make.substring(0, 1).toUpperCase() + make.substring(1).toLowerCase();
     }
 
     public String getModel() {
