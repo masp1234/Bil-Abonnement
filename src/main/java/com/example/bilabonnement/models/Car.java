@@ -55,7 +55,7 @@ public class Car {
 
     public String getMake() {
         // for at formaterer make til eksempelvis "Ford" i stedet for "ford"
-        return make.substring(0, 1).toUpperCase() + make.substring(1).toLowerCase();
+        return make;
     }
 
     public void setMake(String make) {
