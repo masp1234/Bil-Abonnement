@@ -24,6 +24,10 @@ public class DamageReport {
         this.chassisNumber = chassisNumber;
     }
 
+    public DamageReport() {
+
+    }
+
     public int getId() {
         return id;
     }

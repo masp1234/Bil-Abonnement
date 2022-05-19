@@ -6,7 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -27,4 +30,17 @@ public class DamageReportController {
         return "show-damagereport";
     }
 
+    @PostMapping("/create-damagereport")
+    public String createDamagereport(@RequestParam("id") int id,
+                                     @RequestParam("date") Date date,
+                                     @RequestParam("description") String description,
+                                     @RequestParam("chassisNumber") String chassisNumber,
+                                     @RequestParam("totalPrice") int totalPrice) {
+        DamageReport damageReport = new DamageReport();
+        damageReport.setDescription(description);
+        System.out.println(damageReport);
+
+        damageReportService.addDamageReport(damageReport);
+        return "redirect:/show-damagereport";
+    }
 }
