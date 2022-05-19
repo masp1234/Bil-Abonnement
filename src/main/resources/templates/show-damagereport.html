@@ -67,7 +67,7 @@
         <td th:text="${damageReport.date}">DD/MM/YYYY</td>
         <td class="damageReportInputTD"><input class="damageReportInput" type="text" name="description"
                                                id="description" placeholder="Skadesbeskrivelse" required></td>
-        <td th:text="${damageReport.price}">54.659kr.</td>
+        <td th:text="${damageReport.price}">Udregnes...</td>
         <td><div class="btn-functions">
           <button class="button-submit2 text" type="submit">OPRET</button>
         </div></td>
@@ -78,7 +78,7 @@
         <td th:text="${damageReport.description}">Kort beskrivelse</td>
         <td th:text="${damageReport.price}">54.659kr.</td>
         <td><div class="btn-functions">
-          <button class="button-submit2 text" href="/create-damagereport">TILFØJ SKADE</button>
+          <button class="button-submit2 text" href="/create-damagereport">SE RAPPORT</button>
         </div></td>
       </tr>
 
@@ -89,7 +89,7 @@
         <td th:text="${damageReport.description}">Laaaang lang lang lang lang beskrivelse</td>
         <td th:text="${damageReport.price}">54.659kr.</td>
         <td><div class="btn-functions">
-          <button class="button-submit2 text" type="submit">TILFØJ SKADE</button>
+          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
         </div></td>
       </tr>
 
@@ -99,9 +99,42 @@
         <td th:text="${damageReport.description}">Kort beskrivelse</td>
         <td th:text="${damageReport.price}">54.659kr.</td>
         <td><div class="btn-functions">
-          <button class="button-submit2 text" type="submit">TILFØJ SKADE</button>
+          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
         </div></td>
       </tr>
+      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
+        <td th:text="${damageReport.date}">DD/MM/YYYY</td>
+        <td th:text="${damageReport.description}">Kort beskrivelse</td>
+        <td th:text="${damageReport.price}">54.659kr.</td>
+        <td><div class="btn-functions">
+          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
+        </div></td>
+      </tr>
+      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
+        <td th:text="${damageReport.date}">DD/MM/YYYY</td>
+        <td th:text="${damageReport.description}">Kort beskrivelse</td>
+        <td th:text="${damageReport.price}">54.659kr.</td>
+        <td><div class="btn-functions">
+          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
+        </div></td>
+      </tr>
+      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
+        <td th:text="${damageReport.date}">DD/MM/YYYY</td>
+        <td th:text="${damageReport.description}">Kort beskrivelse</td>
+        <td th:text="${damageReport.price}">54.659kr.</td>
+        <td><div class="btn-functions">
+          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
+        </div></td>
+      </tr>
+      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
+        <td th:text="${damageReport.date}">DD/MM/YYYY</td>
+        <td th:text="${damageReport.description}">Kort beskrivelse</td>
+        <td th:text="${damageReport.price}">54.659kr.</td>
+        <td><div class="btn-functions">
+          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
+        </div></td>
+      </tr>
+
 
       <!-- SKAL SLETTES - SLUT -->
     </table>
