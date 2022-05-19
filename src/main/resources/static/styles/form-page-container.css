@@ -150,14 +150,15 @@ body {
 }
 
 .button-submit2 {
-    background-color: #1892C3;
+    background-color: #F2F2F2;
+    color: #1892C3;
+    border: 1px solid #1892C3;;
     text-align: center;
-    border: none;
     border-radius: 10px;
-    color: #F5F5F5;
     font-weight: bold;
     font-size: 14px;
     padding: 10px 10px;
+    width: 85%;
 }
 
 .btn-functions {
@@ -166,6 +167,7 @@ body {
 
 .button-submit2:hover {
     background-color: #167ea7;
+    color: #F2F2F2;
 }
 
 .button-damage2:hover {
