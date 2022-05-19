@@ -6,6 +6,8 @@ import com.example.bilabonnement.repositories.CarRepository;
 import com.example.bilabonnement.repositories.DamageReportRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /*TODO Henter priserne fra damageRepository*/
@@ -22,11 +24,14 @@ public class DamageReportService {
     }
 
     public void addDamageReport(DamageReport damageReport) {
+        LocalDate localDate = LocalDate.now();
+        String localDateString = localDate.toString();
+        damageReport.setDate(localDateString);
         damageReportRepository.addDamageReport(damageReport);
     }
 
     public List<DamageReport> showAllDamageReportsByChassisNumber(String chassisNumber) {
-        List<DamageReport> damageReports = damageReportRepository.getAllDamageReports();
+        List<DamageReport> damageReports = damageReportRepository.getAllDamageReports(chassisNumber);
         return damageReports;
     }
 
