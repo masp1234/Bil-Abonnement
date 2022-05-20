@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=PT+Sans&family=Shadows+Into+Light&family=Source+Sans+Pro&display=swap');
+.page-container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.form-container{
+    background-color: #ececec;
+    padding-left: 150px;
+    padding-right: 150px;
+    /*for at center div i midten. Fundet på en stackoverflow*/
+    border-radius: 3%;
+    height: 700px;
+
+}
+
+table {
+    background-color: #F2F2F2;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    table-layout: fixed;
+    width: 500px;
+}
+table tr:nth-child(even) { /*Opdeler ønsker*/
+    background-color: #e6e6e6;
+}
+.tableHead th{ /*Fra "Ønskebrønden - my-wishlistStyle.css" */
+    padding-right: 1%;
+    padding-left: 1%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    font-weight: 700;
+    background-color: #1892C3;
+    color: #F2F2F2;
+}

@@ -102,4 +102,10 @@ public class CarController {
         return "redirect:/update-car" + session.getAttribute("carId");
     }
 
+    @GetMapping("/change-status/{chassisNumber}/{regNumber}")
+    public String changeStatus(@PathVariable("regNumber") String regNumber, @PathVariable("chassisNumber") String chassisNumber){
+        carService.updateStatus(regNumber);
+        return "redirect:/show-damagereport/"+ chassisNumber + "/" + regNumber;
+    }
+
 }

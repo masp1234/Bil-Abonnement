@@ -19,6 +19,7 @@ public class DamageReportController {
 
     private DamageReportService damageReportService;
 
+
     public DamageReportController(DamageReportService damageReportService) {
         this.damageReportService = damageReportService;
     }
@@ -52,4 +53,7 @@ public class DamageReportController {
         damageReportService.addDamageReport(damageReport);
         return "redirect:/show-damagereport/"+chassisNumber + "/" + registrationNumber;
     }
+
+
+
 }

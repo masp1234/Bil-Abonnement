@@ -47,13 +47,15 @@
       <h2 class="text" th:text="${car.emission}">25,7</h2>
 
     </div>
+    <a th:href="@{'/change-status/' + ${car.chassisNumber} + '/' + ${car.registrationNumber}}"><button th:if="${#strings.equals(car.status, 'reserved')}">Ankommet til værksted</button></a>
+    <a th:href="@{'/change-status/' + ${car.chassisNumber} + '/' + ${car.registrationNumber}}"><button th:if="${#strings.equals(car.status, 'workshop')}">Meld ledig</button></a>
 
   </section>
 
 
   <section class="form-section-container2 section-container2">
     <h1 class="form-header2 text">Skadesrapporter</h1>
-
+  <div class="scroll-container" >
     <table>
       <tr class="tableHead">
         <th>DATO</th>
@@ -74,32 +76,18 @@
           <button class="button-submit2 text" type="submit">OPRET</button>
         </div></td>
       </tr>
-
+      </form>
       <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
         <td th:text="${damageReport.date}">DD/MM/YYYY</td>
         <td th:text="${damageReport.description}">Kort beskrivelse</td>
-        <td <!--th:text="${damageReport.price}" -->>54.659kr.</td>
+        <td th:text="${damageReport.totalPrice}">54.659kr.</td>
         <td><div class="btn-functions">
-          <button class="button-submit2 text" href="/create-damagereport">SE RAPPORT</button>
+          <a th:href="@{'/damages/' + ${damageReport.id}}"><button class="button-submit2 text">SE RAPPORT</button></a>
         </div></td>
       </tr>
-      </form>
 
-      <!-- TODO SLET TESTTABEL -->
-      <!-- SKAL SLETTES - START-->
-      <!--
-      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
-        <td th:text="${damageReport.date}">DD/MM/YYYY</td>
-        <td th:text="${damageReport.description}">Laaaang lang lang lang lang beskrivelse</td>
-        <td th:text="${damageReport.price}">54.659kr.</td>
-        <td><div class="btn-functions">
-          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
-        </div></td>
-      </tr>
-      -->
-
-      <!-- SKAL SLETTES - SLUT -->
     </table>
+  </div>
 
   </section>
 

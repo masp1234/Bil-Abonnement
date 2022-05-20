@@ -42,15 +42,14 @@ public class DamageRepository {
     }
 
 
-    public void addDamage( Damage damage){
-        final String QUERY = "INSERT INTO damage(damage_id, damage_description," +
-                " damage_price, damage_report_id) VALUE(?, ?, ?, ?)";
+    public void addDamage(Damage damage){
+        final String QUERY = "INSERT INTO damage(damage_description," +
+                " damage_price, damage_report_id) VALUE(?, ?, ?)";
         try {
             PreparedStatement preparedStatement= connection.prepareStatement(QUERY);
-            preparedStatement.setInt(1,damage.getDamageId());
-            preparedStatement.setString(2, damage.getDescription());
-            preparedStatement.setInt(3,damage.getPrice());
-            preparedStatement.setInt(4, damage.getDamageReportId());
+            preparedStatement.setString(1, damage.getDescription());
+            preparedStatement.setInt(2,damage.getPrice());
+            preparedStatement.setInt(3, damage.getDamageReportId());
             preparedStatement.executeUpdate();
             System.out.println("damage is added");
         }catch (SQLException e){

@@ -2,6 +2,7 @@ package com.example.bilabonnement.services;
 
 import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.repositories.CarRepository;
+import com.example.bilabonnement.repositories.LeaseRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,10 +13,12 @@ import java.util.List;
 public class CarService {
 
     private CarRepository carRepository;
+    private LeaseRepository leaseRepository;
 
 
-    public CarService(CarRepository carRepository) {
+    public CarService(CarRepository carRepository, LeaseRepository leaseRepository) {
         this.carRepository = carRepository;
+        this.leaseRepository = leaseRepository;
     }
 
     public Car getCarById(String id) {
@@ -79,6 +82,7 @@ public class CarService {
         switch (car.getStatus()) {
             case "reserved":
                 updatedStatus = "workshop";
+                leaseRepository.deleteBy(regNumber);
                 break;
 
             case "workshop":
