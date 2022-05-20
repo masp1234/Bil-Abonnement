@@ -18,7 +18,7 @@ class HomeControllerTest {
     }
 
     @Test
-    public void firstTest() {
+    public void loginAndCreateCustomer() {
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://bil-abonnement-projekt.herokuapp.com");
