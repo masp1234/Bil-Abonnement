@@ -55,7 +55,7 @@ public class DamageController {
     }
 
     @GetMapping("delete-damage/{id}")
-    public String deletedamageById(@PathVariable("id") int id, HttpSession session){
+    public String deleteDamageById(@PathVariable("id") int id, HttpSession session){
         damageService.deleteById(id);
         return "redirect:/damages/" + session.getAttribute("damageReportId");
     }

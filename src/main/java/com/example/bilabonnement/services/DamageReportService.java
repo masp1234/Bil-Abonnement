@@ -39,6 +39,9 @@ public class DamageReportService {
         return damageReportRepository.getDamageReportByChassisNumber(id);
 
     }
+    public List<DamageReport> showDamageReport(String chassisNumber){
+        return damageReportRepository.showDamageReport(chassisNumber);
+    }
 
     public Car getCarById(String chassisNumber) {
         return carRepository.getCarById(chassisNumber);

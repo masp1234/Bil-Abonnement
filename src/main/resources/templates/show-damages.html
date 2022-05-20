@@ -9,7 +9,7 @@
 <body>
 
 <div th:replace ="navbar :: navbar"></div>
-    
+
 <div class="page-container">
 
 
@@ -24,19 +24,19 @@
 
     <section class="form-section-container2 section-container2">
         <h1 class="form-header2 text">Skadesrapporter</h1>
-    
+
         <table>
           <tr class="tableHead">
             <th>BESKRIVELSE</th>
             <th>PRIS</th>
             <th>HANDLING</th>
           </tr>
-    
+
           <!-- SKADER -->
           <form action="/add-damage" method="POST">
           <tr class="damage-content">
-    
-            <td class="damageReportInputTD"><input class="damageReportInput" type="text" name="description" 
+
+            <td class="damageReportInputTD"><input class="damageReportInput" type="text" name="description"
                                                    id="description" placeholder="Skadesbeskrivelse" required></td>
               <td class="damageReportInputTD"><input class="damageReportInput" type="number" name="price"
                                                      id="price" placeholder="Pris" required></td>
@@ -46,25 +46,25 @@
           </tr>
           </form>
           <tr class="damage-content" th:each="damages: ${damages}">
-        
+
             <td th:text="${damages.description}">Kort beskrivelse</td>
             <td th:text="${damages.price}" -->>54.659kr.</td>
             <td><div class="btn-functions">
-              <a ><button class="button-submit2 text">Slet skade</button></a>
+              <a  th:href="@{'/delete-damage/' + ${damages.damageId}}"> <button class="button-submit2 text">Slet skade</button></a>
             </div></td>
           </tr>
-    
+
 
         </table>
-    
-      </section>
-  
 
-   
+      </section>
+
+
+
 
 </form>
 
 
-</div>
+ </div>
 </body>
 </html>
