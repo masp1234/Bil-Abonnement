@@ -230,3 +230,7 @@ width: 80%;
 .damageReportInputTD {
     text-align: center;
 }
+.scroll-container{
+    overflow:auto;
+    height: 600px;
+}
