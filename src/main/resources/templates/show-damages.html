@@ -33,12 +33,13 @@
           </tr>
     
           <!-- SKADER -->
-          <form action="/create-damagereport" method="POST">
+          <form action="/add-damage" method="POST">
           <tr class="damage-content">
     
             <td class="damageReportInputTD"><input class="damageReportInput" type="text" name="description" 
                                                    id="description" placeholder="Skadesbeskrivelse" required></td>
-           <td>Udregnes...</td>
+              <td class="damageReportInputTD"><input class="damageReportInput" type="number" name="price"
+                                                     id="price" placeholder="Pris" required></td>
             <td><div class="btn-functions">
               <button class="button-submit2 text" type="submit">OPRET</button>
             </div></td>
