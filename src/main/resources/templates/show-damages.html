@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/styles/show-damages.css"
+          th:href="@{/styles/show-damages.css}"/>
+</head>
+<body>
+
+<div th:replace ="navbar :: navbar"></div>
+    
+<div class="page-container">
+
+
+<div class="form-container text" >
+
+
+    <h1 class="form-header text" th:text="${damageReport.description}">beskrivelse af skaderapport</h1>
+    <h1 class="form-header text" th:text="${damageReport.date}">dato for oprettelse</h1>
+
+
+
+
+    <section class="form-section-container2 section-container2">
+        <h1 class="form-header2 text">Skadesrapporter</h1>
+    
+        <table>
+          <tr class="tableHead">
+            <th>BESKRIVELSE</th>
+            <th>PRIS</th>
+            <th>HANDLING</th>
+          </tr>
+    
+          <!-- SKADER -->
+          <form action="/create-damagereport" method="POST">
+          <tr class="damage-content">
+    
+            <td class="damageReportInputTD"><input class="damageReportInput" type="text" name="description" 
+                                                   id="description" placeholder="Skadesbeskrivelse" required></td>
+           <td>Udregnes...</td>
+            <td><div class="btn-functions">
+              <button class="button-submit2 text" type="submit">OPRET</button>
+            </div></td>
+          </tr>
+          </form>
+          <tr class="damage-content" th:each="damages: ${damages}">
+        
+            <td th:text="${damages.description}">Kort beskrivelse</td>
+            <td th:text="${damages.price}" -->>54.659kr.</td>
+            <td><div class="btn-functions">
+              <a ><button class="button-submit2 text">Slet skade</button></a>
+            </div></td>
+          </tr>
+    
+
+        </table>
+    
+      </section>
+  
+
+   
+
+</form>
+
+
+</div>
+</body>
+</html>

@@ -50,10 +50,11 @@ public class DamageReportRepository {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(QUERY);
             while (resultSet.next()) {
+                int id = resultSet.getInt(1);
                 String date = resultSet.getString(2);
                 String description = resultSet.getString(3);
 
-                damageReports.add(new DamageReport(date, description, chassisNumber));
+                damageReports.add(new DamageReport(id,date, description, chassisNumber,0));
             }
             System.out.println("All damage reports are shown");
             statement.close();
@@ -64,11 +65,11 @@ public class DamageReportRepository {
         return damageReports;
     }
 
-    public DamageReport getDamageReportByChassisNumber(String chassisNumber) {
+    public DamageReport getDamageReportByChassisNumber(int id) {
 
         connection = ConnectionManager.connectToMySQL();
 
-        String QUERY = "SELECT * FROM damage_report WHERE damage_report_car_chassis_number = '" + chassisNumber + "'";
+        String QUERY = "SELECT * FROM damage_report WHERE damage_report_id = '" + id + "'";
 
         DamageReport damageReport = null;
 
@@ -77,16 +78,20 @@ public class DamageReportRepository {
             ResultSet resultSet = statement.executeQuery(QUERY);
 
             while (resultSet.next()) {
-                String date = resultSet.getString(1);
-                String description = resultSet.getString(2);
+                String date = resultSet.getString(2);
+                String description = resultSet.getString(3);
+                String chassisNumber = resultSet.getString(4);
 
-                damageReport = new DamageReport(date, description, chassisNumber);
+                damageReport = new DamageReport();
+                damageReport.setChassisNumber(chassisNumber);
+                damageReport.setDate(date);
+                damageReport.setDescription(description);
 
                 System.out.println(damageReport);
 
             }
         } catch (SQLException e) {
-            System.out.println("Could not find damageReport by chassis number: " + chassisNumber);
+            System.out.println("Could not find damageReport by id: " + id);
             e.printStackTrace();
         }
         return damageReport;

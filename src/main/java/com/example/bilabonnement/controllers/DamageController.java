@@ -5,6 +5,7 @@ import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.Damage;
 import com.example.bilabonnement.models.DamageReport;
 import com.example.bilabonnement.services.CarService;
+import com.example.bilabonnement.services.DamageReportService;
 import com.example.bilabonnement.services.DamageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -21,10 +23,12 @@ public class DamageController {
 
     private CarService carService;
     private DamageService damageService;
+    private DamageReportService damageReportService;
 
-    public DamageController(CarService carService, DamageService damageService) {
+    public DamageController(CarService carService, DamageService damageService, DamageReportService damageReportService) {
         this.carService = carService;
         this.damageService = damageService;
+        this.damageReportService = damageReportService;
     }
 
     //TODO skal måske modtage kundeId som parameter
@@ -36,16 +40,21 @@ public class DamageController {
     }
     @GetMapping("/damages/{id}")
     public String getAllDamages(@PathVariable("id") int id, Model model, HttpSession session){
+        DamageReport damageReport = damageReportService.getDamageReportsById(id);
+        model.addAttribute("damageReport", damageReport);
         Car car= (Car) session.getAttribute("Car");
-        model.addAttribute("Car", car);
+        //model.addAttribute("Car", car);
         session.setAttribute("damageReportId", id);
-        List<Damage> damageList= damageService.getAllDamages(id);
-        model.addAttribute("damageList", damageList);
-        DamageReport damageReport= (DamageReport) damageService.getAllDamages(id);
-        model.addAttribute("damageReportObject", damageReport );
+        ArrayList<Damage> damageList= (ArrayList<Damage>) damageService.getAllDamages(id);
+        model.addAttribute("damages", damageList);
 
 
-        return "add-damage";
+        /*DamageReport damageReport= (DamageReport) damageService.getAllDamages(id);
+        model.addAttribute("damageReportObject", damageReport );*/
+
+
+
+        return "show-damages";
     }
 
     @GetMapping("/add-damage")

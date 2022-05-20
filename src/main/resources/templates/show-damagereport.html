@@ -74,16 +74,16 @@
           <button class="button-submit2 text" type="submit">OPRET</button>
         </div></td>
       </tr>
-
+      </form>
       <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
         <td th:text="${damageReport.date}">DD/MM/YYYY</td>
         <td th:text="${damageReport.description}">Kort beskrivelse</td>
         <td <!--th:text="${damageReport.price}" -->>54.659kr.</td>
         <td><div class="btn-functions">
-          <button class="button-submit2 text" href="/create-damagereport">SE RAPPORT</button>
+          <a th:href="@{'/damages/' + ${damageReport.id}}"><button class="button-submit2 text">SE RAPPORT</button></a>
         </div></td>
       </tr>
-      </form>
+
 
       <!-- TODO SLET TESTTABEL -->
       <!-- SKAL SLETTES - START-->
