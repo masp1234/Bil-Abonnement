@@ -1,7 +1,5 @@
 package com.example.bilabonnement.repositories;
 
-import com.example.bilabonnement.models.Car;
-import com.example.bilabonnement.models.Damage;
 import com.example.bilabonnement.models.DamageReport;
 import com.example.bilabonnement.utilities.ConnectionManager;
 import org.springframework.stereotype.Repository;
@@ -19,6 +17,7 @@ public class DamageReportRepository {
         connection = ConnectionManager.connectToMySQL();
     }
 
+
     public void addDamageReport(DamageReport damageReport) {
         connection = ConnectionManager.connectToMySQL();
 
@@ -28,7 +27,7 @@ public class DamageReportRepository {
                 "VALUE(?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
-            preparedStatement.setDate(1, (Date) damageReport.getDate());
+            preparedStatement.setString(1, damageReport.getDate());
             preparedStatement.setString(2, damageReport.getDescription());
             preparedStatement.setString(3, damageReport.getChassisNumber());
 
@@ -41,18 +40,18 @@ public class DamageReportRepository {
         }
     }
 
-    public List<DamageReport> getAllDamageReports() { /*mb, skal muligvis slettes*/
+
+    public List<DamageReport> getAllDamageReports(String chassisNumber) {
         connection = ConnectionManager.connectToMySQL();
 
         List<DamageReport> damageReports = new ArrayList<>();
-        final String QUERY="SELECT * FROM damage_report";
+        final String QUERY = "SELECT * FROM damage_report WHERE damage_report_car_chassis_number = '" + chassisNumber + "'";
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(QUERY);
             while (resultSet.next()) {
-                Date date = resultSet.getDate(1);
-                String description = resultSet.getString(2);
-                String chassisNumber = resultSet.getString(3);
+                String date = resultSet.getString(2);
+                String description = resultSet.getString(3);
 
                 damageReports.add(new DamageReport(date, description, chassisNumber));
             }
@@ -78,13 +77,12 @@ public class DamageReportRepository {
             ResultSet resultSet = statement.executeQuery(QUERY);
 
             while (resultSet.next()) {
-                Date date = resultSet.getDate(1);
+                String date = resultSet.getString(1);
                 String description = resultSet.getString(2);
 
-                damageReport = new DamageReport (date, description, chassisNumber);
+                damageReport = new DamageReport(date, description, chassisNumber);
 
                 System.out.println(damageReport);
-
 
             }
         } catch (SQLException e) {

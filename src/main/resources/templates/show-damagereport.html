@@ -63,11 +63,13 @@
       </tr>
 
       <!-- SKADER -->
-      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
-        <td th:text="${damageReport.date}">DD/MM/YYYY</td>
-        <td class="damageReportInputTD"><input class="damageReportInput" type="text" name="description"
+      <form action="/create-damagereport" method="POST">
+      <tr class="damage-content">
+        <td>DD/MM/YYYY</td>
+        <input type="hidden" th:value="${car.chassisNumber}" name="chassisNumber">
+        <td class="damageReportInputTD"><input class="damageReportInput" type="text" name="description" 
                                                id="description" placeholder="Skadesbeskrivelse" required></td>
-        <td th:text="${damageReport.price}">Udregnes...</td>
+       <td>Udregnes...</td>
         <td><div class="btn-functions">
           <button class="button-submit2 text" type="submit">OPRET</button>
         </div></td>
@@ -76,14 +78,16 @@
       <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
         <td th:text="${damageReport.date}">DD/MM/YYYY</td>
         <td th:text="${damageReport.description}">Kort beskrivelse</td>
-        <td th:text="${damageReport.price}">54.659kr.</td>
+        <td <!--th:text="${damageReport.price}" -->>54.659kr.</td>
         <td><div class="btn-functions">
           <button class="button-submit2 text" href="/create-damagereport">SE RAPPORT</button>
         </div></td>
       </tr>
+      </form>
 
       <!-- TODO SLET TESTTABEL -->
       <!-- SKAL SLETTES - START-->
+      <!--
       <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
         <td th:text="${damageReport.date}">DD/MM/YYYY</td>
         <td th:text="${damageReport.description}">Laaaang lang lang lang lang beskrivelse</td>
@@ -92,49 +96,7 @@
           <button class="button-submit2 text" type="submit">SE RAPPORT</button>
         </div></td>
       </tr>
-
-
-      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
-        <td th:text="${damageReport.date}">DD/MM/YYYY</td>
-        <td th:text="${damageReport.description}">Kort beskrivelse</td>
-        <td th:text="${damageReport.price}">54.659kr.</td>
-        <td><div class="btn-functions">
-          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
-        </div></td>
-      </tr>
-      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
-        <td th:text="${damageReport.date}">DD/MM/YYYY</td>
-        <td th:text="${damageReport.description}">Kort beskrivelse</td>
-        <td th:text="${damageReport.price}">54.659kr.</td>
-        <td><div class="btn-functions">
-          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
-        </div></td>
-      </tr>
-      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
-        <td th:text="${damageReport.date}">DD/MM/YYYY</td>
-        <td th:text="${damageReport.description}">Kort beskrivelse</td>
-        <td th:text="${damageReport.price}">54.659kr.</td>
-        <td><div class="btn-functions">
-          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
-        </div></td>
-      </tr>
-      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
-        <td th:text="${damageReport.date}">DD/MM/YYYY</td>
-        <td th:text="${damageReport.description}">Kort beskrivelse</td>
-        <td th:text="${damageReport.price}">54.659kr.</td>
-        <td><div class="btn-functions">
-          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
-        </div></td>
-      </tr>
-      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
-        <td th:text="${damageReport.date}">DD/MM/YYYY</td>
-        <td th:text="${damageReport.description}">Kort beskrivelse</td>
-        <td th:text="${damageReport.price}">54.659kr.</td>
-        <td><div class="btn-functions">
-          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
-        </div></td>
-      </tr>
-
+      -->
 
       <!-- SKAL SLETTES - SLUT -->
     </table>

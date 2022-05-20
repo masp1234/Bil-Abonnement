@@ -5,12 +5,12 @@ import java.util.Date;
 public class DamageReport {
 
     private int id;
-    private Date date;
+    private String date;
     private String description;
     private String chassisNumber;
     private int totalPrice;
 
-    public DamageReport(int id, Date date, String description, String chassisNumber, int totalPrice) {
+    public DamageReport(int id, String date, String description, String chassisNumber, int totalPrice) {
         this.id = id;
         this.date = date;
         this.description = description;
@@ -18,7 +18,7 @@ public class DamageReport {
         this.totalPrice = totalPrice;
     }
 
-    public DamageReport(Date date, String description, String chassisNumber) {
+    public DamageReport(String date, String description, String chassisNumber) {
         this.date = date;
         this.description = description;
         this.chassisNumber = chassisNumber;
@@ -36,11 +36,11 @@ public class DamageReport {
         this.id = id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
