@@ -47,13 +47,14 @@
       <h2 class="text" th:text="${car.emission}">25,7</h2>
 
     </div>
+    <button>ankommet til værksted / meld klar</button>
 
   </section>
 
 
   <section class="form-section-container2 section-container2">
     <h1 class="form-header2 text">Skadesrapporter</h1>
-
+  <div class="scroll-container" >
     <table>
       <tr class="tableHead">
         <th>DATO</th>
@@ -83,6 +84,7 @@
           <a th:href="@{'/damages/' + ${damageReport.id}}"><button class="button-submit2 text">SE RAPPORT</button></a>
         </div></td>
       </tr>
+  </div>
 
 
       <!-- TODO SLET TESTTABEL -->
