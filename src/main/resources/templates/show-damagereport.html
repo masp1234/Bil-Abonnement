@@ -47,8 +47,8 @@
       <h2 class="text" th:text="${car.emission}">25,7</h2>
 
     </div>
-    <a th:href="@{'/change-status/' + ${car.chassisNumber} + '/' + ${car.registrationNumber}}"><button th:if="${#strings.equals(car.status, 'reserved')}">Ankommet til værksted</button></a>
-    <a th:href="@{'/change-status/' + ${car.chassisNumber} + '/' + ${car.registrationNumber}}"><button th:if="${#strings.equals(car.status, 'workshop')}">Meld ledig</button></a>
+    <a th:href="@{'/change-status/' + ${car.chassisNumber} + '/' + ${car.registrationNumber}}"><button class="button-submit3" th:if="${#strings.equals(car.status, 'reserved')}">ANKOMMET TIL VÆRKSTED</button></a>
+    <a th:href="@{'/change-status/' + ${car.chassisNumber} + '/' + ${car.registrationNumber}}"><button class="button-submit4" th:if="${#strings.equals(car.status, 'workshop')}">MELD LEDIG</button></a>
 
   </section>
 

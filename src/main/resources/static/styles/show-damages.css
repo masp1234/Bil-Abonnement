@@ -41,3 +41,48 @@ table tr:nth-child(even) { /*Opdeler ønsker*/
     background-color: #1892C3;
     color: #F2F2F2;
 }
+
+.button-submit2 {
+    background-color: #F2F2F2;
+    color: #1892C3;
+    border: 1px solid #1892C3;;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 10px;
+    width: 85%;
+}
+
+.button-submit3 {
+    background-color: #F2F2F2;
+    color: #d02638;
+    border: 1px solid #d02638;;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 10px;
+    width: 85%;
+}
+
+.button-submit3:hover {
+    background-color: #d02638;
+    color: #F2F2F2;
+}
+
+.button-submit2:hover {
+    background-color: #167ea7;
+    color: #F2F2F2;
+}
+
+.damageReportInput {
+    width: 80%;
+    height: 25px;
+    border-radius: 7px;
+    border: 2px solid #1892C3;
+}
+
+.damageReportInputTD {
+    text-align: center;
+}
