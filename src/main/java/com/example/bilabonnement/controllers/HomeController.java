@@ -1,6 +1,7 @@
 package com.example.bilabonnement.controllers;
 
 import com.example.bilabonnement.models.User;
+import com.example.bilabonnement.repositories.CarStatisticRepository;
 import com.example.bilabonnement.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ public class HomeController {
 
 
 
+
     private UserService userService;
 
     public HomeController(UserService userService) {
@@ -26,7 +28,6 @@ public class HomeController {
     //åbning af index side
     @GetMapping("/")
     public String index(HttpSession session){
-
         User user = (User) session.getAttribute("user");
 
         if (user != null) {

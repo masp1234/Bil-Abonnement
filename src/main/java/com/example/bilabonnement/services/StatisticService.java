@@ -17,13 +17,8 @@ public class StatisticService {
     }
 
     public List<CarMakeStatistic> getCarMakeStatistics() {
-        List<CarMakeStatistic> carMakeStatistics = new ArrayList<>();
-        List<String> carMakes = carStatisticRepository.getCarMakes();
-        for (String carmake: carMakes) {
-            CarMakeStatistic carMakeStatistic = new CarMakeStatistic();
-            carMakeStatistic.setCarMake(carmake);
-            carMakeStatistics.add(carMakeStatistic);
-        }
+        List<CarMakeStatistic> carMakeStatistics = carStatisticRepository.getCarMakes();
+
 
 
 

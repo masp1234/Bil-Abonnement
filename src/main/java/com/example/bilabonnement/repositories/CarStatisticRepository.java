@@ -48,7 +48,7 @@ public class CarStatisticRepository {
         return carMakeStatistics;
 
     }
-    public List<CarMakeStatistic> getCarMakesAndStatus() {
+    public ArrayList<ArrayList<Integer>> getCarMakesAndStatus() {
 
         String query = "SELECT car.car_make, cars_available.available, cars_reserved.reserved, cars_in_workshop.workshop\n" +
                 "FROM car\n" +
@@ -63,18 +63,36 @@ public class CarStatisticRepository {
                 "ON car.car_make = cars_in_workshop.car_make\n" +
                 "GROUP BY car.car_make\n" +
                 "\n";
+        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-
-            String carMake = resultSet.getString(1);
-            String
+            int counter = 0;
+            while(resultSet.next()) {
+                int avilableCars = resultSet.getInt(2);
+                int reservedCars = resultSet.getInt(3);
+                int workshopCars = resultSet.getInt(4);
+                list.add(new ArrayList<Integer>());
+                list.get(counter).add(avilableCars);
+                list.get(counter).add(reservedCars);
+                list.get(counter).add(workshopCars);
+                counter++;
+            }
         } catch (SQLException e) {
             System.out.println("Kunne ikke kalde getCarMakesAndStatus");
             e.printStackTrace();
         }
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = 0; j < list.get(i).size(); j++) {
+                System.out.print(list.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
+
+
+        return list;
     }
 
-    public List<Integer> getAverageDamagesPerDamageReportPerCarMake
+    //public List<Integer> getAverageDamagesPerDamageReportPerCarMake
 
 }

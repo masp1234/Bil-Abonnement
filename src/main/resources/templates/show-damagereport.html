@@ -65,7 +65,7 @@
       </tr>
 
       <!-- SKADER -->
-      <form action="/create-damagereport" method="POST">
+      <form action="/create-damagereport" method="POST" th:if="${#strings.equals(car.status, 'workshop')}">
       <tr class="damage-content">
         <td>DD/MM/YYYY</td>
         <input type="hidden" th:value="${car.chassisNumber}" name="chassisNumber">
