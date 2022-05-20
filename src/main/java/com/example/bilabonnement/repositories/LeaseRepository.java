@@ -103,5 +103,19 @@ public class LeaseRepository {
         }
     }
 
+    public void deleteBy(String reg) {
+        final String QUERY = "DELETE FROM lease WHERE lease_car_reg_number=?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
+            preparedStatement.setString(1, reg);
+            preparedStatement.executeUpdate();
+            System.out.println("Is deleted");
+
+        } catch (SQLException e) {
+            System.out.println("is not deleted");
+            e.printStackTrace();
+        }
+    }
+
 
 }

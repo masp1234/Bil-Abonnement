@@ -47,7 +47,8 @@
       <h2 class="text" th:text="${car.emission}">25,7</h2>
 
     </div>
-    <button>ankommet til værksted / meld klar</button>
+    <a th:href="@{'/change-status/' + ${car.chassisNumber} + '/' + ${car.registrationNumber}}"><button th:if="${#strings.equals(car.status, 'reserved')}">Ankommet til værksted</button></a>
+    <a th:href="@{'/change-status/' + ${car.chassisNumber} + '/' + ${car.registrationNumber}}"><button th:if="${#strings.equals(car.status, 'workshop')}">Meld ledig</button></a>
 
   </section>
 
@@ -79,29 +80,14 @@
       <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
         <td th:text="${damageReport.date}">DD/MM/YYYY</td>
         <td th:text="${damageReport.description}">Kort beskrivelse</td>
-        <td <!--th:text="${damageReport.price}" -->>54.659kr.</td>
+        <td th:text="${damageReport.totalPrice}">54.659kr.</td>
         <td><div class="btn-functions">
           <a th:href="@{'/damages/' + ${damageReport.id}}"><button class="button-submit2 text">SE RAPPORT</button></a>
         </div></td>
       </tr>
-  </div>
 
-
-      <!-- TODO SLET TESTTABEL -->
-      <!-- SKAL SLETTES - START-->
-      <!--
-      <tr class="damage-content" th:each="damageReport: ${selectedDamageReport}">
-        <td th:text="${damageReport.date}">DD/MM/YYYY</td>
-        <td th:text="${damageReport.description}">Laaaang lang lang lang lang beskrivelse</td>
-        <td th:text="${damageReport.price}">54.659kr.</td>
-        <td><div class="btn-functions">
-          <button class="button-submit2 text" type="submit">SE RAPPORT</button>
-        </div></td>
-      </tr>
-      -->
-
-      <!-- SKAL SLETTES - SLUT -->
     </table>
+  </div>
 
   </section>
 
