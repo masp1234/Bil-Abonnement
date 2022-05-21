@@ -115,6 +115,31 @@ public class CarStatisticRepository {
         return averageLeasePeriodsPerCarMake;
     }
 
+    public List<Double> getAverageLeasePricePerMonthPerCarMake() {
+        List<Double> averageLeasePricePerMonthPerCarMake = new ArrayList<>();
+
+        String query = "SELECT car_make, AVG(lease_price) as price_per_month \n" +
+                "FROM car \n" +
+                "JOIN lease \n" +
+                "ON car_reg_number = lease_car_reg_number\n" +
+                "GROUP BY car_make\n" +
+                "ORDER BY car_make\n";
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            double averagePricePerMonth = resultSet.getDouble(2);
+            averageLeasePricePerMonthPerCarMake.add(averagePricePerMonth);
+
+        } catch (SQLException e) {
+            System.out.println("Kunne ikke finde gennesnitlige leasingpris per måned per bilmærke");
+            e.printStackTrace();
+        }
+
+        return averageLeasePricePerMonthPerCarMake;
+    }
+
 
     //public List<Integer> getAverageDamagesPerDamageReportPerCarMake
 
