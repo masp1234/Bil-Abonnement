@@ -10,29 +10,38 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 class HomeControllerTest {
 
+    static WebDriver driver;
+
     @BeforeAll
     //Skal være static
-    public static void setup() {
+    public static void setupAndPing() {
         //sætter automatisk WebDriver op, så man ikke skal downloade filen og bekymre sig om, om det er mac eller win
         WebDriverManager.chromedriver().setup();
+
+        login();
+
+        driver.close();
     }
-
-    @Test
-    public void loginAndCreateCustomer() {
-
-        WebDriver driver = new ChromeDriver();
+    public static void login() {
+        driver = new ChromeDriver();
         driver.get("https://bil-abonnement-projekt.herokuapp.com");
 
-        //  WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement username = driver.findElement(By.name("username"));
         WebElement password = driver.findElement(By.id("password"));
         WebElement loginButton = driver.findElement(By.id("login-button"));
-        // WebElement loginButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("login-button")));
-
         username.sendKeys("Bobsen");
         password.sendKeys("123123");
         loginButton.click();
 
+
+
+    }
+
+    //Bliver nødt til at logge ind hver gang, da den åbner en ny "profil" uden cookies
+    @Test
+    public void createCustomer() {
+
+        login();
 
         WebElement createCustomerButton = driver.findElement(By.className("createCustomer"));
         createCustomerButton.click();
@@ -62,6 +71,9 @@ class HomeControllerTest {
 
         createCustomerSubmitButton.click();
 
+        driver.close();
+
     }
+
 
 }

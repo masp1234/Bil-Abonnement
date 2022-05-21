@@ -11,10 +11,11 @@
     <table>
         <thead class="head-table">
         <tr>
+            <th>Mærke</th>
             <th>Ledig</th>
             <th>Udlejet</th>
             <th>På værksted</th>
-            <th>Gennemsnitlig lejeperiode</th>
+            <th>Gennemsnitlig lejeperiode i dage</th>
             <th>Gennemsnitlig pris per måned</th>
             <th>Mest populære model</th>
             <th>Mest populære farve</th>
@@ -23,11 +24,12 @@
         </thead>
         <tbody class="body-table">
         <tr th:each="carMakeStatistic: ${carMakeStatistics}">
-            <th th:text="${carMakeStatistic.getNumberOfAvailableCars()}">Ledig</th>
+            <th th:text="${carMakeStatistic.getCarMake()}">Audi</th>
+            <th th:text="${carMakeStatistic.getNumberOfAvailableCars()}">25</th>
             <th>Udlejet</th>
             <th>På værksted</th>
-            <th th:text="${carMakeStatistic.getAverageLeasePeriod()}">Gennemsnitlig lejeperiode</th>
-            <th th:text="${carMakeStatistic.getAveragePricerPerMonth()}">Gennemsnitlig pris per måned</th>
+            <th th:text="${carMakeStatistic.getAverageLeasePeriod()}">365</th>
+            <th th:text="${carMakeStatistic.getAveragePricerPerMonth()}">8500</th>
             <th>Mest populære model</th>
             <th>Mest populære farve</th>
             <th>Gennemsnitlig antal skader per skadesrapport</th>
