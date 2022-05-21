@@ -1,8 +1,5 @@
 package com.example.bilabonnement.models;
 
-import java.util.Locale;
-import java.util.Objects;
-
 public class Car {
     private String chassisNumber;
     private String make;
@@ -12,11 +9,13 @@ public class Car {
     private String equipmentLevel;
     private double registrationFee;
     private double emission;
-    private String status = "available";
+    private String status;
     private String url;
 
 
+    // Når en bil bliver oprettet er den "available"
     public Car() {
+        this.status = "available";
     }
 
     public Car(String registrationNumber, String chassisNumber, String make, String model, String color,

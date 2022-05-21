@@ -11,24 +11,6 @@ public class CarMakeStatistic {
     String mostPopularColor;
     double averageDamagesPerDamageReport;
 
-
-    public CarMakeStatistic(String carMake, int numberOfRentedCars, int numberOfAvailableCars,
-                            int numberOfWorkshopCars, double averageLeasePeriod,
-                            double averagePricerPerMonth, String mostPopularModel,
-                            String mostPopularColor, double averageDamagesPerDamageReport) {
-        this.carMake = carMake;
-        this.numberOfRentedCars = numberOfRentedCars;
-        this.numberOfAvailableCars = numberOfAvailableCars;
-        this.numberOfWorkshopCars = numberOfWorkshopCars;
-        this.averageLeasePeriod = averageLeasePeriod;
-        this.averagePricerPerMonth = averagePricerPerMonth;
-        this.mostPopularModel = mostPopularModel;
-        this.mostPopularColor = mostPopularColor;
-        this.averageDamagesPerDamageReport = averageDamagesPerDamageReport;
-    }
-    public CarMakeStatistic() {}
-
-
     public String getCarMake() {
         return carMake;
     }

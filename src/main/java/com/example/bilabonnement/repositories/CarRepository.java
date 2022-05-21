@@ -77,7 +77,7 @@ public class CarRepository {
             preparedStatement.setString(6, car.getEquipmentLevel());
             preparedStatement.setDouble(7, car.getRegistrationFee());
             preparedStatement.setDouble(8, car.getEmission());
-            preparedStatement.setString(9, "available");
+            preparedStatement.setString(9, car.getStatus());
             preparedStatement.setString(10, car.getUrl());
             preparedStatement.executeUpdate();
             System.out.println("the car is added");

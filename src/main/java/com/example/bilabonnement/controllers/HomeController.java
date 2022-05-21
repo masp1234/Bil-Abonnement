@@ -32,7 +32,7 @@ public class HomeController {
 
         if (user != null) {
             if (user.getRole().equalsIgnoreCase("forretningsudvikler")) {
-                return "statistics";
+                return "redirect:/statistics";
             }
 
             else {
@@ -64,7 +64,7 @@ public class HomeController {
             return "redirect:/";
         }  else {
             session.setAttribute("user", user);
-            if(user.getRole().equals("forretningsudvikler"))return "statistics";
+            if(user.getRole().equals("forretningsudvikler"))return "redirect:/statistics";
             else return "redirect:/landingpage";
 
 

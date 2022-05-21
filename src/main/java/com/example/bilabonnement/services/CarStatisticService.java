@@ -1,11 +1,9 @@
 package com.example.bilabonnement.services;
 
-import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.CarMakeStatistic;
 import com.example.bilabonnement.repositories.CarStatisticRepository;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +22,6 @@ public class CarStatisticService {
         setAverageLeasePricePerMonthPerCarMake(carMakeStatistics);
 
         return carMakeStatistics;
-
     }
 
     private List<CarMakeStatistic> setAverageLeasePeriodPerMonthPerCarMake(List<CarMakeStatistic> carMakeStatistics) {
@@ -36,7 +33,6 @@ public class CarStatisticService {
             counter++;
             System.out.println(cms);
         }
-
         return carMakeStatistics;
     }
 
@@ -45,18 +41,15 @@ public class CarStatisticService {
 
         int counter = 0;
         for (CarMakeStatistic cms: carMakeStatistics) {
-            cms.setAveragePricerPerMonth(averagePricesPerMonth.get(0));
+            cms.setAveragePricerPerMonth(averagePricesPerMonth.get(counter));
             counter++;
             System.out.println(cms);
         }
-
         return carMakeStatistics;
 
     }
     private List<CarMakeStatistic> setStatusPerCarMake(List<CarMakeStatistic> carMakeStatistics) {
         List<List<Integer>> statusPerCarMake = new ArrayList<>();
-
-
 
 
         return carMakeStatistics;

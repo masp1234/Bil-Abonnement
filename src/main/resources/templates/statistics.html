@@ -22,105 +22,16 @@
         </tr>
         </thead>
         <tbody class="body-table">
-        <tr>
-            <th>Audi</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>10</td>
-            <td>4</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>Astron Martin</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>10</td>
-            <td>4</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>BMW</th>
-            <td>5000</td>
-            <td>6000</td>
-            <td>7000</td>
-            <td>8000</td>
-            <td>26000</td>
-            <td>4</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>Citroen</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>10</td>
-            <td>4</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>Fiat</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>10</td>
-            <td>4</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>Ford</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>10</td>
-            <td>4</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>Hyundai</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>10</td>
-            <td>4</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>Kia</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>10</td>
-            <td>4</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>Resterende mærker</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>10</td>
-            <td>4</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>Samlet</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>10</td>
-            <td>4</td>
-            <td>10</td>
+        <tr th:each="carMakeStatistic: ${carMakeStatistics}">
+            <th th:text="${carMakeStatistic.getNumberOfAvailableCars()}">Ledig</th>
+            <th>Udlejet</th>
+            <th>På værksted</th>
+            <th th:text="${carMakeStatistic.getAverageLeasePeriod()}">Gennemsnitlig lejeperiode</th>
+            <th th:text="${carMakeStatistic.getAveragePricerPerMonth()}">Gennemsnitlig pris per måned</th>
+            <th>Mest populære model</th>
+            <th>Mest populære farve</th>
+            <th>Gennemsnitlig antal skader per skadesrapport</th>
+
         </tr>
 
         </tbody>
