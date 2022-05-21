@@ -4,11 +4,9 @@ import com.example.bilabonnement.models.CarMakeStatistic;
 import com.example.bilabonnement.utilities.ConnectionManager;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Repository
@@ -49,7 +47,7 @@ public class CarStatisticRepository {
 
     }
 
-    public ArrayList<ArrayList<Integer>> getCarMakesAndStatus() {
+    public HashMap<String, HashMap<String, Integer>> getCarMakesAndStatus() {
 
         String query = "SELECT car.car_make, cars_available.available, cars_reserved.reserved, cars_in_workshop.workshop\n" +
                 "FROM car\n" +
@@ -64,33 +62,31 @@ public class CarStatisticRepository {
                 "ON car.car_make = cars_in_workshop.car_make\n" +
                 "GROUP BY car.car_make\n" +
                 "\n";
-        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+        HashMap<String, HashMap<String, Integer>> list = new HashMap<>();
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-            int counter = 0;
 
             while (resultSet.next()) {
-                int avilableCars = resultSet.getInt(2);
+                String carMake = resultSet.getString(1);
+                int availableCars = resultSet.getInt(2);
                 int reservedCars = resultSet.getInt(3);
                 int workshopCars = resultSet.getInt(4);
-                list.add(new ArrayList<Integer>());
-                list.get(counter).add(avilableCars);
-                list.get(counter).add(reservedCars);
-                list.get(counter).add(workshopCars);
-                counter++;
+                list.put(carMake, new HashMap<>());
+
+                //Indeholder metadata, som f.eks. column navne
+                ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+
+                list.get(carMake).put(resultSetMetaData.getColumnName(2), availableCars);
+                list.get(carMake).put(resultSetMetaData.getColumnName(3), reservedCars);
+                list.get(carMake).put(resultSetMetaData.getColumnName(4), workshopCars);
+
             }
+            System.out.println(list);
         } catch (SQLException e) {
             System.out.println("Kunne ikke kalde getCarMakesAndStatus");
             e.printStackTrace();
         }
-        for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < list.get(i).size(); j++) {
-                System.out.print(list.get(i).get(j) + " ");
-            }
-            System.out.println();
-        }
-
 
         return list;
     }

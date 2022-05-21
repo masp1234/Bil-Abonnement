@@ -14,6 +14,7 @@ public class StatisticController {
     private CarStatisticService statisticService;
     private CarStatisticRepository carStatisticRepository;
 
+    // TODO ryd op i denne controller
     public StatisticController(CarStatisticService statisticService, CarStatisticRepository carStatisticRepository) {
         this.statisticService = statisticService;
         this.carStatisticRepository = carStatisticRepository;
@@ -25,6 +26,13 @@ public class StatisticController {
         System.out.println(averageLeasePeriodsPerCarMake);
         List<Double> averagePricePerMonth = carStatisticRepository.getAverageLeasePricePerMonthPerCarMake();
         System.out.println(averagePricePerMonth);
+
+        return "index";
+    }
+
+    @GetMapping("test2")
+    public String test2() {
+        carStatisticRepository.getCarMakesAndStatus();
 
         return "index";
     }
