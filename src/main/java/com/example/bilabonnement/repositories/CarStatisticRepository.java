@@ -1,4 +1,5 @@
 package com.example.bilabonnement.repositories;
+
 import com.example.bilabonnement.models.CarMakeStatistic;
 import com.example.bilabonnement.utilities.ConnectionManager;
 import org.springframework.stereotype.Repository;
@@ -20,8 +21,6 @@ public class CarStatisticRepository {
     }
 
 
-
-
     public List<CarMakeStatistic> getCarMakes() {
 
         List<CarMakeStatistic> carMakeStatistics = new ArrayList<>();
@@ -31,11 +30,14 @@ public class CarStatisticRepository {
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-            String carMake = resultSet.getString(1);
 
-            CarMakeStatistic carMakeStatistic = new CarMakeStatistic();
-            carMakeStatistic.setCarMake(carMake);
-            carMakeStatistics.add(carMakeStatistic);
+            while (resultSet.next()) {
+                String carMake = resultSet.getString(1);
+
+                CarMakeStatistic carMakeStatistic = new CarMakeStatistic();
+                carMakeStatistic.setCarMake(carMake);
+                carMakeStatistics.add(carMakeStatistic);
+            }
 
 
         } catch (SQLException e) {
@@ -46,6 +48,7 @@ public class CarStatisticRepository {
         return carMakeStatistics;
 
     }
+
     public ArrayList<ArrayList<Integer>> getCarMakesAndStatus() {
 
         String query = "SELECT car.car_make, cars_available.available, cars_reserved.reserved, cars_in_workshop.workshop\n" +
@@ -66,7 +69,8 @@ public class CarStatisticRepository {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             int counter = 0;
-            while(resultSet.next()) {
+
+            while (resultSet.next()) {
                 int avilableCars = resultSet.getInt(2);
                 int reservedCars = resultSet.getInt(3);
                 int workshopCars = resultSet.getInt(4);
@@ -96,7 +100,7 @@ public class CarStatisticRepository {
 
         String query = "SELECT car_make, AVG(DATEDIFF(lease_end_date, lease_start_date)) as average_date_diff \n" +
                 "FROM car \n" +
-                "JOIN lease on car_reg_number = lease_car_reg_number\n" +
+                "LEFT JOIN lease on car_reg_number = lease_car_reg_number\n" +
                 "GROUP BY car_make\n" +
                 "ORDER BY car_make\n";
 
@@ -104,8 +108,10 @@ public class CarStatisticRepository {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
-            double averageLeasePeriod = resultSet.getDouble(2);
-            averageLeasePeriodsPerCarMake.add(averageLeasePeriod);
+            while (resultSet.next()) {
+                double averageLeasePeriod = resultSet.getDouble(2);
+                averageLeasePeriodsPerCarMake.add(averageLeasePeriod);
+            }
 
         } catch (SQLException e) {
             System.out.println("Kunne ikke finde gennemsnitlige lease perioder per bilmærke");
@@ -120,7 +126,7 @@ public class CarStatisticRepository {
 
         String query = "SELECT car_make, AVG(lease_price) as price_per_month \n" +
                 "FROM car \n" +
-                "JOIN lease \n" +
+                "LEFT JOIN lease \n" +
                 "ON car_reg_number = lease_car_reg_number\n" +
                 "GROUP BY car_make\n" +
                 "ORDER BY car_make\n";
@@ -129,8 +135,11 @@ public class CarStatisticRepository {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
-            double averagePricePerMonth = resultSet.getDouble(2);
-            averageLeasePricePerMonthPerCarMake.add(averagePricePerMonth);
+
+            while (resultSet.next()) {
+                double averagePricePerMonth = resultSet.getDouble(2);
+                averageLeasePricePerMonthPerCarMake.add(averagePricePerMonth);
+            }
 
         } catch (SQLException e) {
             System.out.println("Kunne ikke finde gennesnitlige leasingpris per måned per bilmærke");

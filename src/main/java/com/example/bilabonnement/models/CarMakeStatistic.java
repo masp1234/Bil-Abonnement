@@ -100,4 +100,19 @@ public class CarMakeStatistic {
     public void setAverageDamagesPerDamageReport(double averageDamagesPerDamageReport) {
         this.averageDamagesPerDamageReport = averageDamagesPerDamageReport;
     }
+
+    @Override
+    public String toString() {
+        return "CarMakeStatistic{" +
+                "carMake='" + carMake + '\'' +
+                ", numberOfRentedCars=" + numberOfRentedCars +
+                ", numberOfAvailableCars=" + numberOfAvailableCars +
+                ", numberOfWorkshopCars=" + numberOfWorkshopCars +
+                ", averageLeasePeriod=" + averageLeasePeriod +
+                ", averagePricerPerMonth=" + averagePricerPerMonth +
+                ", mostPopularModel='" + mostPopularModel + '\'' +
+                ", mostPopularColor='" + mostPopularColor + '\'' +
+                ", averageDamagesPerDamageReport=" + averageDamagesPerDamageReport +
+                '}';
+    }
 }
