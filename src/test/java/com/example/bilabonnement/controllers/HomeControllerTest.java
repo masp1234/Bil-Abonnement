@@ -74,6 +74,50 @@ class HomeControllerTest {
         driver.close();
 
     }
+    @Test
+    public void createCar() {
+        login();
+
+        WebElement createCustomerButton = driver.findElement(By.className("createCar"));
+        createCustomerButton.click();
+
+        WebElement registrationNumber = driver.findElement(By.id("registrationNumber"));
+        registrationNumber.sendKeys("REGNUMBER123");
+
+        WebElement chassisNumber = driver.findElement(By.id("chassisNumber"));
+        chassisNumber.sendKeys("CHASSISNUMBER123");
+
+        WebElement make = driver.findElement(By.id("make"));
+        make.sendKeys("Mercedes");
+
+        WebElement model = driver.findElement(By.id("model"));
+        model.sendKeys("EQS Sedan");
+
+        WebElement color = driver.findElement(By.id("color"));
+        color.sendKeys("Sølv");
+
+        WebElement equipmentLevel = driver.findElement(By.id("equipmentLevel"));
+        equipmentLevel.sendKeys("Ekstra +");
+
+        WebElement registrationFee = driver.findElement(By.id("registrationFee"));
+        registrationFee.sendKeys("30000");
+
+        WebElement carEmission = driver.findElement(By.id("carEmission"));
+        carEmission.sendKeys("100.5");
+
+        WebElement link = driver.findElement(By.id("link"));
+        link.sendKeys("https://www.mercedes-benz.dk/passengercars/mercedes-benz-cars/models/eqs/" +
+                "saloon-v297/_jcr_content/image.MQ6.2.2x.20210819150545.png");
+
+        WebElement createCarButton = driver.findElement(By.className("button-submit"));
+
+        createCarButton.click();
+
+        driver.close();
+
+
+
+    }
 
 
 }
