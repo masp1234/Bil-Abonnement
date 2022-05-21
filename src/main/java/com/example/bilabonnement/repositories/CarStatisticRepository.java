@@ -1,6 +1,4 @@
 package com.example.bilabonnement.repositories;
-
-import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.CarMakeStatistic;
 import com.example.bilabonnement.utilities.ConnectionManager;
 import org.springframework.stereotype.Repository;
@@ -92,6 +90,31 @@ public class CarStatisticRepository {
 
         return list;
     }
+
+    public List<Double> getAverageLeasePeriodsPerCarMake() {
+        List<Double> averageLeasePeriodsPerCarMake = new ArrayList<>();
+
+        String query = "SELECT car_make, AVG(DATEDIFF(lease_end_date, lease_start_date)) as average_date_diff \n" +
+                "FROM car \n" +
+                "JOIN lease on car_reg_number = lease_car_reg_number\n" +
+                "GROUP BY car_make\n" +
+                "ORDER BY car_make\n";
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            double averageLeasePeriod = resultSet.getDouble(2);
+            averageLeasePeriodsPerCarMake.add(averageLeasePeriod);
+
+        } catch (SQLException e) {
+            System.out.println("Kunne ikke finde gennemsnitlige lease perioder per bilmærke");
+            e.printStackTrace();
+        }
+
+        return averageLeasePeriodsPerCarMake;
+    }
+
 
     //public List<Integer> getAverageDamagesPerDamageReportPerCarMake
 

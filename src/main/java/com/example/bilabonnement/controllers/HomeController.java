@@ -31,22 +31,19 @@ public class HomeController {
         User user = (User) session.getAttribute("user");
 
         if (user != null) {
+            if (user.getRole().equalsIgnoreCase("forretningsudvikler")) {
+                return "statistics";
+            }
 
-           /* if(user.getPermission().equalsignorecase("dataregistrering")){
-                return "redirect:/bruger-forside-dataregistrering";
-            }
-            else if(user.getPermission().equalsignorecase("Forretningsudviklere ")){
-                return "redirect:/bruger-forside-Forretningsudviklere";
-            }
             else {
-                return "redirect:/bruger-forside-Skade";
-            }*/
-            //uden redirect henter den ikke ønskelister
-            return "redirect:/landingpage";
+                return "redirect:/landingpage";
+                }
+        }
+        return "index";
         }
 
-        return "index";
-    }
+
+
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
