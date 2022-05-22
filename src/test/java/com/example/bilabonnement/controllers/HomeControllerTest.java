@@ -1,16 +1,27 @@
 package com.example.bilabonnement.controllers;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import com.example.bilabonnement.models.Car;
+import com.example.bilabonnement.models.Customer;
+import com.example.bilabonnement.repositories.CarRepository;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class HomeControllerTest {
 
+
+    private static CarRepository carRepository;
     static WebDriver driver;
+    private static Car testCar;
+    private static Customer testCustomer;
+
+    public HomeControllerTest() {
+        this.carRepository = new CarRepository();
+    }
 
     @BeforeAll
     //Skal være static
@@ -39,7 +50,12 @@ class HomeControllerTest {
 
     //Bliver nødt til at logge ind hver gang, da den åbner en ny "profil" uden cookies
     @Test
+    @Order(1)
     public void createCustomer() {
+
+        testCustomer = new Customer("2102901211", "Henning", "Henningsen",
+                "Henning@gmail.com", "12345678", "testvej 123",
+                "4000", "Roskilde");
 
         login();
 
@@ -47,25 +63,25 @@ class HomeControllerTest {
         createCustomerButton.click();
 
         WebElement cpr = driver.findElement(By.id("cpr"));
-        cpr.sendKeys("2121212");
+        cpr.sendKeys(testCustomer.getCpr());
 
         WebElement firstName = driver.findElement(By.id("firstName"));
-        firstName.sendKeys("Henning");
+        firstName.sendKeys(testCustomer.getFirstname());
 
         WebElement lastName = driver.findElement(By.id("lastName"));
-        lastName.sendKeys("Henningsen");
+        lastName.sendKeys(testCustomer.getLastName());
 
         WebElement email = driver.findElement(By.id("email"));
-        email.sendKeys("Henning@gmail.com");
+        email.sendKeys(testCustomer.getEmail());
 
         WebElement phoneNumber = driver.findElement(By.id("phoneNumber"));
-        phoneNumber.sendKeys("9349354");
+        phoneNumber.sendKeys(testCustomer.getPhoneNumber());
 
         WebElement address = driver.findElement(By.id("address"));
-        address.sendKeys("dfsfsf vej 21");
+        address.sendKeys(testCustomer.getAddress());
 
         WebElement zipCode = driver.findElement(By.id("zipCode"));
-        zipCode.sendKeys("2630");
+        zipCode.sendKeys(testCustomer.getZipCode());
 
         WebElement createCustomerSubmitButton = driver.findElement(By.className("button-submit"));
 
@@ -75,35 +91,43 @@ class HomeControllerTest {
 
     }
     @Test
+    @Order(2)
     public void createCar() {
+
+        testCar = new Car("REGNUMBER123", "CHASSISNUMBER123",
+                "Mercedes", "EQS Sedan", "Sølv", "Ekstra +",
+        30000, 50.5, "available", "https://www.mercedes-benz.dk/passengercars/" +
+                "mercedes-benz-cars/models/eqs/saloon-v297/_jcr_content/image.MQ6.2.2x.20210819150545.png");
+
         login();
 
         WebElement createCustomerButton = driver.findElement(By.className("createCar"));
         createCustomerButton.click();
 
         WebElement registrationNumber = driver.findElement(By.id("registrationNumber"));
-        registrationNumber.sendKeys("REGNUMBER123");
+        registrationNumber.sendKeys(testCar.getRegistrationNumber());
 
         WebElement chassisNumber = driver.findElement(By.id("chassisNumber"));
-        chassisNumber.sendKeys("CHASSISNUMBER123");
+        chassisNumber.sendKeys(testCar.getChassisNumber());
 
         WebElement make = driver.findElement(By.id("make"));
-        make.sendKeys("Mercedes");
+        make.sendKeys(testCar.getMake());
 
         WebElement model = driver.findElement(By.id("model"));
-        model.sendKeys("EQS Sedan");
+        model.sendKeys(testCar.getModel());
 
         WebElement color = driver.findElement(By.id("color"));
-        color.sendKeys("Sølv");
+        color.sendKeys(testCar.getColor());
 
         WebElement equipmentLevel = driver.findElement(By.id("equipmentLevel"));
-        equipmentLevel.sendKeys("Ekstra +");
+        equipmentLevel.sendKeys(testCar.getEquipmentLevel());
 
         WebElement registrationFee = driver.findElement(By.id("registrationFee"));
-        registrationFee.sendKeys("30000");
+        // konverterer double til string, da WebElement.sendKeys kun tager en String
+        registrationFee.sendKeys(String.valueOf(testCar.getRegistrationFee()));
 
         WebElement carEmission = driver.findElement(By.id("carEmission"));
-        carEmission.sendKeys("100.5");
+        carEmission.sendKeys(String.valueOf(testCar.getEmission()));
 
         WebElement link = driver.findElement(By.id("link"));
         link.sendKeys("https://www.mercedes-benz.dk/passengercars/mercedes-benz-cars/models/eqs/" +
@@ -117,6 +141,42 @@ class HomeControllerTest {
 
 
 
+    }
+    @Test
+    @Order(3)
+    public void createLease() {
+        login();
+
+        driver.get("https://bil-abonnement-projekt.herokuapp.com/lease/" + testCar.getRegistrationNumber());
+
+        WebElement cprNumber = driver.findElement(By.id("cprNumber"));
+        cprNumber.sendKeys(testCustomer.getCpr());
+
+        WebElement price = driver.findElement(By.id("price"));
+        price.sendKeys("4500");
+
+        WebElement customerAccountNumber = driver.findElement(By.id("customerAccountNumber"));
+        customerAccountNumber.sendKeys("2271255432342");
+
+        WebElement customerRegNumber = driver.findElement(By.id("customerRegNumber"));
+        customerRegNumber.sendKeys("2271");
+
+        WebElement startDate = driver.findElement(By.id("startDate"));
+        startDate.sendKeys("2022-10-02");
+
+        WebElement endDate = driver.findElement(By.id("endDate"));
+        endDate.sendKeys("2022-10-25");
+
+        WebElement createLeaseButton = driver.findElement(By.className("button-submit"));
+
+        createLeaseButton.click();
+
+        driver.close();
+    }
+
+    @AfterAll
+    public static void cleanup() {
+        carRepository.deleteCarById(testCar.getRegistrationNumber());
     }
 
 
