@@ -127,7 +127,7 @@ public class DamageReportRepository {
 
         try {
             Statement statement = connection.createStatement();
-            statement.executeQuery(query);
+            statement.executeUpdate(query);
         } catch (SQLException e) {
             System.out.println("kunne ikke slette alle damage reports med car chassisNumber: " + chassisNumber);
             e.printStackTrace();

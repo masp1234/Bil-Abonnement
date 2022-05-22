@@ -45,6 +45,8 @@ class HomeControllerTest {
     //Bliver nødt til at logge ind hver gang, da den åbner en ny "profil" uden cookies
     public static void login() {
         driver = new ChromeDriver();
+
+        driver.manage().window().maximize();
         driver.get("https://bil-abonnement-projekt.herokuapp.com");
 
         WebElement username = driver.findElement(By.name("username"));
