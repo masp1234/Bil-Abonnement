@@ -10,18 +10,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+
+//for at kunne bruge @Order annotation
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class HomeControllerTest {
 
-
+    //static for at kunne tilgå dem i setup og cleanup (som skal være static)
     private static CarRepository carRepository;
-    static WebDriver driver;
+    private static WebDriver driver;
     private static Car testCar;
     private static Customer testCustomer;
-
-    public HomeControllerTest() {
-        this.carRepository = new CarRepository();
-    }
 
     @BeforeAll
     //Skal være static
@@ -29,10 +27,22 @@ class HomeControllerTest {
         //sætter automatisk WebDriver op, så man ikke skal downloade filen og bekymre sig om, om det er mac eller win
         WebDriverManager.chromedriver().setup();
 
+        carRepository = new CarRepository();
+
         login();
+
+        testCustomer = new Customer("2102901211", "Henning", "Henningsen",
+                "Henning@gmail.com", "12345678", "testvej 123",
+                "4000", "Roskilde");
+
+        testCar = new Car("REGNUMBER123", "CHASSISNUMBER123",
+                "Mercedes", "EQS Sedan", "Sølv", "Ekstra +",
+                30000, 50.5, "available", "https://www.mercedes-benz.dk/passengercars/" +
+                "mercedes-benz-cars/models/eqs/saloon-v297/_jcr_content/image.MQ6.2.2x.20210819150545.png");
 
         driver.close();
     }
+    //Bliver nødt til at logge ind hver gang, da den åbner en ny "profil" uden cookies
     public static void login() {
         driver = new ChromeDriver();
         driver.get("https://bil-abonnement-projekt.herokuapp.com");
@@ -48,14 +58,10 @@ class HomeControllerTest {
 
     }
 
-    //Bliver nødt til at logge ind hver gang, da den åbner en ny "profil" uden cookies
+
     @Test
     @Order(1)
     public void createCustomer() {
-
-        testCustomer = new Customer("2102901211", "Henning", "Henningsen",
-                "Henning@gmail.com", "12345678", "testvej 123",
-                "4000", "Roskilde");
 
         login();
 
@@ -93,11 +99,6 @@ class HomeControllerTest {
     @Test
     @Order(2)
     public void createCar() {
-
-        testCar = new Car("REGNUMBER123", "CHASSISNUMBER123",
-                "Mercedes", "EQS Sedan", "Sølv", "Ekstra +",
-        30000, 50.5, "available", "https://www.mercedes-benz.dk/passengercars/" +
-                "mercedes-benz-cars/models/eqs/saloon-v297/_jcr_content/image.MQ6.2.2x.20210819150545.png");
 
         login();
 

@@ -13,7 +13,7 @@ public class DamageReportRepository {
 
     private Connection connection;
 
-    DamageReportRepository() {
+    public DamageReportRepository() {
         connection = ConnectionManager.connectToMySQL();
     }
 
@@ -119,5 +119,18 @@ public class DamageReportRepository {
         }
 
         return damageReports;
+    }
+
+
+    public void deleteAllDamageReportsByChassisNumber(String chassisNumber) {
+        String query = "DELETE FROM damage_report WHERE damage_report_car_chassis_number = '" + chassisNumber + "'";
+
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeQuery(query);
+        } catch (SQLException e) {
+            System.out.println("kunne ikke slette alle damage reports med car chassisNumber: " + chassisNumber);
+            e.printStackTrace();
+        }
     }
 }
