@@ -31,7 +31,7 @@ public class CarStatisticService {
         for (CarMakeStatistic cms: carMakeStatistics) {
             cms.setAverageLeasePeriod(averageLeasePeriods.get(counter));
             counter++;
-            System.out.println(cms);
+
         }
         return carMakeStatistics;
     }
@@ -43,7 +43,7 @@ public class CarStatisticService {
         for (CarMakeStatistic cms: carMakeStatistics) {
             cms.setAveragePricerPerMonth(averagePricesPerMonth.get(counter));
             counter++;
-            System.out.println(cms);
+
         }
         return carMakeStatistics;
 

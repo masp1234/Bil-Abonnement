@@ -73,7 +73,7 @@
                                                id="description" placeholder="Skadesbeskrivelse" required></td>
        <td>Udregnes...</td>
         <td><div class="btn-functions">
-          <button class="button-submit2 text" type="submit">OPRET</button>
+          <button class="button-submit2 text" id="create-damage-report-button" type="submit">OPRET</button>
         </div></td>
       </tr>
       </form>
@@ -82,7 +82,7 @@
         <td th:text="${damageReport.description}">Kort beskrivelse</td>
         <td th:text="${damageReport.totalPrice}">54.659kr.</td>
         <td><div class="btn-functions">
-          <a th:href="@{'/damages/' + ${damageReport.id}}"><button class="button-submit2 text">SE RAPPORT</button></a>
+          <a th:href="@{'/damages/' + ${damageReport.id}}"><button class="button-submit2 text" id="show-damage-report-button">SE RAPPORT</button></a>
         </div></td>
       </tr>
 

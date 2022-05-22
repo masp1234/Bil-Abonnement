@@ -37,7 +37,6 @@ public class CarStatisticRepository {
                 carMakeStatistics.add(carMakeStatistic);
             }
 
-
         } catch (SQLException e) {
             System.out.println("Kunne ikke finde car_makes i car table");
             e.printStackTrace();
@@ -144,8 +143,4 @@ public class CarStatisticRepository {
 
         return averageLeasePricePerMonthPerCarMake;
     }
-
-
-    //public List<Integer> getAverageDamagesPerDamageReportPerCarMake
-
 }
