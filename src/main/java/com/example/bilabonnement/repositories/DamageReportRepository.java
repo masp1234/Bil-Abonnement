@@ -30,10 +30,7 @@ public class DamageReportRepository {
             preparedStatement.setString(1, damageReport.getDate());
             preparedStatement.setString(2, damageReport.getDescription());
             preparedStatement.setString(3, damageReport.getChassisNumber());
-
-
             preparedStatement.executeUpdate();
-            System.out.println("DamageReport has been added");
         } catch (SQLException e) {
             System.out.println("Could not add DamageReport");
             e.printStackTrace();
@@ -43,7 +40,6 @@ public class DamageReportRepository {
 
     public List<DamageReport> getAllDamageReports(String chassisNumber) {
         connection = ConnectionManager.connectToMySQL();
-
         List<DamageReport> damageReports = new ArrayList<>();
         final String QUERY = "SELECT * FROM damage_report WHERE damage_report_car_chassis_number = '" + chassisNumber + "'";
         try {
@@ -56,7 +52,6 @@ public class DamageReportRepository {
 
                 damageReports.add(new DamageReport(id,date, description, chassisNumber,0));
             }
-            System.out.println("All damage reports are shown");
             statement.close();
         } catch (SQLException e) {
             System.out.println(e + "Could not show all damage reports");
@@ -65,7 +60,7 @@ public class DamageReportRepository {
         return damageReports;
     }
 
-    public DamageReport getDamageReportById(int id) {
+    public DamageReport getDamageReportByChassisNumber(int id) {
 
         connection = ConnectionManager.connectToMySQL();
 
@@ -81,14 +76,10 @@ public class DamageReportRepository {
                 String date = resultSet.getString(2);
                 String description = resultSet.getString(3);
                 String chassisNumber = resultSet.getString(4);
-
                 damageReport = new DamageReport();
                 damageReport.setChassisNumber(chassisNumber);
                 damageReport.setDate(date);
                 damageReport.setDescription(description);
-
-                System.out.println(damageReport);
-
             }
         } catch (SQLException e) {
             System.out.println("Could not find damageReport by id: " + id);
@@ -96,6 +87,30 @@ public class DamageReportRepository {
         }
         return damageReport;
     }
+
+    public List<DamageReport> showDamageReport( String chassisNumber){
+        List<DamageReport> damageReports = new ArrayList();
+        String QUERY = "SELECT * FROM damage_report WHERE damage_report_car_chassis_number = '" + chassisNumber + "'";
+
+        DamageReport damageReport = null;
+        try{
+            Statement statement= connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(QUERY);
+            while (resultSet.next()){
+              int id = resultSet.getInt(1);
+              String date = resultSet.getString(2);
+              String description = resultSet.getString(3);
+              chassisNumber = resultSet.getString(4);
+              int totalPrice = resultSet.getInt(5);
+              damageReports.add(new DamageReport(id, date, description, chassisNumber, totalPrice));
+            }
+
+        }catch (SQLException e){
+            System.out.println("can show damageReports");
+        }
+        return damageReports;
+    }
+
 
     public void deleteAllDamageReportsByChassisNumber(String chassisNumber) {
         String query = "DELETE FROM damage_report WHERE damage_report_car_chassis_number = '" + chassisNumber + "'";

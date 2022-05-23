@@ -37,7 +37,6 @@ public class LeaseRepository {
             preparedStatement.setString(6, lease.getCustomerAccountNumber());
             preparedStatement.setString(7, lease.getCustomerRegNumber());
             preparedStatement.executeUpdate();
-            System.out.println("Customer has been added");
             return true;
         } catch (SQLException e) {
             System.out.println("Could not add customer");
@@ -65,16 +64,13 @@ public class LeaseRepository {
                 String startDate = resultSet.getString(6);
                 String endDate = resultSet.getString(7);
                 lease = new Lease(price,startDate,endDate,reg,cpr,accountNumber,regNumber);
-
             }
         }
 
         catch (Exception e) {
             System.out.println("kunne ikke finde lease");
             e.printStackTrace();
-
         }
-
         return lease;
     }
 
@@ -93,9 +89,7 @@ public class LeaseRepository {
             preparedStatement.setString(5, lease.getCustomerAccountNumber());
             preparedStatement.setString(6, lease.getCustomerRegNumber());
             preparedStatement.setString(7, lease.getCarRegistrationNumber());
-
             preparedStatement.executeUpdate();
-
         }
         catch (SQLException e) {
             System.out.println("kunne ikke opdatere lease med bil registrationnummer = " + lease.getCarRegistrationNumber());
@@ -109,8 +103,6 @@ public class LeaseRepository {
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
             preparedStatement.setString(1, reg);
             preparedStatement.executeUpdate();
-            System.out.println("Is deleted");
-
         } catch (SQLException e) {
             System.out.println("is not deleted");
             e.printStackTrace();
