@@ -14,8 +14,6 @@ public class StatisticController {
 
     private CarStatisticService carStatisticService;
 
-
-    // TODO ryd op i denne controller
     public StatisticController(CarStatisticService CarStatisticService) {
         this.carStatisticService = CarStatisticService;
 
@@ -24,7 +22,6 @@ public class StatisticController {
     public String getStatistics(Model model) {
         List<CarMakeStatistic> carMakeStatistics = carStatisticService.getCarMakeStatistics();
         model.addAttribute("carMakeStatistics", carMakeStatistics);
-
         return "statistics";
     }
 }

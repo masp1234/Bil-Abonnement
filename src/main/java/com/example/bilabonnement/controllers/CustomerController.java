@@ -36,8 +36,6 @@ public class CustomerController {
         customer.setPhoneNumber(phoneNumber);
         customer.setZipCode(zipCode);
         customer.setAddress(address);
-        System.out.println(customer);
-
         customerService.addCustomer(customer);
         return "redirect:/landingpage";
     }
