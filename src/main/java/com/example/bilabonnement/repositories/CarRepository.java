@@ -19,10 +19,7 @@ public class CarRepository {
         connection = ConnectionManager.connectToMySQL();
     }
     public List<Car> getAllCars(){
-
         connection = ConnectionManager.connectToMySQL();
-
-
         List<Car> car = new ArrayList<>();
         final String QUERY="SELECT * FROM car";
         try {
@@ -40,15 +37,11 @@ public class CarRepository {
                 String status = resultSet.getString(9);
                 String url = resultSet.getString(10);
 
-
                 car.add(new Car(registrationNumber, chassisNumber, make, model,
                         color, equipmentLevel,
                         registrationFee, emission, status, url));
             }
-            System.out.println("can show all cars");
-
             statement.close();
-
         }
         catch (SQLException e){
             System.out.println(e + "can not show all cars");
@@ -80,7 +73,6 @@ public class CarRepository {
             preparedStatement.setString(9, car.getStatus());
             preparedStatement.setString(10, car.getUrl());
             preparedStatement.executeUpdate();
-            System.out.println("the car is added");
         }catch (SQLException e){
             System.out.println(" can not add");
             e.printStackTrace();
@@ -90,24 +82,19 @@ public class CarRepository {
 
     public void deleteCarById(String id){
         connection = ConnectionManager.connectToMySQL();
-
         final String QUERY="DELETE FROM car WHERE car_reg_number = ?";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
             preparedStatement.setString(1, id);
             preparedStatement.executeUpdate();
-            System.out.println(" the car is deleted");
         }catch (SQLException e){
             System.out.println("can not delete the car");
             e.printStackTrace();
         }
     }
 
-
     public Car getCarById(String id) {
-
         connection = ConnectionManager.connectToMySQL();
-
         String query = "SELECT * FROM car WHERE car_reg_number = '" + id + "'";
 
         Car car = null;
@@ -130,10 +117,6 @@ public class CarRepository {
 
                 car = new Car (registrationNumber, chassisNumber, make, model, color,
                                 equipmentLevel, registrationFee, emission, status, url);
-
-                System.out.println(car);
-
-
             }
         } catch (SQLException e) {
             System.out.println("kunne ikke finde car med id = " + id);
@@ -143,9 +126,7 @@ public class CarRepository {
     }
 
     public void updateCar(Car car) {
-
         connection = ConnectionManager.connectToMySQL();
-
         String query = "UPDATE car SET car_chassis_number = ?, car_make = ?, car_model = ?, car_color = ?, " +
                 "car_equipment_level = ?, car_reg_fee = ?, car_emission = ?, is_rented = ?, is_ready_to_rent = ?" +
                 "WHERE car_reg_number = ?";
@@ -160,22 +141,15 @@ public class CarRepository {
             preparedStatement.setDouble(6, car.getRegistrationFee());
             preparedStatement.setDouble(7, car.getEmission());
             preparedStatement.setString(8, car.getRegistrationNumber());
-
-
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("kunne ikke opdatere car med car_id  = " + car.getRegistrationNumber());
             e.printStackTrace();
         }
-
-
     }
 
     public void updateStatus(String regNumber, String status) {
         connection = ConnectionManager.connectToMySQL();
-
-
-
         String query = "UPDATE car SET car_status = ?" +
                 "WHERE car_reg_number = ?";
 
@@ -189,5 +163,4 @@ public class CarRepository {
             e.printStackTrace();
         }
     }
-
 }

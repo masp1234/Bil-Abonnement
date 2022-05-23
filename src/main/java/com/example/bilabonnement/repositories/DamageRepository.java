@@ -31,9 +31,7 @@ public class DamageRepository {
                String description = resultSet.getString(2);
                int price = resultSet.getInt(3);
                 damages.add(new Damage(damageId, description,price));
-                System.out.println("damage is found");
             }
-
         }catch (SQLException e){
             System.out.println(e + " damage not found");
             e.printStackTrace();
@@ -51,7 +49,6 @@ public class DamageRepository {
             preparedStatement.setInt(2,damage.getPrice());
             preparedStatement.setInt(3, damage.getDamageReportId());
             preparedStatement.executeUpdate();
-            System.out.println("damage is added");
         }catch (SQLException e){
             System.out.println(e + " can not add damage");
             e.printStackTrace();
@@ -64,8 +61,6 @@ public class DamageRepository {
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
-            System.out.println("Is deleted");
-
         } catch (SQLException e) {
             System.out.println("is not deleted");
             e.printStackTrace();

@@ -36,7 +36,6 @@ public class CustomerRepository {
             preparedStatement.setString(6, customer.getAddress());
             preparedStatement.setString(7, customer.getZipCode());
             preparedStatement.executeUpdate();
-            System.out.println("Customer has been added");
         } catch (SQLException e) {
             System.out.println("Could not add customer");
             e.printStackTrace();
@@ -64,15 +63,10 @@ public class CustomerRepository {
 
                 selectedCustomer = new Customer(cpr,firstName,lastName,email,phone,address,zipcode,city);
             }
-
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("kunne ikke finde bruger");
             e.printStackTrace();
-
         }
-
         return selectedCustomer;
     }
 }

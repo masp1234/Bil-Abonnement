@@ -21,9 +21,7 @@ public class CarStatisticRepository {
 
 
     public List<CarMakeStatistic> getCarMakes() {
-
         List<CarMakeStatistic> carMakeStatistics = new ArrayList<>();
-
         String query = "SELECT DISTINCT car_make from car ORDER BY car_make ASC";
 
         try {
@@ -32,19 +30,15 @@ public class CarStatisticRepository {
 
             while (resultSet.next()) {
                 String carMake = resultSet.getString(1);
-
                 CarMakeStatistic carMakeStatistic = new CarMakeStatistic();
                 carMakeStatistic.setCarMake(carMake);
                 carMakeStatistics.add(carMakeStatistic);
             }
-
         } catch (SQLException e) {
             System.out.println("Kunne ikke finde car_makes i car table");
             e.printStackTrace();
         }
-
         return carMakeStatistics;
-
     }
 
     public HashMap<String, HashMap<String, Integer>> getCarMakesAndStatus() {
@@ -76,18 +70,14 @@ public class CarStatisticRepository {
 
                 //Indeholder metadata, som f.eks. column navne
                 ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-
                 list.get(carMake).put(resultSetMetaData.getColumnName(2), availableCars);
                 list.get(carMake).put(resultSetMetaData.getColumnName(3), reservedCars);
                 list.get(carMake).put(resultSetMetaData.getColumnName(4), workshopCars);
-
             }
-            System.out.println(list);
         } catch (SQLException e) {
             System.out.println("Kunne ikke kalde getCarMakesAndStatus");
             e.printStackTrace();
         }
-
         return list;
     }
 
@@ -108,12 +98,10 @@ public class CarStatisticRepository {
                 double averageLeasePeriod = resultSet.getDouble(2);
                 averageLeasePeriodsPerCarMake.add(averageLeasePeriod);
             }
-
         } catch (SQLException e) {
             System.out.println("Kunne ikke finde gennemsnitlige lease perioder per bilmærke");
             e.printStackTrace();
         }
-
         return averageLeasePeriodsPerCarMake;
     }
 
@@ -130,18 +118,14 @@ public class CarStatisticRepository {
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-
-
             while (resultSet.next()) {
                 double averagePricePerMonth = resultSet.getDouble(2);
                 averageLeasePricePerMonthPerCarMake.add(averagePricePerMonth);
             }
-
         } catch (SQLException e) {
             System.out.println("Kunne ikke finde gennesnitlige leasingpris per måned per bilmærke");
             e.printStackTrace();
         }
-
         return averageLeasePricePerMonthPerCarMake;
     }
 
@@ -164,7 +148,6 @@ public class CarStatisticRepository {
                 double emission = resultSet.getDouble(8);
                 String status = resultSet.getString(9);
                 String url = resultSet.getString(10);
-
 
                 allCarsByCarMake.add(new Car(registrationNumber, chassisNumber, make, model,
                         color, equipmentLevel,
