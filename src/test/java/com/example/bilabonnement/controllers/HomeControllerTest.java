@@ -20,6 +20,7 @@ class HomeControllerTest {
     private static WebDriver driver;
     private static Car testCar;
     private static Customer testCustomer;
+    private static String baseUrl;
 
     @BeforeAll
     //Skal være static
@@ -28,6 +29,8 @@ class HomeControllerTest {
         WebDriverManager.chromedriver().setup();
 
         carRepository = new CarRepository();
+
+        baseUrl = "https://bil-abonnement-projekt.herokuapp.com";
 
         login();
 
@@ -40,14 +43,19 @@ class HomeControllerTest {
                 30000, 50.5, "available", "https://www.mercedes-benz.dk/passengercars/" +
                 "mercedes-benz-cars/models/eqs/saloon-v297/_jcr_content/image.MQ6.2.2x.20210819150545.png");
 
-        driver.close();
     }
     //Bliver nødt til at logge ind hver gang, da den åbner en ny "profil" uden cookies
     public static void login() {
         driver = new ChromeDriver();
 
+<<<<<<< HEAD
         driver.manage().window().maximize();
         driver.get("https://bil-abonnement-projekt.herokuapp.com");
+=======
+       // driver.manage().window().maximize();
+
+        driver.get(baseUrl);
+>>>>>>> testing2
 
         WebElement username = driver.findElement(By.name("username"));
         WebElement password = driver.findElement(By.id("password"));
@@ -55,11 +63,7 @@ class HomeControllerTest {
         username.sendKeys("Bobsen");
         password.sendKeys("123123");
         loginButton.click();
-
-
-
     }
-
 
     @Test
     @Order(1)
@@ -95,7 +99,6 @@ class HomeControllerTest {
 
         createCustomerSubmitButton.click();
 
-        driver.close();
 
     }
     @Test
@@ -140,7 +143,6 @@ class HomeControllerTest {
 
         createCarButton.click();
 
-        driver.close();
 
 
 
@@ -150,7 +152,7 @@ class HomeControllerTest {
     public void createLease() {
         login();
 
-        driver.get("https://bil-abonnement-projekt.herokuapp.com/lease/" + testCar.getRegistrationNumber());
+        driver.get(baseUrl + "/lease/" + testCar.getRegistrationNumber());
 
         WebElement cprNumber = driver.findElement(By.id("cprNumber"));
         cprNumber.sendKeys(testCustomer.getCpr());
@@ -174,12 +176,15 @@ class HomeControllerTest {
 
         createLeaseButton.click();
 
-        driver.close();
     }
 
     @AfterAll
     public static void cleanup() {
+
+        //TODO FIND UD AF HVORDAN MAN LUKKER VINDUER EFTER TESTENE ER KØRT
         carRepository.deleteCarById(testCar.getRegistrationNumber());
+        driver.close();
+        driver.quit();
     }
 
 

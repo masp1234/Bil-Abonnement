@@ -26,13 +26,13 @@
         <tr th:each="carMakeStatistic: ${carMakeStatistics}">
             <th th:text="${carMakeStatistic.getCarMake()}">Audi</th>
             <th th:text="${carMakeStatistic.getNumberOfAvailableCars()}">25</th>
-            <th>Udlejet</th>
-            <th>På værksted</th>
+            <th th:text="${carMakeStatistic.getNumberOfRentedCars()}">Udlejet</th>
+            <th th:text="${carMakeStatistic.getNumberOfWorkshopCars()}">På værksted</th>
             <th th:text="${carMakeStatistic.getAverageLeasePeriod()}">365</th>
             <th th:text="${carMakeStatistic.getAveragePricerPerMonth()}">8500</th>
-            <th>Mest populære model</th>
-            <th>Mest populære farve</th>
-            <th>Gennemsnitlig antal skader per skadesrapport</th>
+            <th th:text="${carMakeStatistic.getMostPopularModel()}">Mest populære model</th>
+            <th th:text="${carMakeStatistic.getMostPopularColor()}">Mest populære farve</th>
+            <th th:text="${carMakeStatistic.getAverageDamagesPerDamageReport()}">Gennemsnitlig antal skader per skadesrapport</th>
 
         </tr>
 

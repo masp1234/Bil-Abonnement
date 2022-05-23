@@ -19,6 +19,7 @@ public class DamagesTest {
     private static DamageReport testDamageReport;
     private static String testChassisNumber;
     private static String testRegistrationNumber;
+    private static String baseUrl;
 
 
 
@@ -34,15 +35,19 @@ public class DamagesTest {
         testDamageReport = new DamageReport(15000, "2022-10-31",
                 "totalskadet", testChassisNumber, 350000);
 
-        login();
+        baseUrl = "https://bil-abonnement-projekt.herokuapp.com/";
 
-        driver.close();
+        login();
     }
 
     public static void login() {
         driver = new ChromeDriver();
 
+<<<<<<< HEAD
         driver.get("https://bil-abonnement-projekt.herokuapp.com");
+=======
+        driver.get(baseUrl);
+>>>>>>> testing2
 
         WebElement username = driver.findElement(By.id("username"));
         WebElement password = driver.findElement(By.id("password"));
@@ -59,11 +64,10 @@ public class DamagesTest {
     public void createDamageReport() {
         login();
 
-        driver.get("https://bil-abonnement-projekt.herokuapp.com/show-damagereport/"
-                + testChassisNumber + "/" + testRegistrationNumber);
+        driver.get(baseUrl + "show-damagereport/" + testChassisNumber + "/" + testRegistrationNumber);
 
-        WebElement damageDescription = driver.findElement(By.id("description"));
-        damageDescription.sendKeys(testDamageReport.getDescription());
+        WebElement damageReportDescription = driver.findElement(By.id("description"));
+        damageReportDescription.sendKeys(testDamageReport.getDescription());
 
         WebElement createDamageReportButton = driver.findElement(By.id("create-damage-report-button"));
 
@@ -72,16 +76,43 @@ public class DamagesTest {
         WebElement showDamageReportButton = driver.findElement(By.id("show-damage-report-button"));
         showDamageReportButton.click();
 
+<<<<<<< HEAD
 
 
+=======
+        WebElement damageDescription = driver.findElement(By.id("description"));
+        damageDescription.sendKeys("død motor");
+>>>>>>> testing2
+
+        WebElement price = driver.findElement(By.id("price"));
+        price.sendKeys("65000");
+        WebElement createDamageButton = driver.findElement(By.className("button-submit2"));
+        createDamageButton.click();
 
 
+<<<<<<< HEAD
 
+=======
+        WebElement secondDamageDescription = driver.findElement(By.id("description"));
+        secondDamageDescription.sendKeys("smadret radio");
 
+        WebElement secondPrice = driver.findElement(By.id("price"));
+        secondPrice.sendKeys("1500");
+        WebElement secondCreateDamageButton = driver.findElement(By.className("button-submit2"));
+        secondCreateDamageButton.click();
+
+        WebElement deleteDamageButton = driver.findElement(By.className("button-submit3"));
+        deleteDamageButton.click();
+>>>>>>> testing2
 
     }
     @AfterAll
     public static void cleanup() {
         damageReportRepository.deleteAllDamageReportsByChassisNumber(testChassisNumber);
+<<<<<<< HEAD
+=======
+        driver.close();
+        driver.quit();
+>>>>>>> testing2
     }
 }
