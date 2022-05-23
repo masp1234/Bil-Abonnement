@@ -30,10 +30,16 @@ public class DamageController {
 
     @GetMapping("/damages/{id}")
     public String getAllDamages(@PathVariable("id") int id, Model model, HttpSession session){
-        DamageReport damageReport = damageReportService.getDamageReportsById(id);
+        DamageReport damageReport = damageReportService.getDamageReportById(id);
         model.addAttribute("damageReport", damageReport);
         session.setAttribute("damageReportId", id);
         ArrayList<Damage> damageList= (ArrayList<Damage>) damageService.getAllDamages(id);
+
+        String chassisNumber = (String) session.getAttribute("chassisNumber");
+        String registrationNumber = (String) session.getAttribute("registrationNumber");
+
+        model.addAttribute("chassisNumber", chassisNumber);
+        model.addAttribute("registrationNumber", registrationNumber);
         model.addAttribute("damages", damageList);
         return "show-damages";
     }

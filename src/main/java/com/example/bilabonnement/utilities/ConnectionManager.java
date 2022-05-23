@@ -24,7 +24,6 @@ public abstract class ConnectionManager {
         if (connection == null) {
             try {
                 connection = DriverManager.getConnection(DB_URL, user, password);
-                System.out.println("Virker nu");
             } catch (Exception e) {
                 System.out.println("Virker ikke: ");
                 e.printStackTrace();

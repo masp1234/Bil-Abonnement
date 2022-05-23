@@ -56,7 +56,7 @@ https://stackoverflow.com/questions/23243277/thymeleaf-how-to-compare-string-wit
             <div th:if="${#strings.equals(car.status, 'available')}" class="card-available2">
                 <span>Ledig</span>
             </div>
-            <img class="carimg" src="../static/images/TestCar2.jpg" alt="Car"
+            <img class="carimg" alt="Car"
                  th:src="@{${car.url}}">
             <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
          </div>
@@ -79,7 +79,7 @@ https://stackoverflow.com/questions/23243277/thymeleaf-how-to-compare-string-wit
                 <div th:if="${#strings.equals(car.status, 'available')}" class="card-available2">
                     <span>Ledig</span>
                 </div>
-                <img class="carimg" src="../static/images/TestCar2.jpg" alt="Car"
+                <img class="carimg" alt="Car"
                      th:src="@{${car.url}}">
                 <h1 th:text="${car.make} + ' ' + ${car.model}">Navn på bilen</h1>
             </div>
@@ -95,10 +95,6 @@ https://stackoverflow.com/questions/23243277/thymeleaf-how-to-compare-string-wit
 
     </div>
 
-</div>
-
-<div class="warning">
-    ALARM/WARNING
 </div>
 
 </body>

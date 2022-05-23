@@ -48,14 +48,14 @@ class HomeControllerTest {
     public static void login() {
         driver = new ChromeDriver();
 
-<<<<<<< HEAD
+
         driver.manage().window().maximize();
         driver.get("https://bil-abonnement-projekt.herokuapp.com");
-=======
+
        // driver.manage().window().maximize();
 
         driver.get(baseUrl);
->>>>>>> testing2
+
 
         WebElement username = driver.findElement(By.name("username"));
         WebElement password = driver.findElement(By.id("password"));

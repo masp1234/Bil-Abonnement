@@ -30,7 +30,7 @@ public class CarController {
         User user = (User) session.getAttribute("user");
         model.addAttribute("user", user);
         model.addAttribute("showCars", carService.showAllCarsBySearch(search,sortCriteria));
-        return "skadeOgUdbedring-landingpage";
+        return "landing-page";
     }
 
     @GetMapping("/landingpage")
@@ -39,7 +39,7 @@ public class CarController {
         model.addAttribute("user", user);
         model.addAttribute("showCars", carService.showAllCars());
         //TODO Skal ændres når rigtige template er klar
-        return "skadeOgUdbedring-landingpage";
+        return "landing-page";
     }
 
     @PostMapping(value = "create-car")

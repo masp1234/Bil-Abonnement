@@ -9,7 +9,6 @@ import com.example.bilabonnement.repositories.DamageRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,14 +48,10 @@ public class DamageReportService {
         return damageReports;
     }
 
-    public DamageReport getDamageReportsById(int id) {
-        return damageReportRepository.getDamageReportByChassisNumber(id);
+    public DamageReport getDamageReportById(int id) {
+        return damageReportRepository.getDamageReportById(id);
 
     }
-    public List<DamageReport> showDamageReport(String chassisNumber){
-        return damageReportRepository.showDamageReport(chassisNumber);
-    }
-
     public Car getCarById(String chassisNumber) {
         return carRepository.getCarById(chassisNumber);
     }

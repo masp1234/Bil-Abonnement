@@ -43,11 +43,11 @@ public class DamagesTest {
     public static void login() {
         driver = new ChromeDriver();
 
-<<<<<<< HEAD
+
         driver.get("https://bil-abonnement-projekt.herokuapp.com");
-=======
+
         driver.get(baseUrl);
->>>>>>> testing2
+
 
         WebElement username = driver.findElement(By.id("username"));
         WebElement password = driver.findElement(By.id("password"));
@@ -76,13 +76,13 @@ public class DamagesTest {
         WebElement showDamageReportButton = driver.findElement(By.id("show-damage-report-button"));
         showDamageReportButton.click();
 
-<<<<<<< HEAD
 
 
-=======
+
+
         WebElement damageDescription = driver.findElement(By.id("description"));
         damageDescription.sendKeys("død motor");
->>>>>>> testing2
+
 
         WebElement price = driver.findElement(By.id("price"));
         price.sendKeys("65000");
@@ -90,9 +90,9 @@ public class DamagesTest {
         createDamageButton.click();
 
 
-<<<<<<< HEAD
 
-=======
+
+
         WebElement secondDamageDescription = driver.findElement(By.id("description"));
         secondDamageDescription.sendKeys("smadret radio");
 
@@ -103,16 +103,15 @@ public class DamagesTest {
 
         WebElement deleteDamageButton = driver.findElement(By.className("button-submit3"));
         deleteDamageButton.click();
->>>>>>> testing2
+
 
     }
     @AfterAll
     public static void cleanup() {
         damageReportRepository.deleteAllDamageReportsByChassisNumber(testChassisNumber);
-<<<<<<< HEAD
-=======
+
         driver.close();
         driver.quit();
->>>>>>> testing2
+
     }
 }

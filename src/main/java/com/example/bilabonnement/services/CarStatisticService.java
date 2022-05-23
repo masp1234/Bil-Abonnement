@@ -31,8 +31,6 @@ public class CarStatisticService {
     }
 
     public List<CarMakeStatistic> getCarMakeStatistics() {
-        LocalTime start = LocalTime.now();
-        System.out.println(start);
 
         List<CarMakeStatistic> carMakeStatistics = carStatisticRepository.getCarMakes();
         setAverageLeasePeriodPerMonthPerCarMake(carMakeStatistics);
@@ -41,9 +39,6 @@ public class CarStatisticService {
         setMostPopularColorPerCarMake(carMakeStatistics);
         setMostPopularModelPerCarMake(carMakeStatistics);
         setAverageDamagesPerDamageReportPerCarMake(carMakeStatistics);
-
-        LocalTime end = LocalTime.now();
-        System.out.println(end);
 
         return carMakeStatistics;
     }

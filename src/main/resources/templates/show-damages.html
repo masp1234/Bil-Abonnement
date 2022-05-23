@@ -15,6 +15,13 @@
 
 <div class="form-container text" >
 
+    <a th:href="@{'/show-damagereport/' + ${chassisNumber} + '/' + ${registrationNumber}}">
+        <button class="button-submit3">Tilbage
+        </button>
+    </a>
+
+
+
     <h1 class="form-header text" th:text="${damageReport.description}">beskrivelse af skaderapport</h1>
     <h1 class="form-header text" th:text="${damageReport.date}">dato for oprettelse</h1>
 
