@@ -89,7 +89,7 @@ body {
 .form-header {
     display: grid;
     justify-content: center;
-    grid-area: header;
+    /*grid-area: header;*/
     margin-top: 10%;
     font-size: xx-large;
 }
@@ -100,11 +100,12 @@ body {
     grid-area: header;
     font-size: xx-large;
 }
+
 .form-container {
     display: grid;
     grid-template-columns: 65%;
     justify-content: center;
-    grid-area: form;
+    /*grid-area: form;*/
     margin-bottom: 5%;
     grid-template-areas: "form-content"
                         "form-content"
@@ -164,6 +165,7 @@ body {
 .btn-functions {
     text-align: center;
 }
+
 /*WORKSHOP*/
 .button-submit3 {
     background-color: #F2F2F2;
@@ -176,10 +178,12 @@ body {
     padding: 10px 10px;
     width: 85%;
 }
+
 .button-submit3:hover {
     background-color: #eac317;
     color: #F2F2F2;
 }
+
 /*AVAILABLE*/
 .button-submit4 {
     background-color: #F2F2F2;
@@ -192,10 +196,12 @@ body {
     padding: 10px 10px;
     width: 85%;
 }
+
 .button-submit4:hover {
     background-color: #0EAC23E1;
     color: #F2F2F2;
 }
+
 .button-submit2:hover {
     background-color: #167ea7;
     color: #F2F2F2;
@@ -211,14 +217,16 @@ body {
     border-radius: 3%;
     object-fit: cover;
 }
+
 .form-section-container2 {
 }
+
 .section-container2 {
     background-color: #F2F2F2;
     border-radius: 3%;
 }
 
-.tableHead th{ /*Fra "Ønskebrønden - my-wishlistStyle.css" */
+.tableHead th { /*Fra "Ønskebrønden - my-wishlistStyle.css" */
     padding-right: 1%;
     padding-left: 1%;
     padding-bottom: 1%;
@@ -231,6 +239,7 @@ body {
 .damage-content {
 
 }
+
 table {
     background-color: #F2F2F2;
     font-family: 'Montserrat', sans-serif;
@@ -243,6 +252,7 @@ table {
     table-layout: fixed;
     width: 100%;
 }
+
 table tr:nth-child(even) { /*Opdeler ønsker*/
     background-color: #e6e6e6;
 }
@@ -252,7 +262,7 @@ table tr:nth-child(even) { /*Opdeler ønsker*/
 }
 
 .damageReportInput {
-width: 80%;
+    width: 80%;
     height: 25px;
     border-radius: 7px;
     border: 2px solid #1892C3;
@@ -261,7 +271,17 @@ width: 80%;
 .damageReportInputTD {
     text-align: center;
 }
-.scroll-container{
-    overflow:auto;
+
+.scroll-container {
+    overflow: auto;
     height: 600px;
+}
+
+.back-button{
+    width: 40px;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: none;
 }

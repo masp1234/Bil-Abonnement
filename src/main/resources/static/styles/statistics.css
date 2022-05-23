@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=PT+Sans&family=Shadows+Into+Light&family=Source+Sans+Pro&display=swap');
 
+.container{
+    width: 90%;
+    margin: 5% auto;
+}
+
 table{
   border-collapse: collapse;
-    width: 90% ;
-    margin: 5% auto;
+    width: 90%;
+    margin-left: 5%;
+
 }
 
 .head-table{
@@ -25,4 +31,14 @@ td, th{
     height: 50px;
     border: solid;
     border-color: #ddd;
+}
+.back-button{
+    margin-left: 5%;
+    width: 40px;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 10px;
+    border: none;
+    background-color: unset;
+    padding: 0%;
 }
