@@ -86,3 +86,12 @@ table tr:nth-child(even) { /*Opdeler ønsker*/
 .damageReportInputTD {
     text-align: center;
 }
+
+.back-button{
+    width: 40px;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: -137px;
+    border: none;
+}

@@ -7,8 +7,13 @@
 </head>
 <body>
 <div th:replace ="navbar :: navbar"></div>
-<div>
+<div class="container">
+    <form>
+        <input  class="back-button" type="button" value="⬅️" onclick="history.back()">
+    </form>
+
     <table>
+
         <thead class="head-table">
         <tr>
             <th>Mærke</th>

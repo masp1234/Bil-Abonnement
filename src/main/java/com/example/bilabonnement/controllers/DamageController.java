@@ -1,10 +1,8 @@
 package com.example.bilabonnement.controllers;
 
 
-import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.Damage;
 import com.example.bilabonnement.models.DamageReport;
-import com.example.bilabonnement.services.CarService;
 import com.example.bilabonnement.services.DamageReportService;
 import com.example.bilabonnement.services.DamageService;
 import org.springframework.stereotype.Controller;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class DamageController {
@@ -43,7 +40,7 @@ public class DamageController {
 
     @GetMapping("/add-damage")
     public String addDamageForm(){
-        return "add-damage";
+        return "add-damage(skal sletes senere)";
     }
 
     @PostMapping("add-damage")

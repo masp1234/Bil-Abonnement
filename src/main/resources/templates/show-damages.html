@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,10 +10,15 @@
 
 <div th:replace ="navbar :: navbar"></div>
 
-<div class="page-container">
+<div class="page-container" >
 
 
 <div class="form-container text" >
+
+    <form>
+        <input  class="back-button" type="button" value="⬅️" onclick="history.back()">
+    </form>
+
 
 
     <h1 class="form-header text" th:text="${damageReport.description}">beskrivelse af skaderapport</h1>
@@ -23,6 +28,9 @@
 
 
     <section class="form-section-container2 section-container2">
+
+
+
         <h1 class="form-header2 text">Skadesrapporter</h1>
 
         <table>
@@ -62,7 +70,7 @@
 
 
 
-</form>
+    </form>
 
 
  </div>

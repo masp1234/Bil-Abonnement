@@ -89,7 +89,7 @@ body {
 .form-header {
     display: grid;
     justify-content: center;
-    grid-area: header;
+    /*grid-area: header;*/
     margin-top: 10%;
     font-size: xx-large;
 }
@@ -105,7 +105,7 @@ body {
     display: grid;
     grid-template-columns: 65%;
     justify-content: center;
-    grid-area: form;
+    /*grid-area: form;*/
     margin-bottom: 5%;
     grid-template-areas: "form-content"
                         "form-content"
@@ -275,4 +275,13 @@ table tr:nth-child(even) { /*Opdeler ønsker*/
 .scroll-container {
     overflow: auto;
     height: 600px;
+}
+
+.back-button{
+    width: 40px;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: none;
 }

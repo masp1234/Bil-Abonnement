@@ -45,7 +45,7 @@
     display: grid;
     justify-content: center;
     grid-area: header;
-    margin-top: 10%;
+    margin-top: -10%;
     margin-bottom: 0px;
 }
 .button-container{
@@ -61,4 +61,12 @@
     border-radius: 10%;
     color: rgb(255, 255, 255);
     font-size: 17px;
+}
+.back-button{
+    width: 40px;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: -140px;
+    border: none;
 }
