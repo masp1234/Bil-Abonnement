@@ -1,5 +1,6 @@
 package com.example.bilabonnement.repositories;
 
+import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.CarMakeStatistic;
 import com.example.bilabonnement.utilities.ConnectionManager;
 import org.springframework.stereotype.Repository;
@@ -145,7 +146,37 @@ public class CarStatisticRepository {
         return averageLeasePricePerMonthPerCarMake;
     }
 
+    public List<Car> getAllCarsByCarMake(String carMake) {
+        List<Car> allCarsByCarMake = new ArrayList<>();
 
-    //public List<Integer> getAverageDamagesPerDamageReportPerCarMake
+        String query = "SELECT * FROM car WHERE car_make = '" + carMake + "'";
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                String registrationNumber = resultSet.getString(1);
+                String chassisNumber = resultSet.getString(2);
+                String make = resultSet.getString(3);
+                String model = resultSet.getString(4);
+                String color = resultSet.getString(5);
+                String equipmentLevel = resultSet.getString(6);
+                double registrationFee = resultSet.getDouble(7);
+                double emission = resultSet.getDouble(8);
+                String status = resultSet.getString(9);
+                String url = resultSet.getString(10);
+
+
+                allCarsByCarMake.add(new Car(registrationNumber, chassisNumber, make, model,
+                        color, equipmentLevel,
+                        registrationFee, emission, status, url));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("kunne ikke finde alle biler med bilmærket: " + carMake);
+            e.printStackTrace();
+        }
+        return allCarsByCarMake;
+    }
 
 }
