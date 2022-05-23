@@ -45,7 +45,6 @@
     display: grid;
     justify-content: center;
     grid-area: header;
-    margin-top: -10%;
     margin-bottom: 0px;
 }
 .button-container{

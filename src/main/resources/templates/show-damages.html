@@ -15,9 +15,10 @@
 
 <div class="form-container text" >
 
-    <form>
-        <input  class="back-button" type="button" value="⬅️" onclick="history.back()">
-    </form>
+    <a th:href="@{'/show-damagereport/' + ${chassisNumber} + '/' + ${registrationNumber}}">
+        <button class="button-submit3">Tilbage
+        </button>
+    </a>
 
 
 

@@ -32,6 +32,8 @@ public class DamageReportController {
         Car car = damageReportService.getCarById(registrationNumber);
         model.addAttribute("car", car);
         model.addAttribute("selectedDamageReport", damageReports);
+
+        httpSession.setAttribute("chassisNumber", chassisNumber);
         httpSession.setAttribute("registrationNumber", registrationNumber);
         return "show-damagereport";
     }
