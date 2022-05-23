@@ -36,9 +36,6 @@ public class Car {
         this.url = url;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     public String getUrl() {
         return url;
