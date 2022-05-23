@@ -30,8 +30,6 @@ public class LeaseController {
         this.leaseService = leaseService;
     }
 
-
-    //TODO skal måske modtage kundeId som parameter
     @GetMapping("/lease/{id}")
     public String createLease(@PathVariable("id") String registrationNumber, Model model, HttpSession session) {
         Car car = carService.getCarById(registrationNumber);
@@ -70,7 +68,6 @@ public class LeaseController {
                                  @RequestParam("endDate") String endDate,
                                  HttpSession session){
         Lease lease = new Lease(price,startDate, endDate, regNumber,cprNumber,customerAccountNumber,customerRegNumber);
-
         if(customerService.findUserByCPR(cprNumber) == null){
             session.setAttribute("errorMessage","Kunde med dette cpr-nummer findes ikke");
             return "redirect:/lease/" + regNumber;
