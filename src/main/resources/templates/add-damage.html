@@ -13,6 +13,7 @@
 <div class="container" >
 
     <section class="info-section-container section-container">
+
         <div class="info-header">
             <img class="car-image" th:src="@{${car.url}}" src="../static/images/car-test-photo.jpg" alt="car-test-photo">
         </div>
@@ -29,6 +30,10 @@
     </section>
 
     <section class="form-section-container section-container">
+        <a >
+            <button class="back_button">⬅️</button>
+
+        </a>
         <h1 class="form-header text">Opret Skade</h1>
         <form class="form-container" action="/create-damage" mathod="post">
             <section class="form-content">
