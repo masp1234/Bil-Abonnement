@@ -38,25 +38,16 @@ public class Lease {
         return pricePerMonth;
     }
 
-    public void setPricePerMonth(int pricePerMonth) {
-        this.pricePerMonth = pricePerMonth;
-    }
 
     public String getCarRegistrationNumber() {
         return carRegistrationNumber;
     }
 
-    public void setCarRegistrationNumber(String carRegistrationNumber) {
-        this.carRegistrationNumber = carRegistrationNumber;
-    }
 
     public String getCustomerCprNumber() {
         return customerCprNumber;
     }
 
-    public void setCustomerCprNumber(String customerCprNumber) {
-        this.customerCprNumber = customerCprNumber;
-    }
 
 
     public String getEndDate() {

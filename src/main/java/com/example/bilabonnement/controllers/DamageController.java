@@ -38,11 +38,6 @@ public class DamageController {
         return "show-damages";
     }
 
-    @GetMapping("/add-damage")
-    public String addDamageForm(){
-        return "add-damage(skal sletes senere)";
-    }
-
     @PostMapping("add-damage")
     public String addDamage(@RequestParam("description") String description,
                             @RequestParam("price") int price,HttpSession session){

@@ -12,8 +12,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class CarController {
 
-
-
     private CarService carService;
 
     public CarController (CarService carService) {
@@ -39,8 +37,6 @@ public class CarController {
     public String showAllCars(Model model,HttpSession session){
         User user = (User) session.getAttribute("user");
         model.addAttribute("user", user);
-        System.out.println(user.getRole());
-        System.out.println("dataregistrering");
         model.addAttribute("showCars", carService.showAllCars());
         //TODO Skal ændres når rigtige template er klar
         return "skadeOgUdbedring-landingpage";
@@ -70,37 +66,10 @@ public class CarController {
         car.setUrl(link);
         User user = (User) session.getAttribute("user");
         model2.addAttribute("user",user);
-
         carService.addCar(car);
-        //TODO Skal ændres når rigtige template er klar
         return "redirect:/landingpage";
     }
 
-    @GetMapping("/delete/{id}")
-    public String deleteCarById(@PathVariable("id") String id){
-        carService.deleteCarById(id);
-        //TODO Skal ændres når rigtige template er klar
-        return "redirect:/showAllCar";
-    }
-
-    @GetMapping("/update-car/{id}")
-    public String showUpdateCar(@PathVariable("id") String id, Model model) {
-        Car car = carService.getCarById(id);
-
-        model.addAttribute("selectedCar", car);
-
-        //TODO midlertidig template
-        return "update-car";
-    }
-
-    @PostMapping("/update-car")
-    public String updateCar(@ModelAttribute Car car, HttpSession session) {
-        carService.updateCar(car);
-
-
-        //TODO Skal ændres når rigtige template er klar og der er ikke nogen session atm
-        return "redirect:/update-car" + session.getAttribute("carId");
-    }
 
     @GetMapping("/change-status/{chassisNumber}/{regNumber}")
     public String changeStatus(@PathVariable("regNumber") String regNumber, @PathVariable("chassisNumber") String chassisNumber){

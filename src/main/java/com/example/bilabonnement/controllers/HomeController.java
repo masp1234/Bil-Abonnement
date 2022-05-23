@@ -15,8 +15,6 @@ import javax.servlet.http.HttpSession;
 public class HomeController {
 
 
-
-
     private UserService userService;
 
     public HomeController(UserService userService) {
@@ -24,12 +22,10 @@ public class HomeController {
     }
 
 
-
     //åbning af index side
     @GetMapping("/")
     public String index(HttpSession session){
         User user = (User) session.getAttribute("user");
-
         if (user != null) {
             if (user.getRole().equalsIgnoreCase("forretningsudvikler")) {
                 return "redirect:/statistics";
@@ -42,9 +38,6 @@ public class HomeController {
         return "index";
         }
 
-
-
-
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("user");
@@ -53,8 +46,6 @@ public class HomeController {
     }
 
 
-
-    // TODO: 06-05-2022 Måske i en userController
     //Postmapping på login
     @PostMapping("/login")
     public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session){
@@ -67,11 +58,8 @@ public class HomeController {
             if(user.getRole().equals("forretningsudvikler"))return "redirect:/statistics";
             else return "redirect:/landingpage";
 
-
             }
         }
-
-
 
     }
 
