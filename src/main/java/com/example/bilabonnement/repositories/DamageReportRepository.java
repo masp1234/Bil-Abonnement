@@ -60,7 +60,7 @@ public class DamageReportRepository {
         return damageReports;
     }
 
-    public DamageReport getDamageReportByChassisNumber(int id) {
+    public DamageReport getDamageReportById(int id) {
 
         connection = ConnectionManager.connectToMySQL();
 
@@ -86,29 +86,6 @@ public class DamageReportRepository {
             e.printStackTrace();
         }
         return damageReport;
-    }
-
-    public List<DamageReport> showDamageReport( String chassisNumber){
-        List<DamageReport> damageReports = new ArrayList();
-        String QUERY = "SELECT * FROM damage_report WHERE damage_report_car_chassis_number = '" + chassisNumber + "'";
-
-        DamageReport damageReport = null;
-        try{
-            Statement statement= connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(QUERY);
-            while (resultSet.next()){
-              int id = resultSet.getInt(1);
-              String date = resultSet.getString(2);
-              String description = resultSet.getString(3);
-              chassisNumber = resultSet.getString(4);
-              int totalPrice = resultSet.getInt(5);
-              damageReports.add(new DamageReport(id, date, description, chassisNumber, totalPrice));
-            }
-
-        }catch (SQLException e){
-            System.out.println("can show damageReports");
-        }
-        return damageReports;
     }
 
 
