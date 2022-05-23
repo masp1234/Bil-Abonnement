@@ -1,16 +1,19 @@
 package com.example.bilabonnement.services;
 
+import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.CarMakeStatistic;
+import com.example.bilabonnement.repositories.CarRepository;
 import com.example.bilabonnement.repositories.CarStatisticRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
 public class CarStatisticService {
 
     private CarStatisticRepository carStatisticRepository;
+    private CarRepository carRepository;
 
     public CarStatisticService(CarStatisticRepository carStatisticRepository) {
         this.carStatisticRepository = carStatisticRepository;
@@ -20,6 +23,7 @@ public class CarStatisticService {
         List<CarMakeStatistic> carMakeStatistics = carStatisticRepository.getCarMakes();
         setAverageLeasePeriodPerMonthPerCarMake(carMakeStatistics);
         setAverageLeasePricePerMonthPerCarMake(carMakeStatistics);
+        setStatusPerCarMake(carMakeStatistics);
 
         return carMakeStatistics;
     }
@@ -49,7 +53,27 @@ public class CarStatisticService {
 
     }
     private List<CarMakeStatistic> setStatusPerCarMake(List<CarMakeStatistic> carMakeStatistics) {
-        List<List<Integer>> statusPerCarMake = new ArrayList<>();
+        HashMap<String, HashMap<String, Integer>> statusPerCarMake = carStatisticRepository.getCarMakesAndStatus();
+
+        for (CarMakeStatistic cms: carMakeStatistics) {
+            int numberOfAvailableCars = statusPerCarMake.get(cms.getCarMake()).get("available");
+            cms.setNumberOfAvailableCars(numberOfAvailableCars);
+
+            int numberOfReservedCars = statusPerCarMake.get(cms.getCarMake()).get("reserved");
+            cms.setNumberOfRentedCars(numberOfReservedCars);
+
+            int numberOfWorkshopCars = statusPerCarMake.get(cms.getCarMake()).get("workshop");
+            cms.setNumberOfWorkshopCars(numberOfWorkshopCars);
+        }
+
+
+        return carMakeStatistics;
+    }
+    private List<CarMakeStatistic> setMostPopularColorPerCarMake(List<CarMakeStatistic>  carMakeStatistics) {
+        List<Car> cars = carRepository.getAllCars();
+
+
+
 
 
         return carMakeStatistics;
