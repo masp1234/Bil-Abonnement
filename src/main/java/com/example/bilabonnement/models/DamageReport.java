@@ -1,6 +1,5 @@
 package com.example.bilabonnement.models;
 
-import java.util.Date;
 
 public class DamageReport {
 
