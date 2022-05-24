@@ -25,21 +25,12 @@ public class CarService {
         return carRepository.getCarById(id);
     }
 
-    public void updateCar(Car car) {
-        carRepository.updateCar(car);
-    }
-
    public List<Car> showAllCars(){
      return carRepository.getAllCars();
    }
 
-
     public void addCar(Car car) {
         carRepository.addCar(car);
-    }
-
-    public void deleteCarById(String id) {
-        carRepository.deleteCarById(id);
     }
 
     public List<Car> showAllCarsBySearch(String search, String sortCriteria) {
