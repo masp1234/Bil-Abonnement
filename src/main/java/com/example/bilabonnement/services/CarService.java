@@ -33,14 +33,15 @@ public class CarService {
         carRepository.addCar(car);
     }
 
-    public List<Car> showAllCarsBySearch(String search, String sortCriteria) {
+    public List<Car> searchCars(String search, String sortCriteria) {
         ArrayList<Car> cars = (ArrayList<Car>) carRepository.getAllCars();
         String searchLowercase = search.toLowerCase();
         String[] searchArray = searchLowercase.split(" ");
         ArrayList<Car> display = new ArrayList<>();
-        ArrayList<Car> carsBySortCriteria = sortByCriteria(cars, sortCriteria);
-
-        for (Car car:carsBySortCriteria) {
+        if(!sortCriteria.equals("all")) {
+            cars = sortByCriteria(cars, sortCriteria);
+        }
+        for (Car car:cars) {
             Car selectedCar = checkSearch(car,searchArray);
             if(selectedCar != null) display.add(selectedCar);
         }
@@ -50,7 +51,6 @@ public class CarService {
 
     public ArrayList<Car> sortByCriteria(ArrayList<Car> cars, String sortCriteria){
         ArrayList<Car> carsBySortCriteria = new ArrayList<>();
-        if(sortCriteria.equals("all")) return cars;
         for (Car car:cars) {
             if(car.getStatus().equals(sortCriteria)) carsBySortCriteria.add(car);
         }

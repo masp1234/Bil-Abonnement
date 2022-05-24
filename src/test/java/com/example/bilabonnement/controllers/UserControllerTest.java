@@ -13,7 +13,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 //for at kunne bruge @Order annotation
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class HomeControllerTest {
+class UserControllerTest {
 
     //static for at kunne tilgå dem i setup og cleanup (som skal være static)
     private static CarRepository carRepository;
