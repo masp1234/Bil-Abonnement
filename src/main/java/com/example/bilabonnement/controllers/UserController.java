@@ -1,9 +1,7 @@
 package com.example.bilabonnement.controllers;
 
 import com.example.bilabonnement.models.User;
-import com.example.bilabonnement.repositories.CarStatisticRepository;
 import com.example.bilabonnement.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class HomeController {
+public class UserController {
 
 
     private UserService userService;
 
-    public HomeController(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 

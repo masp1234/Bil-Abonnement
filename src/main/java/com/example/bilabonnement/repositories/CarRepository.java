@@ -125,29 +125,6 @@ public class CarRepository {
         return car;
     }
 
-    public void updateCar(Car car) {
-        connection = ConnectionManager.connectToMySQL();
-        String query = "UPDATE car SET car_chassis_number = ?, car_make = ?, car_model = ?, car_color = ?, " +
-                "car_equipment_level = ?, car_reg_fee = ?, car_emission = ?, is_rented = ?, is_ready_to_rent = ?" +
-                "WHERE car_reg_number = ?";
-
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, car.getChassisNumber());
-            preparedStatement.setString(2, car.getMake());
-            preparedStatement.setString(3, car.getModel());
-            preparedStatement.setString(4, car.getColor());
-            preparedStatement.setString(5, car.getEquipmentLevel());
-            preparedStatement.setDouble(6, car.getRegistrationFee());
-            preparedStatement.setDouble(7, car.getEmission());
-            preparedStatement.setString(8, car.getRegistrationNumber());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("kunne ikke opdatere car med car_id  = " + car.getRegistrationNumber());
-            e.printStackTrace();
-        }
-    }
-
     public void updateStatus(String regNumber, String status) {
         connection = ConnectionManager.connectToMySQL();
         String query = "UPDATE car SET car_status = ?" +

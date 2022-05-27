@@ -29,7 +29,7 @@ public class CarController {
                              Model model,HttpSession session){
         User user = (User) session.getAttribute("user");
         model.addAttribute("user", user);
-        model.addAttribute("showCars", carService.showAllCarsBySearch(search,sortCriteria));
+        model.addAttribute("showCars", carService.searchCars(search,sortCriteria));
         return "landing-page";
     }
 

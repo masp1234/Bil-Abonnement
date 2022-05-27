@@ -15,12 +15,9 @@ public class UserService {
 
     public User login(String username, String password) {
         User user = userRepository.findUser(username);
-        if(user == null){
-            return null;
+        if(user == null || ! user.getPassword().equals(password)){
+           user = null;
         }
-        if(user.getPassword().equals(password)){
-            return user;
-        }
-        return null;
+        return user;
     }
 }
