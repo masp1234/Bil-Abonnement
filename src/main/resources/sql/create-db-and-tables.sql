@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS bil_abonnement;
+
+USE bil_abonnement;
+
 create table car
 (
     car_reg_number      varchar(45)  not null
