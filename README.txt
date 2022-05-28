@@ -21,6 +21,6 @@
 16. Gentag trin 9, 10 og 11 med samme navne og værdier som inde på Heroku
 17. Når du er færdig med trin 16, så tryk “OK”, efterfulgt af “Apply” og derefter “OK” igen
 18. Åben enten Git Bash eller IntelliJ’s terminal.
-19. Indtast “heroku git:remote -a <app name>”, hvor “app name” er det navn du valgte til din applikation i trin 6. Hvis du får en besked om at du skal logge ind, så tryk     på en vilkårlig tast. Der vil nu blive åbnet en browser, hvor du kan indtaste dine login informationer.
+19. Indtast “heroku git:remote -a <app name>”, hvor “app name” er det navn du valgte til din applikation i trin 6. Hvis du får en besked om at du skal logge ind, så tryk på en vilkårlig tast. Der vil nu blive åbnet en browser, hvor du kan indtaste dine login informationer.
 20. Du burde nu kunne se, at dit git projekt er tilknyttet et remote repository på Heroku ved at skrive “git remote -v”
 21. Såfremt punkt 18 gik godt, kan du nu deploye din applikation ved at skrive “git push heroku main”
