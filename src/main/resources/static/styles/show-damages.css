@@ -89,11 +89,16 @@ table tr:nth-child(even) { /*Opdeler ønsker*/
     text-align: center;
 }
 
-.back-button{
+.button-submit{
     width: 40px;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
     margin-top: 10px;
-    margin-left: -137px;
+    margin-left: -140px;
     border: none;
+    background-color:#ececec;
+    border-radius: 100%;
+}
+.button-submit:hover{
+    background-color: #e4f1ff;
 }

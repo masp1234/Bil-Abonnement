@@ -280,11 +280,16 @@ table tr:nth-child(even) { /*Opdeler ønsker*/
     height: 600px;
 }
 
-.back-button{
+.back-btn{
     width: 40px;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 5px;
     border: none;
+    background-color:#F2F2F2;
+    border-radius: 100%;
+}
+.back-btn:hover{
+    background-color: #e4f1ff;
 }

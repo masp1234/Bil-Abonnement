@@ -61,11 +61,16 @@
     color: rgb(255, 255, 255);
     font-size: 17px;
 }
-.back-button{
+.back-btn{
     width: 40px;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
     margin-top: 10px;
-    margin-left: -140px;
+    margin-left: -138px;
     border: none;
+    background-color:#ececec;
+    border-radius: 100%;
+}
+.back-btn:hover{
+    background-color: #e4f1ff;
 }
