@@ -16,11 +16,11 @@
     jdbc:mysql://b2de123f08f1c9:eb27545@eu-cdbr-west-02.cleardb.net/heroku_2e8e7368abaf0c3?
 
 13. Gå ind i IntelliJ og naviger til filen “BilAbonnementApplication” og kør main-metoden. Du får en fejl når du prøver, men det er forventeligt, da programmet ikke er       konfigureret endnu. 
-14. Klik “run”, som ligger på navigations baren oppe i venstre side, og vælg derefter “edit configurations”
+14. Klik “run”, som ligger på navigationsbaren oppe i venstre side, og vælg derefter “edit configurations”
 15. Vælg “Edit environment variables” (Shift+Enter), klik derefter på “+” (Alt + Insert).
-16. Gentag trin 9, 10 og 11 med samme navne og værdier som inde på Heroku
+16. Gentag trin 10, 11 og 12 med samme navne og værdier som inde på Heroku
 17. Når du er færdig med trin 16, så tryk “OK”, efterfulgt af “Apply” og derefter “OK” igen
 18. Åben enten Git Bash eller IntelliJ’s terminal.
 19. Indtast “heroku git:remote -a <app name>”, hvor “app name” er det navn du valgte til din applikation i trin 6. Hvis du får en besked om at du skal logge ind, så tryk på en vilkårlig tast. Der vil nu blive åbnet en browser, hvor du kan indtaste dine login informationer.
 20. Du burde nu kunne se, at dit git projekt er tilknyttet et remote repository på Heroku ved at skrive “git remote -v”
-21. Såfremt punkt 18 gik godt, kan du nu deploye din applikation ved at skrive “git push heroku main”
+21. Såfremt punkt 19 og 20 gik godt, kan du nu deploye din applikation ved at skrive “git push heroku main”
