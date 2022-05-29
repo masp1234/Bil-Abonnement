@@ -18,8 +18,9 @@ public class CustomerRepository {
 
 
     //efter normaliseringsregel 3, skal zipcode splittes op i et ektra table
+    /*Danny
+    * Daniel*/
     public void addCustomer(Customer customer) {
-        connection = ConnectionManager.connectToMySQL();
 
         final String QUERY = "INSERT INTO customer" +
                 "(customer_cpr_number, customer_firstname, customer_lastname, " +
@@ -42,8 +43,9 @@ public class CustomerRepository {
         }
     }
 
+    /*Daniel
+    * Danny*/
     public Customer findCustomerByCPR(String cprNumber) {
-        connection = ConnectionManager.connectToMySQL();
 
         String query = "SELECT customer_cpr_number, customer_firstname, customer_lastname, customer_email, customer_phone, customer_zipcode, customer_address, zipcode.city FROM customer INNER JOIN zipcode ON customer.customer_zipcode = zipcode.zipcode WHERE customer_cpr_number = '" + cprNumber + "'";
         Customer selectedCustomer = null;

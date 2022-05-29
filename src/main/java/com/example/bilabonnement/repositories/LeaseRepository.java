@@ -15,10 +15,9 @@ public class LeaseRepository {
         connection = ConnectionManager.connectToMySQL();
     }
 
-
+    /*Daniel
+    * Danny*/
     public boolean addLease(Lease lease) {
-        connection = ConnectionManager.connectToMySQL();
-
         final String QUERY = "INSERT INTO lease" +
                 "(lease_car_reg_number, " +
                 "lease_price, lease_start_date, lease_end_date, " +
@@ -45,6 +44,8 @@ public class LeaseRepository {
         }
 
     }
+
+    /*Daniel*/
     public Lease findlease(String reg) {
         connection = ConnectionManager.connectToMySQL();
         // TODO: 14/05/2022 sql injection
@@ -74,6 +75,8 @@ public class LeaseRepository {
         return lease;
     }
 
+    /*Martin
+    * Daniel*/
     public void  updateLease(Lease lease) {
         String query = "UPDATE lease SET lease_price = ?, lease_start_date = ?, lease_end_date = ?," +
                 " lease_customer_cpr_number = ?, lease_account_number = ?," +
@@ -97,6 +100,7 @@ public class LeaseRepository {
         }
     }
 
+    /*Daniel*/
     public void deleteBy(String reg) {
         final String QUERY = "DELETE FROM lease WHERE lease_car_reg_number=?";
         try {

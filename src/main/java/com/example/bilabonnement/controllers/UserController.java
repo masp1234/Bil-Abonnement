@@ -21,6 +21,8 @@ public class UserController {
 
 
     //åbning af index side
+
+    /*Daniel*/
     @GetMapping("/")
     public String index(HttpSession session){
         User user = (User) session.getAttribute("user");
@@ -36,6 +38,7 @@ public class UserController {
         return "index";
         }
 
+    /*Daniel*/
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("user");
@@ -45,6 +48,8 @@ public class UserController {
 
 
     //Postmapping på login
+    /*Daniel
+    * Martin*/
     @PostMapping("/login")
     public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session){
         User user = userService.login(username,password);

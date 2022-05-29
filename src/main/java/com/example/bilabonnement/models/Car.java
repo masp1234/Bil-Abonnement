@@ -1,5 +1,6 @@
 package com.example.bilabonnement.models;
-
+/*Renas
+* Martin*/
 public class Car {
     private String chassisNumber;
     private String make;

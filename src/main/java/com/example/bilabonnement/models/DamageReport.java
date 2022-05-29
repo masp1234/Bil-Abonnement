@@ -1,5 +1,5 @@
 package com.example.bilabonnement.models;
-
+/*Danny*/
 
 public class DamageReport {
 

@@ -30,6 +30,9 @@ public class CarStatisticService {
         this.damageRepository = damageRepository;
     }
 
+    /*Martin
+     * Daniel
+     * Renas*/
     public List<CarMakeStatistic> getCarMakeStatistics() {
 
         List<CarMakeStatistic> carMakeStatistics = carStatisticRepository.getCarMakes();
@@ -43,6 +46,9 @@ public class CarStatisticService {
         return carMakeStatistics;
     }
 
+    /*Martin
+     * Daniel
+     * Renas*/
     private List<CarMakeStatistic> setAverageLeasePeriodPerMonthPerCarMake(List<CarMakeStatistic> carMakeStatistics) {
         List<Double> averageLeasePeriods = carStatisticRepository.getAverageLeasePeriodsPerCarMake();
 
@@ -55,6 +61,9 @@ public class CarStatisticService {
         return carMakeStatistics;
     }
 
+    /*Martin
+     * Daniel
+     * Renas*/
     private List<CarMakeStatistic> setAverageLeasePricePerMonthPerCarMake(List<CarMakeStatistic> carMakeStatistics) {
         List<Double> averagePricesPerMonth = carStatisticRepository.getAverageLeasePricePerMonthPerCarMake();
 
@@ -68,6 +77,9 @@ public class CarStatisticService {
 
     }
 
+    /*Martin
+     * Daniel
+     * Renas*/
     private List<CarMakeStatistic> setStatusPerCarMake(List<CarMakeStatistic> carMakeStatistics) {
         HashMap<String, HashMap<String, Integer>> statusPerCarMake = carStatisticRepository.getCarMakesAndStatus();
 
@@ -85,6 +97,9 @@ public class CarStatisticService {
         return carMakeStatistics;
     }
 
+    /*Martin
+     * Daniel
+     * Renas*/
     public List<CarMakeStatistic> setMostPopularColorPerCarMake(List<CarMakeStatistic> carMakeStatistics) {
 
         HashMap<String, Integer> hashMap = new HashMap<>();
@@ -108,6 +123,9 @@ public class CarStatisticService {
         return carMakeStatistics;
     }
 
+    /*Martin
+     * Daniel
+     * Renas*/
     public List<CarMakeStatistic> setMostPopularModelPerCarMake(List<CarMakeStatistic> carMakeStatistics) {
 
         HashMap<String, Integer> hashMap = new HashMap<>();
@@ -131,6 +149,9 @@ public class CarStatisticService {
         return carMakeStatistics;
     }
 
+    /*Martin
+    * Daniel
+    * Renas*/
     public List<CarMakeStatistic> setAverageDamagesPerDamageReportPerCarMake(List<CarMakeStatistic> carMakeStatistics) {
 
         double numberOfDamageReportsPerCarMake = 0;

@@ -1,5 +1,5 @@
 package com.example.bilabonnement.models;
-
+/*Martin*/
 public class CarMakeStatistic {
     String carMake;
     int numberOfRentedCars;

@@ -18,6 +18,8 @@ public class StatisticController {
         this.carStatisticService = CarStatisticService;
 
     }
+
+    /*Martin*/
     @GetMapping("/statistics")
     public String getStatistics(Model model) {
         List<CarMakeStatistic> carMakeStatistics = carStatisticService.getCarMakeStatistics();

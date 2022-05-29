@@ -1,5 +1,7 @@
 package com.example.bilabonnement.models;
-
+/*Danny
+* Martin
+* Daniel*/
 
 public class Lease {
 

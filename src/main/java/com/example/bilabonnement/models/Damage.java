@@ -1,5 +1,5 @@
 package com.example.bilabonnement.models;
-
+/*Renas*/
 public class Damage {
     private int damageId;
     private String description;

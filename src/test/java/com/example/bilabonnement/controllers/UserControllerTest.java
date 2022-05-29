@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
-
+/*Martin*/
 
 //for at kunne bruge @Order annotation
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

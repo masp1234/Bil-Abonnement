@@ -19,7 +19,7 @@ class CarServiceTest {
     private ArrayList<Car> carList;
 
 
-
+    /*Martin*/
     @Test
     void sortByCriteria() {
 
@@ -33,7 +33,8 @@ class CarServiceTest {
 
     }
 
-
+/*Martin
+* Daniel*/
     @Test
     void checkSearch() {
 
@@ -56,6 +57,8 @@ class CarServiceTest {
         assertNotNull(resultCar, "Should not be null," +
                 " since there is a Ford in the list of cars");*/
     }
+
+    /*Martin*/
     @BeforeEach
     void initCarList() {
         carList = new ArrayList<>();

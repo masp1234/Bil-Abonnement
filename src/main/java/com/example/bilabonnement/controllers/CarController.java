@@ -18,12 +18,13 @@ public class CarController {
         this.carService = carService;
     }
 
+    /*Daniel*/
     @GetMapping("/create-car")
     public String createCar(){
         return "create-car";
     }
 
-
+    /*Daniel*/
     @PostMapping("landingpage")
     public String searchCars(@RequestParam("search") String search, @RequestParam("sortCriteria") String sortCriteria,
                              Model model,HttpSession session){
@@ -33,6 +34,8 @@ public class CarController {
         return "landing-page";
     }
 
+    /*Daniel
+    * Martin*/
     @GetMapping("/landingpage")
     public String showAllCars(Model model,HttpSession session){
         User user = (User) session.getAttribute("user");
@@ -42,6 +45,9 @@ public class CarController {
         return "landing-page";
     }
 
+    /*Martin
+    * Daniel
+    * Renas*/
     @PostMapping(value = "create-car")
     public String addCar(@RequestParam("registrationNumber") String registrationNumber,
                          @RequestParam("chassisNumber") String chassisNumber,
@@ -70,7 +76,7 @@ public class CarController {
         return "redirect:/landingpage";
     }
 
-
+    /*Daniel*/
     @GetMapping("/change-status/{chassisNumber}/{regNumber}")
     public String changeStatus(@PathVariable("regNumber") String regNumber, @PathVariable("chassisNumber") String chassisNumber){
         carService.updateStatus(regNumber);

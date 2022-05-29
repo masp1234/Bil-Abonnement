@@ -30,6 +30,8 @@ public class LeaseController {
         this.leaseService = leaseService;
     }
 
+    /*Daniek
+    * Martin*/
     @GetMapping("/lease/{id}")
     public String createLease(@PathVariable("id") String registrationNumber, Model model, HttpSession session) {
         Car car = carService.getCarById(registrationNumber);
@@ -43,6 +45,7 @@ public class LeaseController {
         return "create-lease";
     }
 
+    /*Daniel*/
     @PostMapping("/update-lease")
     public String updateCustomer(@RequestParam("updateCprNumber") String cprNumber,
                                  @RequestParam("updateCarRegNumber") String regNumber,
@@ -56,7 +59,7 @@ public class LeaseController {
         return "redirect:/landingpage";
     }
 
-
+    /*Daniel*/
     // TODO: 13-05-2022 lige nu mangler den at tage højde for om customer cpr er registreret. Den kan godt oprette leasing kontrakt uden at et cpr nummer findes
     @PostMapping("/create-lease")
     public String createLease(@RequestParam("cprNumber") String cprNumber,

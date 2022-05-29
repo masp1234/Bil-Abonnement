@@ -14,7 +14,9 @@ public class CarRepository {
 
     private Connection connection;
 
-
+    /*Renas
+    * Martin
+    * Daniel*/
     public CarRepository() {
         connection = ConnectionManager.connectToMySQL();
     }
@@ -50,6 +52,9 @@ public class CarRepository {
         return car;
     }
 
+    /*Renas
+    * Martin
+    * Daniel*/
     public void addCar(Car car){
 
         connection = ConnectionManager.connectToMySQL();
@@ -79,7 +84,8 @@ public class CarRepository {
         }
     }
 
-
+    /*Martin
+    * Renas*/
     public void deleteCarById(String id){
         connection = ConnectionManager.connectToMySQL();
         final String QUERY="DELETE FROM car WHERE car_reg_number = ?";
@@ -93,6 +99,8 @@ public class CarRepository {
         }
     }
 
+    /*Martin
+    * Daniel*/
     public Car getCarById(String id) {
         connection = ConnectionManager.connectToMySQL();
         String query = "SELECT * FROM car WHERE car_reg_number = '" + id + "'";
@@ -125,6 +133,8 @@ public class CarRepository {
         return car;
     }
 
+    /*Martin
+    * Daniel*/
     public void updateStatus(String regNumber, String status) {
         connection = ConnectionManager.connectToMySQL();
         String query = "UPDATE car SET car_status = ?" +

@@ -18,6 +18,7 @@ public class DamageReportRepository {
     }
 
 
+    /*Danny*/
     public void addDamageReport(DamageReport damageReport) {
         connection = ConnectionManager.connectToMySQL();
 
@@ -37,7 +38,8 @@ public class DamageReportRepository {
         }
     }
 
-
+    /*Danny
+    * Daniel*/
     public List<DamageReport> getAllDamageReports(String chassisNumber) {
         connection = ConnectionManager.connectToMySQL();
         List<DamageReport> damageReports = new ArrayList<>();
@@ -60,6 +62,8 @@ public class DamageReportRepository {
         return damageReports;
     }
 
+    /*Danny
+    * Daniel*/
     public DamageReport getDamageReportById(int id) {
 
         connection = ConnectionManager.connectToMySQL();
@@ -88,7 +92,7 @@ public class DamageReportRepository {
         return damageReport;
     }
 
-
+    /*Martin*/
     public void deleteAllDamageReportsByChassisNumber(String chassisNumber) {
         String query = "DELETE FROM damage_report WHERE damage_report_car_chassis_number = '" + chassisNumber + "'";
 

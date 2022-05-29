@@ -19,6 +19,7 @@ public class DamageRepository {
         connection = ConnectionManager.connectToMySQL();
     }
 
+    /*Renas*/
     public List<Damage> getAllDamages(int id){
         List<Damage> damages= new ArrayList<>();
         final String QUERY="SELECT * FROM damage where damage_report_id=?";
@@ -39,7 +40,8 @@ public class DamageRepository {
         return damages;
     }
 
-
+    /*Renas
+    * Daniel*/
     public void addDamage(Damage damage){
         final String QUERY = "INSERT INTO damage(damage_description," +
                 " damage_price, damage_report_id) VALUE(?, ?, ?)";
@@ -55,6 +57,7 @@ public class DamageRepository {
         }
     }
 
+    /*Renas*/
     public void deleteById(int id) {
         final String QUERY = "DELETE FROM damage WHERE damage_id=?";
         try {

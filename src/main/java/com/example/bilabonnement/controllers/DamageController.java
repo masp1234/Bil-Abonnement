@@ -22,12 +22,16 @@ public class DamageController {
     private DamageService damageService;
     private DamageReportService damageReportService;
 
+    /*Renas
+    * Daniel*/
     public DamageController(DamageService damageService, DamageReportService damageReportService) {
         this.damageService = damageService;
         this.damageReportService = damageReportService;
     }
 
-
+    /*Renas
+    * Martin
+    * Daniel*/
     @GetMapping("/damages/{id}")
     public String getAllDamages(@PathVariable("id") int id, Model model, HttpSession session){
         DamageReport damageReport = damageReportService.getDamageReportById(id);
@@ -44,6 +48,8 @@ public class DamageController {
         return "show-damages";
     }
 
+    /*Renas
+    * Daniel*/
     @PostMapping("add-damage")
     public String addDamage(@RequestParam("description") String description,
                             @RequestParam("price") int price,HttpSession session){
@@ -52,6 +58,7 @@ public class DamageController {
         return "redirect:/damages/" + damageReportId;
     }
 
+    /*Renas*/
     @GetMapping("delete-damage/{id}")
     public String deleteDamageById(@PathVariable("id") int id, HttpSession session){
         damageService.deleteById(id);

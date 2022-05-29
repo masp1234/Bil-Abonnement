@@ -19,7 +19,8 @@ public class CarStatisticRepository {
         this.connection = ConnectionManager.connectToMySQL();
     }
 
-
+    /*Martin
+    * Daniel*/
     public List<CarMakeStatistic> getCarMakes() {
         List<CarMakeStatistic> carMakeStatistics = new ArrayList<>();
         String query = "SELECT DISTINCT car_make from car ORDER BY car_make ASC";
@@ -41,6 +42,8 @@ public class CarStatisticRepository {
         return carMakeStatistics;
     }
 
+    /*Martin
+    * Jarl*/
     public HashMap<String, HashMap<String, Integer>> getCarMakesAndStatus() {
 
         String query = "SELECT car.car_make, cars_available.available, cars_reserved.reserved, cars_in_workshop.workshop\n" +
@@ -81,6 +84,7 @@ public class CarStatisticRepository {
         return list;
     }
 
+    /*Martin*/
     public List<Double> getAverageLeasePeriodsPerCarMake() {
         List<Double> averageLeasePeriodsPerCarMake = new ArrayList<>();
 
@@ -105,6 +109,7 @@ public class CarStatisticRepository {
         return averageLeasePeriodsPerCarMake;
     }
 
+    /*Martin*/
     public List<Double> getAverageLeasePricePerMonthPerCarMake() {
         List<Double> averageLeasePricePerMonthPerCarMake = new ArrayList<>();
 
@@ -129,6 +134,7 @@ public class CarStatisticRepository {
         return averageLeasePricePerMonthPerCarMake;
     }
 
+    /*Martin*/
     public List<Car> getAllCarsByCarMake(String carMake) {
         List<Car> allCarsByCarMake = new ArrayList<>();
 

@@ -1,5 +1,6 @@
 package com.example.bilabonnement.models;
-
+/*Danny
+* Daniel*/
 public class Customer {
     private String cpr;
     private String firstname;

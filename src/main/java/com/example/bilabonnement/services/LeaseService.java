@@ -13,14 +13,18 @@ public class LeaseService {
         this.leaseRepository = leaseRepository;
     }
 
+    /*Daniel
+    * Danny*/
     public boolean addLease(Lease lease) {
         return leaseRepository.addLease(lease);
     }
 
+    /*Daniel*/
     public Lease findLease(String registrationNumber) {
         return leaseRepository.findlease(registrationNumber);
     }
 
+    /*Daniel*/
     public void updateLease(Lease lease) {
         leaseRepository.updateLease(lease);
     }

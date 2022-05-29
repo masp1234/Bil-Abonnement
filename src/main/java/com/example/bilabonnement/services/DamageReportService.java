@@ -27,6 +27,7 @@ public class DamageReportService {
         this.damageRepository = damageRepository;
     }
 
+    /*Danny*/
     public void addDamageReport(DamageReport damageReport) {
         LocalDate localDate = LocalDate.now();
         String localDateString = localDate.toString();
@@ -34,6 +35,8 @@ public class DamageReportService {
         damageReportRepository.addDamageReport(damageReport);
     }
 
+    /*Danny
+    Daniel*/
     public List<DamageReport> showAllDamageReportsByChassisNumber(String chassisNumber) {
         List<DamageReport> damageReports = damageReportRepository.getAllDamageReports(chassisNumber);
         int price = 0;
@@ -48,10 +51,14 @@ public class DamageReportService {
         return damageReports;
     }
 
+    /*Martin
+    * Danny*/
     public DamageReport getDamageReportById(int id) {
         return damageReportRepository.getDamageReportById(id);
 
     }
+
+    /*Martin*/
     public Car getCarById(String chassisNumber) {
         return carRepository.getCarById(chassisNumber);
     }

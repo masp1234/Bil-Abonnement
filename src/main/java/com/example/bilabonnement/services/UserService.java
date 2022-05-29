@@ -13,6 +13,9 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    /*Daniel
+    * Martin
+    * Danny*/
     public User login(String username, String password) {
         User user = userRepository.findUser(username);
         if(user == null || ! user.getPassword().equals(password)){

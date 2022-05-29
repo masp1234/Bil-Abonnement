@@ -14,13 +14,17 @@ public class DamageService {
         this.damageRepository = damageRepository;
     }
 
+    /*Renas*/
     public List<Damage> getAllDamages(int id){
         return damageRepository.getAllDamages(id);
     }
+
+    /*Renas*/
     public void addDamage(Damage damage){
         damageRepository.addDamage(damage);
     }
 
+    /*Renas*/
     public void deleteById(int id){
         damageRepository.deleteById(id);
     }

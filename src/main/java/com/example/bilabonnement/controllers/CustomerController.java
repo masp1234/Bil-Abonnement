@@ -1,6 +1,5 @@
 package com.example.bilabonnement.controllers;
 
-import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.Customer;
 import com.example.bilabonnement.services.CustomerService;
 import org.springframework.stereotype.Controller;
@@ -15,11 +14,14 @@ public class CustomerController {
     public CustomerController(CustomerService customerService){
         this.customerService = customerService;
     }
+
+    /*Daniel*/
     @GetMapping("/create-customer")
     public String addCustomer(){
         return "create-customer";
     }
 
+    /*Daniel*/
     @PostMapping("/create-customer")
     public String createCustomer(@RequestParam("firstName") String firstName,
                          @RequestParam("lastName") String lastName,

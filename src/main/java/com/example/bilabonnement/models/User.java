@@ -1,5 +1,6 @@
 package com.example.bilabonnement.models;
-
+/*Daniel
+* Martin*/
 public class User {
     String username;
     String password;

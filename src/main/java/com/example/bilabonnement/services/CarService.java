@@ -21,18 +21,23 @@ public class CarService {
         this.leaseRepository = leaseRepository;
     }
 
+    /*Martin*/
     public Car getCarById(String id) {
         return carRepository.getCarById(id);
     }
 
+    /*Renas*/
    public List<Car> showAllCars(){
      return carRepository.getAllCars();
    }
+
+    /*Renas*/
 
     public void addCar(Car car) {
         carRepository.addCar(car);
     }
 
+    /*Daniel*/
     public List<Car> searchCars(String search, String sortCriteria) {
         ArrayList<Car> cars = (ArrayList<Car>) carRepository.getAllCars();
         String searchLowercase = search.toLowerCase();
@@ -49,6 +54,8 @@ public class CarService {
         return display;
     }
 
+    /*Martin
+    * Daniel*/
     public ArrayList<Car> sortByCriteria(ArrayList<Car> cars, String sortCriteria){
         ArrayList<Car> carsBySortCriteria = new ArrayList<>();
         for (Car car:cars) {
@@ -57,6 +64,8 @@ public class CarService {
         return carsBySortCriteria;
     }
 
+    /*Martin
+    * Daniel*/
     public Car checkSearch(Car car, String[] search){
         for (String s:search) {
             if(!car.toString().toLowerCase().contains(s)) return null;
@@ -66,6 +75,8 @@ public class CarService {
     }
 
     //Den skifter status med den besked man sender
+    /*Daniel
+    * Martin*/
     public void updateStatus(String regNumber) {
         Car car = carRepository.getCarById(regNumber);
         String updatedStatus = "reserved";

@@ -12,9 +12,13 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
+    /*Danny
+    * Daniel*/
     public void addCustomer(Customer customer) {
         customerRepository.addCustomer(customer);
     }
+    /*Daniel
+    * Danny*/
 
     public Customer findUserByCPR(String cprNumber) {
         return customerRepository.findCustomerByCPR(cprNumber);
