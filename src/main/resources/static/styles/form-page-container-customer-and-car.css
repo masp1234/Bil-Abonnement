@@ -62,14 +62,15 @@
     font-size: 17px;
 }
 .back-btn{
-    width: 40px;
+    width: 50px;
     font-size: 25px;
     font-weight: bold;
-    margin-top: 10px;
     margin-left: -138px;
     border: none;
     background-color:#ececec;
     border-radius: 100%;
+    text-decoration: none;
+    color: black;
 }
 .back-btn:hover{
     background-color: #e4f1ff;
