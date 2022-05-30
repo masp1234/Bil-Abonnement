@@ -112,6 +112,10 @@
 
     <section th:if="${#strings.equals(car.status, 'reserved')}"  class="form-section-container section-container">
 
+        <a href="/">
+            <button class="back-btn">↩︎</button>
+        </a>
+
         <h1 class="form-header text">Opdater lejekontrakt</h1>
 
 
@@ -159,6 +163,10 @@
 
 
     <section th:if="${#strings.equals(car.status, 'workshop')}"  class="form-section-container section-container">
+
+        <a href="/">
+            <button class="back-btn">↩︎</button>
+        </a>
 
         <h1 class="form-header text">BIL PÅ VÆRKSTED</h1>
 

@@ -44,18 +44,3 @@ td, th{
     background-color: unset;
     padding: 0%;
 }
-
-.back-btn{
-    width: 40px;
-    font-size: 25px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-left: 5%;
-    border: none;
-    background-color:white;
-    margin-bottom: 5px;
-
-}
-.back-btn:hover{
-    background-color: #e4f1ff;
-}
