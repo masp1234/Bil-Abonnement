@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 /*Martin*/
 
-//for at kunne bruge @Order annotation
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DamagesTest {
 
@@ -73,12 +73,16 @@ public class DamagesTest {
 
         createDamageReportButton.click();
 
+    }
+    @Test
+    @Order(2)
+    public void addAndDeleteDamages() {
+        login();
+
+        driver.get(baseUrl + "show-damagereport/" + testChassisNumber + "/" + testRegistrationNumber);
+
         WebElement showDamageReportButton = driver.findElement(By.id("show-damage-report-button"));
         showDamageReportButton.click();
-
-
-
-
 
         WebElement damageDescription = driver.findElement(By.id("description"));
         damageDescription.sendKeys("død motor");
@@ -88,10 +92,6 @@ public class DamagesTest {
         price.sendKeys("65000");
         WebElement createDamageButton = driver.findElement(By.className("button-submit2"));
         createDamageButton.click();
-
-
-
-
 
         WebElement secondDamageDescription = driver.findElement(By.id("description"));
         secondDamageDescription.sendKeys("smadret radio");
@@ -103,8 +103,6 @@ public class DamagesTest {
 
         WebElement deleteDamageButton = driver.findElement(By.className("button-submit3"));
         deleteDamageButton.click();
-
-
     }
     @AfterAll
     public static void cleanup() {
